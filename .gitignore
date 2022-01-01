@@ -1,0 +1,4 @@
+/.vscode
+/vendor
+/cache/views/*
+!/cache/views/.gitkeep

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
+	<title>Tiktok Viewer</title>
+</head>
+
+<body>
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<p class="title">Welcome to TikTok Viewer!</p>
+				<p class="subtitle">Alternative TikTok Frontend</p>
+				<div class="field has-addons has-addons-centered">
+					<div class="control">
+						<input id="username_input" class="input" placeholder="Type username" required />
+					</div>
+					<div class="control">
+						<button id="username_send" class="button is-success" type="button">Go</button>
+					</div>
+				</div>
+			</div>
+	</section>
+	<script>
+		document.getElementById('username_send').addEventListener('click', () => {
+			const username = document.getElementById('username_input').value
+			window.location.href = `./users/${username}`
+		})
+	</script>
+</body>
+
+</html>

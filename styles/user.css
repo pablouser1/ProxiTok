@@ -1,0 +1,14 @@
+/*
+.modal-card-body {
+  background-color: transparent;
+}
+*/
+
+#video {
+  height: 100%;
+  overflow: hidden;
+}
+
+.clickable-img {
+  cursor: pointer;
+}
