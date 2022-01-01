@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $feed->info->detail->user->nickname }} - TikTok</title>
+    <title>Trending - TikTok</title>
     <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
     <link rel="stylesheet" href="../styles/feed.css">
 </head>
@@ -12,8 +12,7 @@
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
-                <p class="title">{{ $feed->info->detail->user->uniqueId }}'s profile</p>
-                <p class="subtitle">{{ $feed->info->detail->user->signature }}</p>
+                <p class="title">Trending page</p>
             </div>
         </div>
     </section>
