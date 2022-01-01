@@ -10,9 +10,13 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get("/users/{user}", function (string $username) {
+    $cursor = 0;
+    if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
+        $cursor = (int) $_GET['cursor'];
+    }
 	$blade = new Blade('./views', './cache/views');
 	$api = new \Sovit\TikTok\Api();
-	$user = $api->getUserFeed($username);
+	$user = $api->getUserFeed($username, $cursor);
 	if ($user) {
 		echo $blade->render('user', ['user' => $user]);
 	} else {

@@ -34,6 +34,14 @@
             </div>
             @endforeach
         </div>
+        <div class="buttons">
+            <a class="button" href="javascript:history.back()">Last page</a>
+            @if ($user->hasMore)
+            <a class="button" href="?cursor={{ $user->maxCursor }}">Next page</a>
+            @else
+            <a class="button is-disabled">Next page</a>
+            @endif
+        </div>
     </section>
     <div id="modal" class="modal">
         <div id="modal-background" class="modal-background"></div>
