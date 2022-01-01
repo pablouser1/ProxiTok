@@ -9,7 +9,17 @@ $app->get('/', function () use ($app) {
 	$app->response()->page('./views/home.html');
 });
 
-$app->get("/users/{user}", function (string $username) {
+$app->get('/stream', function () {
+	if (!isset($_GET['url'])) {
+		die('You need to send a url!');
+	}
+
+	// Start streamer
+	$streamer = new \Sovit\TikTok\Stream();
+	$streamer->stream($_GET['url']);
+});
+
+$app->get("/@([^/]+)", function (string $username) {
     $cursor = 0;
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
         $cursor = (int) $_GET['cursor'];
@@ -22,16 +32,6 @@ $app->get("/users/{user}", function (string $username) {
 	} else {
 		echo 'ERROR!';
 	}
-});
-
-$app->get('/stream', function () {
-	if (!isset($_GET['url'])) {
-		die('You need to send a url!');
-	}
-
-	// Start streamer
-	$streamer = new \Sovit\TikTok\Stream();
-	$streamer->stream($_GET['url']);
 });
 
 $app->run();
