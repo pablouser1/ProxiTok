@@ -5,6 +5,6 @@
         "leafs/blade": "^1.2",
         "ssovit/tiktok-api": "^2.0",
         "vlucas/phpdotenv": "^5.4",
-        "php": "^8.0.14"
+        "php": "^8.0.0"
     }
 }
