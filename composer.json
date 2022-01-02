@@ -1,10 +1,13 @@
 {
     "name": "pablouser1/tiktok-viewer",
+    "description": "An alternative frontend for TikTok",
+    "version": "1.0.0",
+    "license": "AGPL-3.0-or-later",
     "require": {
-        "leafs/leaf": "dev-v3.x-dev",
-        "leafs/blade": "^1.2",
+        "php": "^8.0.0",
+        "ext-curl": "*",
         "ssovit/tiktok-api": "^2.0",
-        "vlucas/phpdotenv": "^5.4",
-        "php": "^8.0.0"
+        "bramus/router": "^1.6",
+        "jenssegers/blade": "^1.4"
     }
 }

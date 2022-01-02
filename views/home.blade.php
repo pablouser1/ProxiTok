@@ -10,7 +10,8 @@
 </head>
 
 <body>
-	<section class="hero is-fullheight">
+	@include('navbar')
+	<section class="hero is-fullheight-with-navbar">
 		<div class="hero-body">
 			<div class="container has-text-centered">
 				<p class="title">Welcome to TikTok Viewer!</p>
@@ -30,6 +31,10 @@
 				<p>Trending:</p>
 				<a class="button is-success" href="./trending">Go</a>
 			</div>
+    </div>
+    <div class="hero-foot">
+			@include('footer')
+    </div>
 	</section>
 	<script>
 		const goToUser = (e) => {
