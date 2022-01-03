@@ -9,7 +9,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 function getSubdir(): string {
-    return $_ENV['APP_SUBDIR'] ? $_ENV['APP_SUBDIR'] : '/';
+    return $_ENV['APP_SUBDIR'] ? $_ENV['APP_SUBDIR'] : '';
 }
 
 function getApi(array $proxy_elements): \Sovit\TikTok\Api {
@@ -25,11 +25,15 @@ function getApi(array $proxy_elements): \Sovit\TikTok\Api {
 }
 
 function getLatte(): \Latte\Engine {
+    $subdir = getSubdir();
     $latte = new Latte\Engine;
     $latte->setTempDirectory('./cache/views');
-    $latte->addFunction('assets',  function (string $name, string $type) {
-        $subdir = getSubdir();
+    $latte->addFunction('assets', function (string $name, string $type)  use ($subdir) {
         $path = "{$subdir}/{$type}/{$name}";
+        return $path;
+    });
+    $latte->addFunction('path', function (string $name) use ($subdir) {
+        $path = "{$subdir}/{$name}";
         return $path;
     });
     return $latte;
