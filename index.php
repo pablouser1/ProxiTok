@@ -155,4 +155,4 @@ Route::add("/settings", function () use ($proxy_elements) {
 	header('Location: ./home');
 }, 'POST');
 
-Route::run($subdir);
+Route::run(getSubdir());
