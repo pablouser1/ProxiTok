@@ -52,9 +52,12 @@ Route::add('/stream', function () use ($domains) {
     }
 
     if (isset($_GET['download'])) {
-        header('Content-Disposition: attachment; filename="tiktok.mp4"');
+        // Download
+        $downloader = new \Sovit\TikTok\Download();
+        $downloader->url($url,"tiktok-video",'mp4');
+    } else {
+        // Stream
+        $streamer = new \Sovit\TikTok\Stream();
+        $streamer->stream($url);
     }
-
-    $streamer = new \Sovit\TikTok\Stream();
-	$streamer->stream($url);
 });
