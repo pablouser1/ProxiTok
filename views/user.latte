@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>About - TikTok</title>
+  <title>{$feed->info->detail->user->nickname} - TikTok</title>
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
+  <link rel="stylesheet" href="../styles/feed.css">
 </head>
 <body>
-  @include('navbar')
+	{include 'navbar.latte'}
   <section class="hero is-primary">
 		<div class="hero-body">
 			<div class="container">
-				<p class="title">About</p>
+				<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
+				<p class="subtitle">{$feed->info->detail->user->signature}</p>
       </div>
     </div>
   </section>
-  <section class="section">
-		<p>TODO</p>
-  </section>
-  @include('footer')
+  {include 'feed.latte'}
+  {include 'footer.latte'}
 </body>
 </html>

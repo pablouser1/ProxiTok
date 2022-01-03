@@ -1,30 +1,28 @@
 <section class="section">
   <div class="columns is-multiline is-vcentered">
-		@foreach ($feed->items as $item)
+		{foreach $feed->items as $item}
     <div class="column is-one-quarter">
-			<a id="{{$item->id}}" href="#{{$item->id}}" class="clickable-img"
-				data-video_url="./stream?url={{ $item->video->playAddr }}"
-				data-video_download="./stream?url={{urlencode($item->video->downloadAddr)}}"
-        data-desc="{{ $item->desc }}"
-        data-video_width="{{ $item->video->width }}"
-        data-video_height="{{ $item->video->height }}"
-        data-music_title="{{ $item->music->title }}"
-        data-music_url="./audios?url={{ urlencode($item->music->playUrl) }}">
-        <img loading="lazy" src="./images?url={{ urlencode($item->video->originCover) }}"/>
+			<a id="{$item->id}" href="#{$item->id}" class="clickable-img"
+				data-video_url="./stream?url={$item->video->playAddr}"
+				data-video_download="./stream?url={urlencode($item->video->downloadAddr)}&download=1"
+        data-desc="{$item->desc}"
+        data-video_width="{$item->video->width}"
+        data-video_height="{$item->video->height}"
+        data-music_title="{$item->music->title}"
+        data-music_url="./audios?url={urlencode($item->music->playUrl)}">
+        <img loading="lazy" src="./images?url={urlencode($item->video->originCover)}"/>
       </a>
     </div>
-    @endforeach
+    {/foreach}
   </div>
 	<div class="buttons">
-    @isset ($_GET['cursor'])
-    <a class="button is-danger" href="?cursor=0">First</a>
-    @endisset
+    <a n:ifset="$_GET['cursor']" class="button is-danger" href="?cursor=0">First</a>
     <a class="button is-danger" href="javascript:history.back()">Back</a>
-    @if ($feed->hasMore)
-    <a class="button is-success" href="?cursor={{ $feed->maxCursor }}">Next</a>
-    @else
+    {if $feed->hasMore}
+    <a n-if="$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
+    {else}
     <a class="button is-success" disabled title="No more videos available">Next</a>
-    @endif
+    {/if}
 	</div>
 </section>
 <div id="modal" class="modal">
@@ -42,7 +40,7 @@
 				<a id="download_button" target="_blank" class="button is-info" href="" download>Download</a>
         <p id="audio_title"></p>
         <audio id="audio" controls preload="none"></audio>
-        <div class="buttons">
+        <div class="buttons is-centered">
 					<button id="back-button" class="button is-danger">Back</button>
           <button id="next-button" class="button is-success">Next</button>
         </div>

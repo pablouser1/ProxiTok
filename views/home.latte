@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	@include('navbar')
+	{include 'navbar.latte'}
 	<section class="hero is-fullheight-with-navbar">
 		<div class="hero-body">
 			<div class="container has-text-centered">
@@ -33,10 +33,10 @@
 			</div>
     </div>
     <div class="hero-foot">
-			@include('footer')
+			{include 'footer.latte'}
     </div>
 	</section>
-	<script>
+	<script n:syntax=off>
 		const goToUser = (e) => {
 			e.preventDefault()
 			const formData = new FormData(e.target)

@@ -20,5 +20,6 @@ php -S localhost:8080
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
-* [bramus/router](https://github.com/bramus/router)
+* [steampixel/simple-php-router](https://github.com/steampixel/simple-php-router)
+* [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma)

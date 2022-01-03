@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
 </head>
 <body>
-  @include('navbar')
+  {include 'navbar.latte'}
   <section class="hero is-primary">
 		<div class="hero-body">
 			<div class="container">
@@ -20,14 +20,14 @@
 		<!-- Proxy settings -->
 		<p class="title">Proxy</p>
 		<form action="./settings" method="POST">
-			@foreach ( $proxy_elements as $element)
+			{foreach $proxy_elements as $proxy_element}
 			<div class="field">
-				<label class="label">{{ $element }}</label>
+				<label class="label">{$proxy_element}</label>
 				<div class="control">
-          <input name="{{ $element }}" class="input" value="{{ isset($_COOKIE[$element]) ? $_COOKIE[$element] : ''}}" required />
+          <input name="{$proxy_element}" class="input" value="{isset($_COOKIE[$proxy_element]) ? $_COOKIE[$proxy_element] : ''}" required />
         </div>
       </div>
-      @endforeach
+      {/foreach}
       <div class="field">
         <div class="control">
           <button class="button is-success" type="submit">Submit</button>
@@ -35,6 +35,6 @@
       </div>
     </form>
   </section>
-  @include('footer')
+  {include 'footer.latte'}
 </body>
 </html>
