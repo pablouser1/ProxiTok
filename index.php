@@ -8,6 +8,10 @@ use Steampixel\Route;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+function getSubdir(): string {
+    return $_ENV['APP_SUBDIR'] ? $_ENV['APP_SUBDIR'] : '/';
+}
+
 function getApi(array $proxy_elements): \Sovit\TikTok\Api {
     $options = [];
     // Proxy config
@@ -23,6 +27,11 @@ function getApi(array $proxy_elements): \Sovit\TikTok\Api {
 function getLatte(): \Latte\Engine {
     $latte = new Latte\Engine;
     $latte->setTempDirectory('./cache/views');
+    $latte->addFunction('assets',  function (string $name, string $type) {
+        $subdir = getSubdir();
+        $path = "{$subdir}/{$type}/{$name}";
+        return $path;
+    });
     return $latte;
 }
 
@@ -146,5 +155,4 @@ Route::add("/settings", function () use ($proxy_elements) {
 	header('Location: ./home');
 }, 'POST');
 
-$subdir = getenv('APP_SUBDIR');
 Route::run($subdir);
