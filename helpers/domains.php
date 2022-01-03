@@ -11,6 +11,7 @@ $domains = [
         "v16-webapp.tiktok.com"
     ],
     "audio" => [
-        "sf16-ies-music-va.tiktokcdn.com"
+        "sf16-ies-music-va.tiktokcdn.com",
+        "sf77-ies-music-va.tiktokcdn.com"
     ],
 ];

@@ -10,5 +10,10 @@
         "steampixel/simple-php-router": "^0.7.0",
         "latte/latte": "^2.10",
         "vlucas/phpdotenv": "^5.4"
+    },
+    "scripts": {
+        "post-install-cmd":  [
+            "php fix_api.php"
+        ]
     }
 }

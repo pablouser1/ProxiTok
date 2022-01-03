@@ -4,8 +4,10 @@
 {include 'components/head.latte', title: 'Home'}
 
 <body>
-	{include 'components/navbar.latte'}
-	<section class="hero is-fullheight-with-navbar">
+	<section class="hero is-fullheight">
+		<div class="hero-head">
+			{include 'components/navbar.latte'}
+		</div>
 		<div class="hero-body">
 			<div class="container has-text-centered">
 				<p class="title">Welcome to TikTok Alt-Frontend!</p>

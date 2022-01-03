@@ -3,3 +3,4 @@
 /vendor
 /cache/views/*
 !/cache/views/.gitkeep
+/.new_api

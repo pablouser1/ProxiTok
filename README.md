@@ -37,7 +37,7 @@ location /tiktok-viewer/.env {
 ```
 
 ## Known issues
-* Right now there is an error when trying to fetch the desired user, there is already a pull request not merged yet fixing this issue on the TikTokApi repo, you can check it out [here](https://github.com/ssovit/TikTok-API-PHP/pull/43)
+* Right now there is an error when trying to fetch the desired user, there is already a pull request not merged yet fixing this issue on the TikTokApi repo, you can check it out [here](https://github.com/ssovit/TikTok-API-PHP/pull/43).  **This is automatically patched after running composer install**
 
 ## TODO
 * Allow searching for just one video using the ID

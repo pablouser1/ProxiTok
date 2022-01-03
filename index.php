@@ -3,10 +3,8 @@ require __DIR__ . "/vendor/autoload.php";
 use Steampixel\Route;
 
 // LOAD DOTENV
-if (file_exists(__DIR__ . '/.env')) {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-}
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
 
 // -- HELPERS -- //
 function getSubdir(): string {
