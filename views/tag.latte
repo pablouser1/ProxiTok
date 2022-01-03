@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{include 'components/head.latte', title: $feed->info->detail->user->nickname}
+{include 'components/head.latte', title: 'Challenge'}
 
 <body>
 	{include 'components/navbar.latte'}
   <section class="hero is-primary">
 		<div class="hero-body">
 			<div class="container">
-				<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
-				<p class="subtitle">{$feed->info->detail->user->signature}</p>
+				<p class="title">{$feed->info->detail->challenge->title}</p>
+				<p class="subtitle">{$feed->info->detail->challenge->desc}</p>
       </div>
     </div>
   </section>

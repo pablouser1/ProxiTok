@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
-	<title>Tiktok Viewer</title>
-</head>
+{include 'components/head.latte', title: 'Home'}
 
 <body>
-	{include 'navbar.latte'}
+	{include 'components/navbar.latte'}
 	<section class="hero is-fullheight-with-navbar">
 		<div class="hero-body">
 			<div class="container has-text-centered">
@@ -20,7 +14,19 @@
 				<form id="username_form">
 					<div class="field has-addons has-addons-centered">
 						<div class="control">
-							<input name="username" class="input" placeholder="Type username" required />
+							<input name="username" class="input" type="text" placeholder="Type username" required />
+						</div>
+						<div class="control">
+							<button class="button is-success" type="submit">Go</button>
+						</div>
+					</div>
+				</form>
+				<hr />
+				<p>Search tag:</p>
+				<form id="tag_form">
+					<div class="field has-addons has-addons-centered">
+						<div class="control">
+							<input name="tag" class="input" type="text" placeholder="Type tag" required />
 						</div>
 						<div class="control">
 							<button class="button is-success" type="submit">Go</button>
@@ -33,18 +39,10 @@
 			</div>
     </div>
     <div class="hero-foot">
-			{include 'footer.latte'}
+			{include 'components/footer.latte'}
     </div>
 	</section>
-	<script n:syntax=off>
-		const goToUser = (e) => {
-			e.preventDefault()
-			const formData = new FormData(e.target)
-			const username = formData.get('username')
-			window.location.href = `./@${username}`
-		}
-		document.getElementById('username_form').addEventListener('submit', goToUser, false)
-	</script>
+	<script src="{assets('home.js', 'scripts')}"></script>
 </body>
 
 </html>

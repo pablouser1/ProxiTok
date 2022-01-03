@@ -1,16 +1,17 @@
+<link rel="stylesheet" href="{assets('feed.css', 'styles')}">
 <section class="section">
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
     <div class="column is-one-quarter">
 			<a id="{$item->id}" href="#{$item->id}" class="clickable-img"
-				data-video_url="./stream?url={$item->video->playAddr}"
-				data-video_download="./stream?url={urlencode($item->video->downloadAddr)}&download=1"
+				data-video_url="{path('stream?url=' . urlencode($item->video->playAddr))}"
+				data-video_download="{path('stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
         data-desc="{$item->desc}"
         data-video_width="{$item->video->width}"
         data-video_height="{$item->video->height}"
         data-music_title="{$item->music->title}"
-        data-music_url="./audios?url={urlencode($item->music->playUrl)}">
-        <img loading="lazy" src="./images?url={urlencode($item->video->originCover)}"/>
+        data-music_url="{path('audios?url=' . urlencode($item->music->playUrl))}">
+        <img loading="lazy" src="{path('images?url=' . urlencode($item->video->originCover))}"/>
       </a>
     </div>
     {/foreach}

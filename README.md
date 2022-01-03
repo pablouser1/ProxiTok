@@ -20,10 +20,10 @@ Move the .env.example file to .env and modify it.
 If you are using Apache you don't have to do anything more
 
 ### Nginx
-Add the following to your config (you can modify the tiktok-viewer part  if you have or not a subdir):
+Add the following to your config (you can modify the tiktok-viewer part if you have or not a subdir):
 ```
 location /tiktok-viewer {
-        return 302 $scheme://$host/tiktok-viewer/;
+    return 302 $scheme://$host/tiktok-viewer/;
 }
 
 location /tiktok-viewer/ {
