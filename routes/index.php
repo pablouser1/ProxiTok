@@ -20,7 +20,7 @@ function getApi(array $proxy_elements): \Sovit\TikTok\Api {
 function getLatte(): \Latte\Engine {
     $subdir = getSubdir();
     $latte = new Latte\Engine;
-    $latte->setTempDirectory('./cache/views');
+    $latte->setTempDirectory(__DIR__ . '/../cache/views');
     $latte->addFunction('assets', function (string $name, string $type)  use ($subdir) {
         $path = "{$subdir}/{$type}/{$name}";
         return $path;
@@ -33,7 +33,7 @@ function getLatte(): \Latte\Engine {
 }
 
 function getView(string $template): string {
-    return "./views/{$template}.latte";
+    return __DIR__ . "/../views/{$template}.latte";
 }
 
 Route::add('/', function () {
