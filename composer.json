@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": "^8.0.0",
+        "php": "^8.0",
         "ext-curl": "*",
         "ssovit/tiktok-api": "^2.0",
         "steampixel/simple-php-router": "^0.7.0",
