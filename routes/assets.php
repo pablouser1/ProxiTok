@@ -1,15 +1,26 @@
 <?php
-require __DIR__ . "/../helpers/domains.php";
 use Steampixel\Route;
 
-Route::add('/images', function () use ($domains) {
+/**
+ * Check if an url has a valid domain
+ * @param string $url URL you want to check
+ * @return bool
+ */
+function isValidDomain(string $url): bool {
+    $valid_domains = [
+        "tiktokcdn.com", "tiktokcdn-us.com", "tiktok.com"
+    ];
+    $host = parse_url($url, PHP_URL_HOST);
+    $host_split = explode('.', $host);
+    return count($host_split) === 3 && in_array($host_split[1] . '.' . $host_split[2], $valid_domains);
+}
+
+Route::add('/images', function () {
     if (!isset($_GET['url'])) {
 		die('You need to send a url!');
 	}
     $url = $_GET['url'];
-    $host = parse_url($url, PHP_URL_HOST);
-
-    if (!filter_var($url, FILTER_VALIDATE_URL) || !in_array($host, $domains['image'])) {
+    if (!filter_var($url, FILTER_VALIDATE_URL) || !isValidDomain($url)) {
         die('Not a valid URL');
     }
     $img = file_get_contents($url, false, stream_context_create(['http' => ['ignore_errors' => true]]));
@@ -21,13 +32,13 @@ Route::add('/images', function () use ($domains) {
     }
 });
 
-Route::add('/audios', function () use ($domains) {
+Route::add('/audios', function () {
     if (!isset($_GET['url'])) {
 		die('You need to send a url!');
 	}
     $url = $_GET['url'];
-    $host = parse_url($url, PHP_URL_HOST);
-    if (!filter_var($url, FILTER_VALIDATE_URL) || !in_array($host, $domains['audio'])) {
+
+    if (!filter_var($url, FILTER_VALIDATE_URL) || !isValidDomain($url)) {
         die('Not a valid URL');
     }
     $audio = file_get_contents($url, false, stream_context_create(['http' => ['ignore_errors' => true]]));
@@ -39,15 +50,13 @@ Route::add('/audios', function () use ($domains) {
     }
 });
 
-Route::add('/stream', function () use ($domains) {
+Route::add('/stream', function () {
 	if (!isset($_GET['url'])) {
 		die('You need to send a url!');
 	}
 
     $url = $_GET['url'];
-    $host = parse_url($url, PHP_URL_HOST);
-
-    if (!filter_var($url, FILTER_VALIDATE_URL) || !in_array($host, $domains['video'])) {
+    if (!filter_var($url, FILTER_VALIDATE_URL) || !isValidDomain($url)) {
         die('Not a valid URL');
     }
 

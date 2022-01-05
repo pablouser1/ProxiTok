@@ -4,7 +4,7 @@ require __DIR__ . '/settings.php';
 require __DIR__ . "/../helpers/settings_elements.php";
 use Steampixel\Route;
 
-// - ROUTING HELPERS - //
+// -- ROUTING HELPERS -- //
 function getApi(array $proxy_elements): \Sovit\TikTok\Api {
     $options = [];
     // Proxy config
