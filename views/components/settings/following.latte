@@ -1,0 +1,24 @@
+{include '../following_tags.latte'}
+<form action="./settings/following" method="POST">
+	<div class="field">
+		<label class="label">Add / Remove user</label>
+		<div class="control">
+			<input name="account" class="input" type="text" />
+		</div>
+	</div>
+	<div class="field">
+		<div class="control">
+			<label class="radio">
+				<input type="radio" name="add">Add
+			</label>
+			<label class="radio">
+				<input type="radio" name="remove">Remove
+			</label>
+		</div>
+	</div>
+	<div class="field">
+		<div class="control">
+			<button class="button is-primary" type="submit">Send</button>
+		</div>
+	</div>
+</form>

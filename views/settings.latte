@@ -15,21 +15,11 @@
   <section class="section">
 		<!-- Proxy settings -->
 		<p class="title">Proxy</p>
-		<form action="./settings" method="POST">
-			{foreach $proxy_elements as $proxy_element}
-			<div class="field">
-				<label class="label">{$proxy_element}</label>
-				<div class="control">
-          <input name="{$proxy_element}" class="input" value="{isset($_COOKIE[$proxy_element]) ? $_COOKIE[$proxy_element] : ''}" required />
-        </div>
-      </div>
-      {/foreach}
-      <div class="field">
-        <div class="control">
-          <button class="button is-success" type="submit">Submit</button>
-        </div>
-      </div>
-    </form>
+		{include 'components/settings/proxy.latte'}
+		<hr />
+		<!-- Following -->
+		<p class="title">Following</p>
+		{include 'components/settings/following.latte'}
   </section>
   {include 'components/footer.latte'}
 </body>

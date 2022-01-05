@@ -3,7 +3,7 @@
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
     <div class="column is-one-quarter">
-			<a id="{$item->id}" href="#{$item->id}" class="clickable-img"
+			<a class="clickable-img" id="{$item->id}" href="#{$item->id}"
 				data-video_url="{path('stream?url=' . urlencode($item->video->playAddr))}"
 				data-video_download="{path('stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
         data-desc="{$item->desc}"
@@ -11,12 +11,13 @@
         data-video_height="{$item->video->height}"
         data-music_title="{$item->music->title}"
         data-music_url="{path('stream?url=' . urlencode($item->music->playUrl))}">
-        <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}"/>
+        <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}" />
+				<img class="hidden" loading="lazy" src="{path('stream?url=' . urlencode($item->video->dynamicCover))}" />
       </a>
     </div>
     {/foreach}
   </div>
-	<div class="buttons">
+	<div n:ifset="$feed->info" class="buttons">
     <a n:ifset="$_GET['cursor']" class="button is-danger" href="?cursor=0">First</a>
     <a class="button is-danger" href="?cursor={$feed->minCursor}">Back</a>
     {if $feed->hasMore}

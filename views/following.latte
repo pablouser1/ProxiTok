@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{include 'components/head.latte', title: 'Trending'}
+{include 'components/head.latte', title: 'Following'}
 
 <body>
 	{include 'components/navbar.latte'}
   <section class="hero is-primary">
 		<div class="hero-body">
 			<div class="container has-text-centered">
-				<p class="title">Trending</p>
+				<p class="title">Following</p>
 			</div>
     </div>
   </section>
+	<section class="section">
+		<p class="title">Following:</p>
+		{include 'components/following_tags.latte'}
+		<p>You can add/remove follows on settings</p>
+	</section>
+	<hr />
   {include 'components/feed.latte'}
   {include 'components/footer.latte'}
 </body>

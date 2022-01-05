@@ -11,6 +11,11 @@
         "latte/latte": "^2.10",
         "vlucas/phpdotenv": "^5.4"
     },
+    "autoload": {
+        "psr-4": {
+            "Helpers\\": "helpers/"
+        }
+    },
     "scripts": {
         "post-install-cmd":  [
             "php fix_api.php"

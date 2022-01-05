@@ -1,0 +1,9 @@
+<div class="tags">
+	{if !empty($following)}
+		{foreach $following as $user}
+			<span class="tag">{$user}</span>
+		{/foreach}
+	{else}
+		<p>None</p>
+	{/if}
+</div>

@@ -3,6 +3,12 @@
   overflow: hidden;
 }
 
-.clickable-img {
-  cursor: pointer;
+.hidden {
+	display: none;
+}
+
+/* Make gifs take all available space */
+.clickable-img img {
+	width: 100%;
+	height: 100%;
 }

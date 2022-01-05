@@ -41,7 +41,6 @@ location /tiktok-viewer/.env {
 
 ## TODO
 * Allow searching for just one video using the ID
-* Code cleanup
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
