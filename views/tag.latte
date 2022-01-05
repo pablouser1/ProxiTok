@@ -7,9 +7,10 @@
 	{include 'components/navbar.latte'}
   <section class="hero is-primary">
 		<div class="hero-body">
-			<div class="container">
+			<div class="container has-text-centered">
 				<p class="title">{$feed->info->detail->challenge->title}</p>
 				<p class="subtitle">{$feed->info->detail->challenge->desc}</p>
+				<p>Videos: {number($feed->info->detail->stats->videoCount)} / Views: {number($feed->info->detail->stats->viewCount)}</p>
       </div>
     </div>
   </section>

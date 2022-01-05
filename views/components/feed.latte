@@ -10,15 +10,15 @@
         data-video_width="{$item->video->width}"
         data-video_height="{$item->video->height}"
         data-music_title="{$item->music->title}"
-        data-music_url="{path('audios?url=' . urlencode($item->music->playUrl))}">
-        <img loading="lazy" src="{path('images?url=' . urlencode($item->video->originCover))}"/>
+        data-music_url="{path('stream?url=' . urlencode($item->music->playUrl))}">
+        <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}"/>
       </a>
     </div>
     {/foreach}
   </div>
 	<div class="buttons">
     <a n:ifset="$_GET['cursor']" class="button is-danger" href="?cursor=0">First</a>
-    <a class="button is-danger" href="javascript:history.back()">Back</a>
+    <a class="button is-danger" href="?cursor={$feed->minCursor}">Back</a>
     {if $feed->hasMore}
     <a n-if="$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
     {else}
@@ -26,6 +26,8 @@
     {/if}
 	</div>
 </section>
+
+<!-- MODAL -->
 <div id="modal" class="modal">
 	<div id="modal-background" class="modal-background"></div>
 	<div class="modal-card">
@@ -38,7 +40,7 @@
     </section>
 		<footer class="modal-card-foot has-text-centered">
 			<div class="container">
-				<a id="download_button" target="_blank" class="button is-info" href="" download>Download</a>
+				<a id="download_button" target="_blank" class="button is-info" download>Download</a>
         <p id="audio_title"></p>
         <audio id="audio" controls preload="none"></audio>
         <div class="buttons is-centered">
