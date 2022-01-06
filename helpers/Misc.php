@@ -4,7 +4,7 @@ use Helpers\Settings;
 
 class Misc {
     static public function getSubDir(): string {
-        return isset($_ENV['APP_SUBDIR']) && !empty($_ENV['APP_SUBDIR']) ? $_ENV['APP_SUBDIR'] : '';
+        return isset($_ENV['APP_SUBDIR']) && !empty($_ENV['APP_SUBDIR']) ? $_ENV['APP_SUBDIR'] : '/';
     }
 
     static public function getView(string $template): string {
@@ -24,7 +24,11 @@ class Misc {
     }
 
     static public function latte(): \Latte\Engine {
+        // Workaround to avoid weird path issues
         $subdir = Misc::getSubDir();
+        if ($subdir === '/') {
+            $subdir = '';
+        }
         $latte = new \Latte\Engine;
         $latte->setTempDirectory(__DIR__ . '/../cache/views');
         $latte->addFunction('assets', function (string $name, string $type)  use ($subdir) {
