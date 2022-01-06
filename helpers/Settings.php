@@ -2,7 +2,7 @@
 namespace Helpers;
 
 class Settings {
-    static public $proxy = ['proxy-host', 'proxy-port', 'proxy-username', 'proxy-password'];
+    const PROXY = ['proxy-host', 'proxy-port', 'proxy-username', 'proxy-password'];
 
     static public function get(string $name): string {
         if (isset($_COOKIE[$name]) && !empty($_COOKIE[$name])) {

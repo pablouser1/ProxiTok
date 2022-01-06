@@ -14,8 +14,8 @@ class Misc {
     static public function api(): \Sovit\TikTok\Api {
         $options = [];
         // Proxy config
-        if (in_array(Settings::$proxy, $_COOKIE)) {
-            foreach (Settings::$proxy as $proxy_element) {
+        if (in_array(Settings::PROXY, $_COOKIE)) {
+            foreach (Settings::PROXY as $proxy_element) {
                 $options[$proxy_element] = $_COOKIE[$proxy_element];
             }
         }

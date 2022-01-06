@@ -2,8 +2,8 @@
 <section class="section">
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
-    <div class="column is-one-quarter clickable-img">
-			<a id="{$item->id}" href="#{$item->id}"
+    <div class="column is-one-quarter">
+			<a class="clickable-img" id="{$item->id}" href="#{$item->id}"
 				data-video_url="{path('stream?url=' . urlencode($item->video->playAddr))}"
 				data-video_download="{path('stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
         data-desc="{$item->desc}"
@@ -11,10 +11,8 @@
         data-video_height="{$item->video->height}"
         data-music_title="{$item->music->title}"
         data-music_url="{path('stream?url=' . urlencode($item->music->playUrl))}">
-				<figure>
-        	<img class="img-main" loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}" />
-					<img class="img-background" loading="lazy" data-src="{path('stream?url=' . urlencode($item->video->dynamicCover))}" />
-				</figure>
+        <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}" />
+				<img class="hidden" loading="lazy" data-src="{path('stream?url=' . urlencode($item->video->dynamicCover))}" />
       </a>
     </div>
     {/foreach}

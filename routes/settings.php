@@ -7,12 +7,12 @@ use Steampixel\Route;
 
 Route::add("/settings", function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('settings'), ["proxy_elements" => Settings::$proxy, "following" => Following::get()]);
+    $latte->render(Misc::getView('settings'), ["proxy_elements" => Settings::PROXY, "following" => Following::get()]);
 });
 
 Route::add("/settings/proxy", function () {
-    if (in_array(Settings::$proxy, $_POST)) {
-        foreach (Settings::$proxy as $proxy_element) {
+    if (in_array(Settings::PROXY, $_POST)) {
+        foreach (Settings::PROXY as $proxy_element) {
             Settings::set($proxy_element, $_POST[$proxy_element]);
         }
     }
@@ -23,17 +23,25 @@ Route::add("/settings/proxy", function () {
 
 Route::add("/settings/following", function () {
     $following = Following::get();
+    if (!isset($_POST['mode']) || empty($_POST['mode'])) {
+        die('You need to send a mode');
+    }
 
-    if (isset($_POST['add'])) {
-        // Add following
-        array_push($following, $_POST['account']);
-    } elseif (isset($_POST['remove'])) {
-        $index = array_search($_POST['account'], $following);
-        if ($index !== false) {
-            unset($following[$index]);
-        }
-    } else {
-        return 'You need to send a mode!';
+    switch ($_POST['mode']) {
+        case 'add':
+            // Add following
+            array_push($following, $_POST['account']);
+            break;
+        case 'remove':
+            // Remove following
+            $index = array_search($_POST['account'], $following);
+            if ($index !== false) {
+                unset($following[$index]);
+            }
+            break;
+        default:
+            // Invalid
+            die('Invalid mode');
     }
 
     // Build string

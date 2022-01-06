@@ -1,6 +1,13 @@
 # TikTok alternative Frontend
 Use Tiktok using an alternative frontend, inspired by Nitter.
 
+## Features
+* Privacy: All requests made to TikTok are server-side, so you will never connect to TikTok servers
+* See user's feed
+* See trending
+* See tags
+* Create a following list, which you can later use to see all the feeds from those users
+
 ## Installation
 Clone the repository and fetch the requiered external packages with:
 ```bash
@@ -17,7 +24,7 @@ php -S localhost:8080
 Move the .env.example file to .env and modify it.
 
 ### Apache
-If you are using Apache you don't have to do anything more
+You don't have to do anything more
 
 ### Nginx
 Add the following to your config (you can modify the tiktok-viewer part if you have or not a subdir):
@@ -41,9 +48,11 @@ location /tiktok-viewer/.env {
 
 ## TODO
 * Allow searching for just one video using the ID
+* Add a NoJS version / Make the whole program without required JS
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
 * [steampixel/simple-php-router](https://github.com/steampixel/simple-php-router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma)
+* [Bulmaswatch](https://github.com/jenil/bulmaswatch)

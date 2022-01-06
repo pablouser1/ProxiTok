@@ -4,7 +4,6 @@ const audio = document.getElementById('audio')
 const audio_title = document.getElementById('audio_title')
 const modal = document.getElementById('modal')
 const download_button = document.getElementById('download_button')
-const gifs = document.getElementsByClassName("img-background")
 
 // -- HELPERS -- //
 const getHash = () => window.location.hash.substring(1)
@@ -102,9 +101,24 @@ const hashChange = () => {
   }
 }
 
-const swapImages = e => {
-  if (!e.target.src) {
-    e.target.src = e.target.dataset.src
+const swapImages = (e, mode) => {
+  let img = null
+  let gif = null
+  if (mode === 'gif') {
+    const a = e.target
+    img = a.children[0]
+    gif = a.children[1]
+  } else if (mode === 'img') {
+    gif = e.target
+    img = e.target.parentElement.children[0]
+  }
+
+  if (img && gif) {
+    if (!gif.src) {
+      gif.src = gif.dataset.src
+    }
+    img.classList.toggle('hidden')
+    gif.classList.toggle('hidden')
   }
 }
 
@@ -115,7 +129,11 @@ document.getElementById('next-button').addEventListener('click', () => moveVideo
 window.addEventListener('hashchange', hashChange, false)
 
 // Image hover
-for (let i = 0; i < gifs.length; i++) {
-  gifs[i].addEventListener('mouseenter', swapImages, false)
+const images = document.getElementsByClassName("clickable-img")
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener('mouseenter', e => swapImages(e, 'gif'), false)
+  images[i].addEventListener('mouseout', e => swapImages(e, 'img'), false)
 }
+
+
 hashChange()
