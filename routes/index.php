@@ -10,6 +10,11 @@ Route::add('/', function () {
     $latte->render(Misc::getView('home'));
 });
 
+Route::add('/about', function () {
+    $latte = Misc::latte();
+    $latte->render(Misc::getView('about'));
+});
+
 Route::add("/trending", function () {
     $cursor = 0;
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
@@ -42,6 +47,17 @@ Route::add("/@([^/]+)", function (string $username) {
 	} else {
 		return 'ERROR!';
 	}
+});
+
+Route::add('/video/(\d+)', function (string $video_id) {
+    $latte = Misc::latte();
+    $api = Misc::api();
+    $item = $api->getVideoByID($video_id);
+    if ($item) {
+        $latte->render(Misc::getView('video'), ['item' => $item]);
+    } else {
+        return 'ERROR!';
+    }
 });
 
 Route::add('/tag/(\w+)', function (string $name) {

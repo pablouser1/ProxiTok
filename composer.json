@@ -1,24 +1,33 @@
 {
     "name": "pablouser1/tiktok-viewer",
     "description": "An alternative frontend for TikTok",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": "^7.3|^8.0",
         "ext-curl": "*",
         "ssovit/tiktok-api": "^2.0",
         "steampixel/simple-php-router": "^0.7.0",
         "latte/latte": "^2.10",
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "cweagans/composer-patches": "^1.7"
     },
     "autoload": {
         "psr-4": {
             "Helpers\\": "helpers/"
         }
     },
-    "scripts": {
-        "post-install-cmd":  [
-            "php fix_api.php"
-        ]
+    "config": {
+        "allow-plugins": {
+            "cweagans/composer-patches": true
+        }
+    },
+    "extra": {
+        "patches": {
+            "ssovit/tiktok-api": [
+                "patches/0001-Fixed-getUser.patch",
+                "patches/0002-Added-support-for-username-as-well-as-user-id.patch",
+                "patches/0003-Fixed-getVideoByUrl.patch"
+            ]
+        }
     }
 }

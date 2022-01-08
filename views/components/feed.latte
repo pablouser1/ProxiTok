@@ -7,8 +7,6 @@
 				data-video_url="{path('stream?url=' . urlencode($item->video->playAddr))}"
 				data-video_download="{path('stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
         data-desc="{$item->desc}"
-        data-video_width="{$item->video->width}"
-        data-video_height="{$item->video->height}"
         data-music_title="{$item->music->title}"
         data-music_url="{path('stream?url=' . urlencode($item->music->playUrl))}">
         <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}" />

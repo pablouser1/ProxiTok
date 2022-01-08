@@ -21,10 +21,8 @@ const isModalActive = () => modal.classList.contains('is-active')
 const toggleButton = (id, force) => document.getElementById(id) ? document.getElementById(id).toggleAttribute('disabled', force) : alert('That button does not exist')
 
 // -- MODAL -- //
-const swapData = ({ video_url, video_width, video_height, desc, video_download, music_title, music_url }) => {
+const swapData = ({ video_url, desc, video_download, music_title, music_url }) => {
   video.src = video_url
-  video.width = video_width
-  video.height = video_height
   item_title.innerText = desc
   download_button.href = video_download
   audio_title.innerText = music_title

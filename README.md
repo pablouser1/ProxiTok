@@ -6,6 +6,7 @@ Use Tiktok using an alternative frontend, inspired by Nitter.
 * See user's feed
 * See trending
 * See tags
+* See video by id
 * Create a following list, which you can later use to see all the feeds from those users
 
 ## Installation
@@ -44,11 +45,14 @@ location /tiktok-viewer/.env {
 ```
 
 ## Known issues
-* Right now there is an error when trying to fetch the desired user, there is already a pull request not merged yet fixing this issue on the TikTokApi repo, you can check it out [here](https://github.com/ssovit/TikTok-API-PHP/pull/43).  **This is automatically patched after running composer install**
+* Fetching a user fails, there is already a pull request not merged yet fixing this issue on the TikTokApi repo, you can check it out [here](https://github.com/ssovit/TikTok-API-PHP/pull/43).
+* Fetching a video by id or by url fails
+**These issues are automatically patched after running composer install**
 
 ## TODO
-* Allow searching for just one video using the ID
 * Add a NoJS version / Make the whole program without required JS
+* Better error handling
+* Make video on /video fit screen and don't overflow
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)

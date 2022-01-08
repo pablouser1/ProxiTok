@@ -1,18 +1,19 @@
 <?php
 use Steampixel\Route;
 
+const VALID_TIKTOK_DOMAINS = [
+    "tiktokcdn.com", "tiktokcdn-us.com", "tiktok.com"
+];
+
 /**
  * Check if an url has a valid domain
  * @param string $url URL you want to check
  * @return bool
  */
 function isValidDomain(string $url): bool {
-    $valid_domains = [
-        "tiktokcdn.com", "tiktokcdn-us.com", "tiktok.com"
-    ];
     $host = parse_url($url, PHP_URL_HOST);
     $host_split = explode('.', $host);
-    return count($host_split) === 3 && in_array($host_split[1] . '.' . $host_split[2], $valid_domains);
+    return count($host_split) === 3 && in_array($host_split[1] . '.' . $host_split[2], VALID_TIKTOK_DOMAINS);
 }
 
 Route::add('/stream', function () {

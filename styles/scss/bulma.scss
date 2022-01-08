@@ -10,6 +10,7 @@
 
 // Elements
 @import "./node_modules/bulma/sass/elements/button.sass";
+@import "./node_modules/bulma/sass/elements/box.sass";
 @import "./node_modules/bulma/sass/elements/container.sass";
 @import "./node_modules/bulma/sass/elements/other.sass";
 @import "./node_modules/bulma/sass/elements/tag.sass";
@@ -17,7 +18,7 @@
 
 // Form
 @import "./node_modules/bulma/sass/form/shared.sass";
-@import "./node_modules/bulma/sass/form/checkbox_radio.sass";
+@import "./node_modules/bulma/sass/form/checkbox-radio.sass";
 @import "./node_modules/bulma/sass/form/tools.sass";
 
 // Components

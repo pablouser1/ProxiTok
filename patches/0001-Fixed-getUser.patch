@@ -1,0 +1,40 @@
+From 7c52f9291fbd15d912fa78d0301939e3aa9deec4 Mon Sep 17 00:00:00 2001
+From: attend-dunce <96889312+attend-dunce@users.noreply.github.com>
+Date: Thu, 30 Dec 2021 21:35:14 +0100
+Subject: [PATCH 1/3] Fixed `getUser`
+
+---
+ lib/TikTok/Api.php | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/lib/TikTok/Api.php b/lib/TikTok/Api.php
+index e605eef..4a35f61 100644
+--- a/lib/TikTok/Api.php
++++ b/lib/TikTok/Api.php
+@@ -385,16 +385,14 @@ if (!\class_exists('\Sovit\TikTok\Api')) {
+                 }
+             }
+             $username = urlencode($username);
+-            $result = $this->remote_call("https://www.tiktok.com/@{$username}?lang=en", false);
+-            if (preg_match('/<script id="__NEXT_DATA__"([^>]+)>([^<]+)<\/script>/', $result, $matches)) {
+-                $result = json_decode($matches[2], false);
+-                if (isset($result->props->pageProps->userInfo)) {
+-                    $result = $result->props->pageProps->userInfo;
+-                    if ($this->cacheEnabled) {
+-                        $this->cacheEngine->set($cacheKey, $result, $this->_config['cache-timeout']);
+-                    }
+-                    return $result;
++            $result = $this->remote_call("https://www.tiktok.com/api/user/detail/?userId={$username}", false);
++            $result = json_decode($result, false);
++            if (isset($result->userInfo)) {
++                $result = $result->userInfo;
++                if ($this->cacheEnabled) {
++                    $this->cacheEngine->set($cacheKey, $result, $this->_config['cache-timeout']);
+                 }
++                return $result;
+             }
+             return $this->failure();
+         }
+-- 
+2.34.1
+
