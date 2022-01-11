@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{include 'components/head.latte', title: 'ERROR'}
+
+<body>
+  <section class="hero is-danger is-fullheight">
+		<div class="hero-head">
+			{include 'components/navbar.latte'}
+		</div>
+		<div class="hero-body">
+			<div class="container">
+				<p class="title">{$type|firstUpper} error</p>
+				<p class="subtitle">{$error['message']}</p>
+      </div>
+    </div>
+    <div class="hero-foot is-danger">
+			{include 'components/footer.latte'}
+    </div>
+  </section>
+</body>
+</html>

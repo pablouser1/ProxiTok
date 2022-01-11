@@ -1,7 +1,7 @@
 From 7c52f9291fbd15d912fa78d0301939e3aa9deec4 Mon Sep 17 00:00:00 2001
 From: attend-dunce <96889312+attend-dunce@users.noreply.github.com>
 Date: Thu, 30 Dec 2021 21:35:14 +0100
-Subject: [PATCH 1/3] Fixed `getUser`
+Subject: [PATCH 1/4] Fixed `getUser`
 
 ---
  lib/TikTok/Api.php | 16 +++++++---------

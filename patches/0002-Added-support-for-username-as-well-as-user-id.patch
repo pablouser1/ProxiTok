@@ -1,7 +1,7 @@
 From c948bda5d6f30929b448fe78a0920739d5792d4b Mon Sep 17 00:00:00 2001
 From: attend-dunce <96889312+attend-dunce@users.noreply.github.com>
 Date: Fri, 31 Dec 2021 00:55:23 +0100
-Subject: [PATCH 2/3] Added support for username as well as user id
+Subject: [PATCH 2/4] Added support for username as well as user id
 
 ---
  lib/TikTok/Api.php | 3 ++-

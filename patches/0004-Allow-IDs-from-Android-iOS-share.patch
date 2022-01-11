@@ -1,0 +1,33 @@
+From e8dcb7cf3824803d8b431dc923c479cd10102cbc Mon Sep 17 00:00:00 2001
+From: Pablo Ferreiro <pferreiromero@gmail.com>
+Date: Tue, 11 Jan 2022 19:18:16 +0100
+Subject: [PATCH 4/4] Allow IDs from Android/iOS share
+
+---
+ lib/TikTok/Api.php | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/lib/TikTok/Api.php b/lib/TikTok/Api.php
+index 21ebff1..f83f5bd 100644
+--- a/lib/TikTok/Api.php
++++ b/lib/TikTok/Api.php
+@@ -462,7 +462,15 @@ if (!\class_exists('\Sovit\TikTok\Api')) {
+             if (empty($video_id)) {
+                 throw new \Exception("Invalid VIDEO ID");
+             }
+-            return $this->getVideoByUrl('https://m.tiktok.com/v/' . $video_id . '.html');
++
++            $url = '';
++            if (is_numeric($video_id)) {
++                $url = 'https://m.tiktok.com/v/' . $video_id . '.html';
++            } else {
++                $url = 'https://vm.tiktok.com/' . $video_id;
++            }
++
++            return $this->getVideoByUrl($url);
+         }
+         /**
+          * Get Video By URL
+-- 
+2.34.1
+

@@ -4,6 +4,7 @@ require __DIR__ . '/settings.php';
 require __DIR__ . '/following.php';
 use Steampixel\Route;
 use Helpers\Misc;
+use Helpers\Error;
 
 Route::add('/', function () {
     $latte = Misc::latte();
@@ -20,13 +21,13 @@ Route::add("/trending", function () {
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
         $cursor = (int) $_GET['cursor'];
     }
-	$latte = Misc::latte();
 	$api = Misc::api();
 	$feed = $api->getTrendingFeed($cursor);
 	if ($feed) {
+        $latte = Misc::latte();
 		$latte->render(Misc::getView('trending'), ['feed' => $feed]);
 	} else {
-		return 'ERROR!';
+		Error::show('api');
 	}
 });
 
@@ -35,7 +36,6 @@ Route::add("/@([^/]+)", function (string $username) {
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
         $cursor = (int) $_GET['cursor'];
     }
-	$latte = Misc::latte();
 	$api = Misc::api();
 	$feed = $api->getUserFeed($username, $cursor);
 	if ($feed) {
@@ -43,20 +43,21 @@ Route::add("/@([^/]+)", function (string $username) {
             http_response_code(400);
             return 'Private account detected! Not supported';
         }
+        $latte = Misc::latte();
 		$latte->render(Misc::getView('user'), ['feed' => $feed]);
 	} else {
-		return 'ERROR!';
+		Error::show('api');
 	}
 });
 
-Route::add('/video/(\d+)', function (string $video_id) {
-    $latte = Misc::latte();
+Route::add('/video/([^/]+)', function (string $video_id) {
     $api = Misc::api();
     $item = $api->getVideoByID($video_id);
     if ($item) {
+        $latte = Misc::latte();
         $latte->render(Misc::getView('video'), ['item' => $item]);
     } else {
-        return 'ERROR!';
+        Error::show('api');
     }
 });
 
@@ -65,12 +66,12 @@ Route::add('/tag/(\w+)', function (string $name) {
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
         $cursor = (int) $_GET['cursor'];
     }
-	$latte = Misc::latte();
 	$api = Misc::api();
 	$feed = $api->getChallengeFeed($name, $cursor);
 	if ($feed) {
+        $latte = Misc::latte();
 		$latte->render(Misc::getView('tag'), ['feed' => $feed]);
 	} else {
-		return 'ERROR!';
+		Error::show('api');
 	}
 });
