@@ -1,6 +1,7 @@
 @charset "utf-8";
-
 @import "./node_modules/bulmaswatch/superhero/_variables.scss";
+// Disable importing fonts from Google
+$bulmaswatch-import-font: false;
 
 // Utilities
 @import "./node_modules/bulma/sass/utilities/_all.sass";
