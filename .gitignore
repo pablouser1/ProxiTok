@@ -4,4 +4,5 @@ node_modules
 /vendor
 /cache/views/*
 !/cache/views/.gitkeep
-/.new_api
+/cache/api/*
+!/cache/api/.gitkeep

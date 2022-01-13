@@ -1,34 +1,24 @@
 {
-    "name": "pablouser1/tiktok-viewer",
+    "name": "pablouser1/tiktok-alt-frontend",
     "description": "An alternative frontend for TikTok",
     "version": "1.1.1",
     "license": "AGPL-3.0-or-later",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/pablouser1/TikTok-API-PHP"
+        }
+    ],
     "require": {
         "ext-curl": "*",
-        "ssovit/tiktok-api": "^2.0",
+        "ssovit/tiktok-api": "dev-rework",
         "steampixel/simple-php-router": "^0.7.0",
         "latte/latte": "^2.10",
-        "vlucas/phpdotenv": "^5.4",
-        "cweagans/composer-patches": "^1.7"
+        "vlucas/phpdotenv": "^5.4"
     },
     "autoload": {
         "psr-4": {
             "Helpers\\": "helpers/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "cweagans/composer-patches": true
-        }
-    },
-    "extra": {
-        "patches": {
-            "ssovit/tiktok-api": [
-                "patches/0001-Fixed-getUser.patch",
-                "patches/0002-Added-support-for-username-as-well-as-user-id.patch",
-                "patches/0003-Fixed-getVideoByUrl.patch",
-                "patches/0004-Allow-IDs-from-Android-iOS-share.patch"
-            ]
         }
     }
 }

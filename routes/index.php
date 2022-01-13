@@ -23,11 +23,11 @@ Route::add("/trending", function () {
     }
 	$api = Misc::api();
 	$feed = $api->getTrendingFeed($cursor);
-	if ($feed) {
+	if ($feed->meta->success) {
         $latte = Misc::latte();
 		$latte->render(Misc::getView('trending'), ['feed' => $feed]);
 	} else {
-		Error::show('api');
+		Error::show($feed->meta);
 	}
 });
 
@@ -38,7 +38,7 @@ Route::add("/@([^/]+)", function (string $username) {
     }
 	$api = Misc::api();
 	$feed = $api->getUserFeed($username, $cursor);
-	if ($feed) {
+	if ($feed->meta->success) {
         if ($feed->info->detail->user->privateAccount) {
             http_response_code(400);
             return 'Private account detected! Not supported';
@@ -46,18 +46,18 @@ Route::add("/@([^/]+)", function (string $username) {
         $latte = Misc::latte();
 		$latte->render(Misc::getView('user'), ['feed' => $feed]);
 	} else {
-		Error::show('api');
+		Error::show($feed->meta);
 	}
 });
 
 Route::add('/video/([^/]+)', function (string $video_id) {
     $api = Misc::api();
     $item = $api->getVideoByID($video_id);
-    if ($item) {
+    if ($item->meta->success) {
         $latte = Misc::latte();
         $latte->render(Misc::getView('video'), ['item' => $item]);
     } else {
-        Error::show('api');
+        Error::show($item->meta);
     }
 });
 
@@ -68,10 +68,10 @@ Route::add('/tag/(\w+)', function (string $name) {
     }
 	$api = Misc::api();
 	$feed = $api->getChallengeFeed($name, $cursor);
-	if ($feed) {
+	if ($feed->meta->success) {
         $latte = Misc::latte();
 		$latte->render(Misc::getView('tag'), ['feed' => $feed]);
 	} else {
-		Error::show('api');
+		Error::show($feed->meta);
 	}
 });

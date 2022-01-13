@@ -1,5 +1,7 @@
 <?php
 namespace Helpers;
+
+use Helpers\CacheEngines\JSONCache;
 use Helpers\Settings;
 
 class Misc {
@@ -13,13 +15,22 @@ class Misc {
 
     static public function api(): \Sovit\TikTok\Api {
         $options = [];
+        $cacheEngine = false;
         // Proxy config
-        if (in_array(Settings::PROXY, $_COOKIE)) {
-            foreach (Settings::PROXY as $proxy_element) {
-                $options[$proxy_element] = $_COOKIE[$proxy_element];
+        foreach(Settings::PROXY as $proxy_element) {
+            if (isset($_COOKIE[$proxy_element])) {
+                $options['proxy'][$proxy_element] = $_COOKIE[$proxy_element];
             }
         }
-        $api = new \Sovit\TikTok\Api($options);
+        // Cache config
+        if (isset($_ENV['APP_CACHE'])) {
+            switch ($_ENV['APP_CACHE']) {
+                case 'json':
+                    $cacheEngine = new JSONCache();
+                    break;
+            }
+        }
+        $api = new \Sovit\TikTok\Api($options, $cacheEngine);
         return $api;
     }
 

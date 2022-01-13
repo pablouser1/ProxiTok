@@ -4,56 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d80b92323fe946eed65f7e1c64f67a4",
+    "content-hash": "be47923ca5eb85a99cf811122d2ecf9a",
     "packages": [
-        {
-            "name": "cweagans/composer-patches",
-            "version": "1.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "9888dcc74993c030b75f3dd548bb5e20cdbd740c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/9888dcc74993c030b75f3dd548bb5e20cdbd740c",
-                "reference": "9888dcc74993c030b75f3dd548bb5e20cdbd740c",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "composer/composer": "~1.0 || ~2.0",
-                "phpunit/phpunit": "~4.6"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "cweagans\\Composer\\Patches"
-            },
-            "autoload": {
-                "psr-4": {
-                    "cweagans\\Composer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Cameron Eagans",
-                    "email": "me@cweagans.net"
-                }
-            ],
-            "description": "Provides a way to patch Composer packages.",
-            "support": {
-                "issues": "https://github.com/cweagans/composer-patches/issues",
-                "source": "https://github.com/cweagans/composer-patches/tree/1.7.1"
-            },
-            "time": "2021-06-08T15:12:46+00:00"
-        },
         {
             "name": "graham-campbell/result-type",
             "version": "v1.0.4",
@@ -272,18 +224,102 @@
             "time": "2021-12-04T23:24:31+00:00"
         },
         {
-            "name": "ssovit/tiktok-api",
-            "version": "2.0.0",
+            "name": "rmccue/requests",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ssovit/TikTok-API-PHP.git",
-                "reference": "bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8"
+                "url": "https://github.com/WordPress/Requests.git",
+                "reference": "7ef0774f0bf32dddb7b6c1dd01e4d285c2ba3c3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ssovit/TikTok-API-PHP/zipball/bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8",
-                "reference": "bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8",
+                "url": "https://api.github.com/repos/WordPress/Requests/zipball/7ef0774f0bf32dddb7b6c1dd01e4d285c2ba3c3f",
+                "reference": "7ef0774f0bf32dddb7b6c1dd01e4d285c2ba3c3f",
                 "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "php-parallel-lint/php-console-highlighter": "^0.5.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3.1",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "requests/test-server": "dev-master",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "^3.6",
+                "wp-coding-standards/wpcs": "^2.0",
+                "yoast/phpunit-polyfills": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WpOrg\\Requests\\": "src/"
+                },
+                "classmap": [
+                    "library/Requests.php"
+                ],
+                "files": [
+                    "library/Deprecated.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan McCue",
+                    "homepage": "https://rmccue.io/"
+                },
+                {
+                    "name": "Alain Schlesser",
+                    "homepage": "https://github.com/schlessera"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "homepage": "https://github.com/jrfnl"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/WordPress/Requests/graphs/contributors"
+                }
+            ],
+            "description": "A HTTP library written in PHP, for human beings.",
+            "homepage": "https://requests.ryanmccue.info/",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "idna",
+                "ipv6",
+                "iri",
+                "sockets"
+            ],
+            "support": {
+                "docs": "https://requests.ryanmccue.info/",
+                "issues": "https://github.com/WordPress/Requests/issues",
+                "source": "https://github.com/WordPress/Requests"
+            },
+            "time": "2021-11-24T14:20:18+00:00"
+        },
+        {
+            "name": "ssovit/tiktok-api",
+            "version": "dev-rework",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pablouser1/TikTok-API-PHP.git",
+                "reference": "3cee4765f122bd13d7044236013dfbd0d18652c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/3cee4765f122bd13d7044236013dfbd0d18652c4",
+                "reference": "3cee4765f122bd13d7044236013dfbd0d18652c4",
+                "shasum": ""
+            },
+            "require": {
+                "rmccue/requests": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -291,7 +327,13 @@
                     "Sovit\\": "lib"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "archive": {
+                "exclude": [
+                    "/example",
+                    "/.github",
+                    "/.editorconfig"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -306,16 +348,16 @@
             "description": "Unofficial TikTok API for PHP",
             "homepage": "https://github.com/ssovit/TikTok-API-PHP",
             "keywords": [
-                "TikTok ",
+                "tiktok",
                 "tiktok-api",
                 "tiktok-scraper"
             ],
             "support": {
-                "email": "sovit.tamrakar@gmail.com",
+                "source": "https://github.com/ssovit/TikTok-API-PHP",
                 "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
-                "source": "https://github.com/ssovit/TikTok-API-PHP"
+                "email": "sovit.tamrakar@gmail.com"
             },
-            "time": "2021-05-28T15:32:11+00:00"
+            "time": "2022-01-13T15:14:30+00:00"
         },
         {
             "name": "steampixel/simple-php-router",
@@ -692,7 +734,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssovit/tiktok-api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

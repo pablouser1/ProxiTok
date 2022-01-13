@@ -15,6 +15,8 @@ Clone the repository and fetch the requiered external packages with:
 composer install
 ```
 
+WARNING: You'll need a personal Github token for composer.
+
 Then you can run it using for example the PHP Development Server with:
 ```bash
 php -S localhost:8080
@@ -23,6 +25,10 @@ php -S localhost:8080
 ## Configuration
 ### .env
 Move the .env.example file to .env and modify it.
+
+### Cache engine
+Available cache engines:
+* json: Writes response to JSON file
 
 ### Apache
 You don't have to do anything more
@@ -43,11 +49,6 @@ location /tiktok-viewer/.env {
     return 404;
 }
 ```
-
-## Known issues
-* Fetching a user fails, there is already a pull request not merged yet fixing this issue on the TikTokApi repo, you can check it out [here](https://github.com/ssovit/TikTok-API-PHP/pull/43).
-* Fetching a video by id or by url fails
-**These issues are automatically patched after running composer install**
 
 ## TODO
 * Add a NoJS version / Make the whole program without required JS
