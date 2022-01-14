@@ -10,8 +10,11 @@
 		</div>
 		<div class="hero-body">
 			<div class="container">
-				<p class="title">API errror code {$error->tiktok_code}</p>
-				<p class="subtitle">{$error->tiktok_msg}</p>
+				<p class="title">There was an error processing your request!</p>
+				<p class="subtitle">HTTP Code: {$error->http_code}</p>
+				{if $error->tiktok_code}
+					<p class="subtitle">API error code {$error->tiktok_code} ({$error->tiktok_msg})</p>
+				{/if}
       </div>
     </div>
     <div class="hero-foot is-danger">
