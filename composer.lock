@@ -310,12 +310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikTok-API-PHP.git",
-                "reference": "3cee4765f122bd13d7044236013dfbd0d18652c4"
+                "reference": "1bd0831149d385697c2d7c4d1575efe03e0e713b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/3cee4765f122bd13d7044236013dfbd0d18652c4",
-                "reference": "3cee4765f122bd13d7044236013dfbd0d18652c4",
+                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/1bd0831149d385697c2d7c4d1575efe03e0e713b",
+                "reference": "1bd0831149d385697c2d7c4d1575efe03e0e713b",
                 "shasum": ""
             },
             "require": {
@@ -357,7 +357,7 @@
                 "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
                 "email": "sovit.tamrakar@gmail.com"
             },
-            "time": "2022-01-13T15:14:30+00:00"
+            "time": "2022-01-13T16:05:07+00:00"
         },
         {
             "name": "steampixel/simple-php-router",
