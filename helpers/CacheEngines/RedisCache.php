@@ -1,12 +1,10 @@
 <?php
 namespace Helpers\CacheEngines;
 
-use \Redis;
-
 class RedisCache {
     private \Redis $client;
     function __construct(string $host, int $port, ?string $password) {
-        $this->client = new Redis();
+        $this->client = new \Redis();
         $this->client->connect($host, $port);
         if ($password) {
             $this->client->auth($password);

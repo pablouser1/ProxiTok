@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "ext-redis": "*",
+        "ext-redis": "^5.3.4",
         "ssovit/tiktok-api": "dev-rework",
         "steampixel/simple-php-router": "^0.7.0",
         "latte/latte": "^2.10",
