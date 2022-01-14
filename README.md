@@ -1,8 +1,8 @@
-# TikTok alternative Frontend
-Use Tiktok using an alternative frontend, inspired by Nitter.
+# ProxiTok
+Use Tiktok with an alternative frontend, inspired by Nitter.
 
 ## Features
-* Privacy: All requests made to TikTok are server-side, so you will never connect to TikTok servers
+* Privacy: All requests made to TikTok are server-side, so you will never connect to their servers
 * See user's feed
 * See trending
 * See tags
