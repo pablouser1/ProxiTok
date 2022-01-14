@@ -1,7 +1,9 @@
 <?php
 namespace Helpers;
 
+use Exception;
 use Helpers\CacheEngines\JSONCache;
+use Helpers\CacheEngines\RedisCache;
 use Helpers\Settings;
 
 class Misc {
@@ -27,6 +29,17 @@ class Misc {
             switch ($_ENV['APP_CACHE']) {
                 case 'json':
                     $cacheEngine = new JSONCache();
+                    break;
+                case 'redis':
+                    if (!isset($_ENV['REDIS_URL'])) {
+                        throw new Exception('You need to set REDIS_URL to use Redis Cache!');
+                    }
+
+                    $url = parse_url($_ENV['REDIS_URL']);
+                    $host = $url['host'];
+                    $port = $url['port'];
+                    $password = $url['pass'] ?? null;
+                    $cacheEngine = new RedisCache($host, $port, $password);
                     break;
             }
         }

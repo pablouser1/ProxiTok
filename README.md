@@ -28,6 +28,7 @@ Move the .env.example file to .env and modify it.
 
 ### Cache engine
 Available cache engines:
+* redis: Writes response to Redis (check .env.example for config!)
 * json: Writes response to JSON file
 
 ### Apache
