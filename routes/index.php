@@ -61,6 +61,22 @@ Route::add('/video/([^/]+)', function (string $video_id) {
     }
 });
 
+Route::add('/music/([^/]+)', function (string $music_id) {
+    $cursor = 0;
+    if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {
+        $cursor = (int) $_GET['cursor'];
+    }
+
+    $api = Misc::api();
+    $feed = $api->getMusicFeed($music_id, $cursor);
+	if ($feed->meta->success) {
+        $latte = Misc::latte();
+		$latte->render(Misc::getView('music'), ['feed' => $feed]);
+	} else {
+		Error::show($feed->meta);
+	}
+});
+
 Route::add('/tag/(\w+)', function (string $name) {
     $cursor = 0;
     if (isset($_GET['cursor']) && is_numeric($_GET['cursor'])) {

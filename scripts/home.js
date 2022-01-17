@@ -19,6 +19,14 @@ const goToVideo = e => {
   window.location.href = `./video/${video_id}`
 }
 
+const goToMusic = e => {
+  e.preventDefault()
+  const formData = new FormData(e.target)
+  const video_id = formData.get('music_id')
+  window.location.href = `./music/${video_id}`
+}
+
 document.getElementById('username_form').addEventListener('submit', goToUser, false)
 document.getElementById('tag_form').addEventListener('submit', goToTag, false)
 document.getElementById('video_form').addEventListener('submit', goToVideo, false)
+document.getElementById('music_form').addEventListener('submit', goToMusic, false)

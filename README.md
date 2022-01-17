@@ -26,7 +26,7 @@ php -S localhost:8080
 ### .env
 Move the .env.example file to .env and modify it.
 
-### Cache engine
+### Cache engines
 Available cache engines:
 * redis: Writes response to Redis (check .env.example for config!)
 * json: Writes response to JSON file
@@ -58,7 +58,7 @@ location /tiktok-viewer/.env {
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
-* [steampixel/simple-php-router](https://github.com/steampixel/simple-php-router)
+* [steampixel/simplePHPRouter](https://github.com/steampixel/simplePHPRouter)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma)
 * [Bulmaswatch](https://github.com/jenil/bulmaswatch)
