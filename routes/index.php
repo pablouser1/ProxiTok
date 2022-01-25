@@ -2,18 +2,22 @@
 require __DIR__ . '/assets.php';
 require __DIR__ . '/settings.php';
 require __DIR__ . '/following.php';
+
 use Steampixel\Route;
 use Helpers\Misc;
 use Helpers\Error;
+use Views\Models\BaseTemplate;
+use Views\Models\FeedTemplate;
+use Views\Models\ItemTemplate;
 
 Route::add('/', function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('home'), ['title' => 'Home']);
+    $latte->render(Misc::getView('home'), new BaseTemplate('Home'));
 });
 
 Route::add('/about', function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('about'), ['title' => 'About']);
+    $latte->render(Misc::getView('about'), new BaseTemplate('About'));
 });
 
 Route::add("/trending", function () {
@@ -25,10 +29,7 @@ Route::add("/trending", function () {
 	$feed = $api->getTrendingFeed($cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('trending'), [
-            'feed' => $feed,
-            'title' => 'Trending'
-        ]);
+		$latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));
 	} else {
 		Error::show($feed->meta);
 	}
@@ -47,10 +48,7 @@ Route::add("/@([^/]+)", function (string $username) {
             return 'Private account detected! Not supported';
         }
         $latte = Misc::latte();
-		$latte->render(Misc::getView('user'), [
-            'feed' => $feed,
-            'title' => $feed->info->detail->user->nickname
-        ]);
+		$latte->render(Misc::getView('user'), new FeedTemplate($feed->info->detail->user->nickname, $feed));
 	} else {
 		Error::show($feed->meta);
 	}
@@ -61,10 +59,7 @@ Route::add('/video/([^/]+)', function (string $video_id) {
     $item = $api->getVideoByID($video_id);
     if ($item->meta->success) {
         $latte = Misc::latte();
-        $latte->render(Misc::getView('video'), [
-            'item' => $item,
-            'title' => $item->info->detail->user->nickname
-        ]);
+        $latte->render(Misc::getView('video'), new ItemTemplate($item->info->detail->user->nickname, $item));
     } else {
         Error::show($item->meta);
     }
@@ -80,10 +75,7 @@ Route::add('/music/([^/]+)', function (string $music_id) {
     $feed = $api->getMusicFeed($music_id, $cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('music'), [
-            'feed' => $feed,
-            'title' => 'Music'
-        ]);
+		$latte->render(Misc::getView('music'), new FeedTemplate('Music', $feed));
 	} else {
 		Error::show($feed->meta);
 	}
@@ -98,10 +90,7 @@ Route::add('/tag/(\w+)', function (string $name) {
 	$feed = $api->getChallengeFeed($name, $cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('tag'), [
-            'feed' => $feed,
-            'title' => 'Tag'
-        ]);
+		$latte->render(Misc::getView('tag'), new FeedTemplate('Tag', $feed));
 	} else {
 		Error::show($feed->meta);
 	}

@@ -3,15 +3,12 @@
 use Helpers\Following;
 use Helpers\Settings;
 use Helpers\Misc;
+use Views\Models\SettingsTemplate;
 use Steampixel\Route;
 
 Route::add("/settings", function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('settings'), [
-        "proxy_elements" => Settings::PROXY,
-        "following" => Following::get(),
-        "title" => "Settings"
-    ]);
+    $latte->render(Misc::getView('settings'), new SettingsTemplate());
 });
 
 Route::add("/settings/proxy", function () {

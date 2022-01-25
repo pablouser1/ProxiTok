@@ -1,9 +1,9 @@
 {layout '../layouts/hero.latte'}
 
 {block content}
-<p class="title">There was an error processing your request!</p>
-<p class="subtitle">HTTP Code: {$error->http_code}</p>
-{if $error->tiktok_code}
-	<p class="subtitle">API error code {$error->tiktok_code} ({$error->tiktok_msg})</p>
-{/if}
+	<p class="title">There was an error processing your request!</p>
+	<p class="subtitle">HTTP Code: {$error->http_code}</p>
+	{if $error->tiktok_code}
+		<p class="subtitle">API error code {$error->tiktok_code} ({$error->tiktok_msg})</p>
+	{/if}
 {/block}

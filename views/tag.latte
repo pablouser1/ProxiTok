@@ -1,9 +1,9 @@
 {layout '../layouts/default.latte'}
 
 {block header}
-<p class="title">{$feed->info->detail->challenge->title}</p>
-<p class="subtitle">{$feed->info->detail->challenge->desc}</p>
-<p>Videos: {number($feed->info->detail->stats->videoCount)} / Views: {number($feed->info->detail->stats->viewCount)}</p>
+	<p class="title">{$feed->info->detail->challenge->title}</p>
+	<p class="subtitle">{$feed->info->detail->challenge->desc}</p>
+	<p>Videos: {number($feed->info->detail->stats->videoCount)} / Views: {number($feed->info->detail->stats->viewCount)}</p>
 {/block}
 
 {block content}

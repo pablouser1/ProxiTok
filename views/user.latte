@@ -1,13 +1,13 @@
 {layout '../layouts/default.latte'}
 
 {block header}
-<figure class="figure is-96x96">
-	<img src="{path('stream?url=' . urlencode($feed->info->detail->user->avatarThumb))}" />
-</figure>
-<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
-<p class="subtitle">{$feed->info->detail->user->signature}</p>
-<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
-<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
+	<figure class="figure is-96x96">
+		<img src="{path('stream?url=' . urlencode($feed->info->detail->user->avatarThumb))}" />
+	</figure>
+	<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
+	<p class="subtitle">{$feed->info->detail->user->signature}</p>
+	<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
+	<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
 {/block}
 
 {block content}

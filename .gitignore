@@ -2,7 +2,7 @@ node_modules
 /.env
 /.vscode
 /vendor
-/cache/views/*
-!/cache/views/.gitkeep
+/cache/latte/*
+!/cache/latte/.gitkeep
 /cache/api/*
 !/cache/api/.gitkeep

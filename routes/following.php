@@ -2,6 +2,7 @@
 use Helpers\Following;
 use Helpers\Misc;
 use Steampixel\Route;
+use Views\Models\FollowingTemplate;
 
 // Showing
 Route::add('/following', function () {
@@ -28,9 +29,5 @@ Route::add('/following', function () {
         'hasMore' => false
     ];
     $latte = Misc::latte();
-    $latte->render(Misc::getView('following'), [
-        'following' => $following,
-        'feed' => $feed,
-        'title' => 'Following'
-    ]);
+    $latte->render(Misc::getView('following'), new FollowingTemplate($following, $feed));
 });

@@ -25,8 +25,8 @@ class Misc {
             }
         }
         // Cache config
-        if (isset($_ENV['APP_CACHE'])) {
-            switch ($_ENV['APP_CACHE']) {
+        if (isset($_ENV['API_CACHE'])) {
+            switch ($_ENV['API_CACHE']) {
                 case 'json':
                     $cacheEngine = new JSONCache();
                     break;
@@ -54,14 +54,23 @@ class Misc {
             $subdir = '';
         }
         $latte = new \Latte\Engine;
-        $latte->setTempDirectory(__DIR__ . '/../cache/views');
+        $cache_path = isset($_ENV['LATTE_CACHE']) && !empty($_ENV['LATTE_CACHE']) ? $_ENV['LATTE_CACHE'] : __DIR__ . '/../cache/latte';
+        $latte->setTempDirectory($cache_path);
+
+        // -- CUSTOM FUNCTIONS -- //
+        // Import assets
         $latte->addFunction('assets', function (string $name, string $type)  use ($subdir) {
             $path = "{$subdir}/{$type}/{$name}";
             return $path;
         });
+        // Relative path
         $latte->addFunction('path', function (string $name) use ($subdir) {
             $path = "{$subdir}/{$name}";
             return $path;
+        });
+        // Version being used
+        $latte->addFunction('version', function () {
+            return \Composer\InstalledVersions::getVersion('pablouser1/proxitok');
         });
         // https://stackoverflow.com/a/36365553
         $latte->addFunction('number', function (int $x) {
