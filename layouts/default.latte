@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{include '../components/head.latte'}
+
+<body>
+	{include '../components/navbar.latte'}
+  <section class="hero is-primary">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				{block header}{/block}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+		{block content}{/block}
+  </section>
+  {include '../components/footer.latte'}
+</body>
+	{block extra}{/block}
+</html>

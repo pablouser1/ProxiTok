@@ -8,12 +8,12 @@ use Helpers\Error;
 
 Route::add('/', function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('home'));
+    $latte->render(Misc::getView('home'), ['title' => 'Home']);
 });
 
 Route::add('/about', function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('about'));
+    $latte->render(Misc::getView('about'), ['title' => 'About']);
 });
 
 Route::add("/trending", function () {
@@ -25,7 +25,10 @@ Route::add("/trending", function () {
 	$feed = $api->getTrendingFeed($cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('trending'), ['feed' => $feed]);
+		$latte->render(Misc::getView('trending'), [
+            'feed' => $feed,
+            'title' => 'Trending'
+        ]);
 	} else {
 		Error::show($feed->meta);
 	}
@@ -44,7 +47,10 @@ Route::add("/@([^/]+)", function (string $username) {
             return 'Private account detected! Not supported';
         }
         $latte = Misc::latte();
-		$latte->render(Misc::getView('user'), ['feed' => $feed]);
+		$latte->render(Misc::getView('user'), [
+            'feed' => $feed,
+            'title' => $feed->info->detail->user->nickname
+        ]);
 	} else {
 		Error::show($feed->meta);
 	}
@@ -55,7 +61,10 @@ Route::add('/video/([^/]+)', function (string $video_id) {
     $item = $api->getVideoByID($video_id);
     if ($item->meta->success) {
         $latte = Misc::latte();
-        $latte->render(Misc::getView('video'), ['item' => $item]);
+        $latte->render(Misc::getView('video'), [
+            'item' => $item,
+            'title' => $item->info->detail->user->nickname
+        ]);
     } else {
         Error::show($item->meta);
     }
@@ -71,7 +80,10 @@ Route::add('/music/([^/]+)', function (string $music_id) {
     $feed = $api->getMusicFeed($music_id, $cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('music'), ['feed' => $feed]);
+		$latte->render(Misc::getView('music'), [
+            'feed' => $feed,
+            'title' => 'Music'
+        ]);
 	} else {
 		Error::show($feed->meta);
 	}
@@ -86,7 +98,10 @@ Route::add('/tag/(\w+)', function (string $name) {
 	$feed = $api->getChallengeFeed($name, $cursor);
 	if ($feed->meta->success) {
         $latte = Misc::latte();
-		$latte->render(Misc::getView('tag'), ['feed' => $feed]);
+		$latte->render(Misc::getView('tag'), [
+            'feed' => $feed,
+            'title' => 'Tag'
+        ]);
 	} else {
 		Error::show($feed->meta);
 	}

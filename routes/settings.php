@@ -7,7 +7,11 @@ use Steampixel\Route;
 
 Route::add("/settings", function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('settings'), ["proxy_elements" => Settings::PROXY, "following" => Following::get()]);
+    $latte->render(Misc::getView('settings'), [
+        "proxy_elements" => Settings::PROXY,
+        "following" => Following::get(),
+        "title" => "Settings"
+    ]);
 });
 
 Route::add("/settings/proxy", function () {

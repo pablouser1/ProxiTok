@@ -28,5 +28,9 @@ Route::add('/following', function () {
         'hasMore' => false
     ];
     $latte = Misc::latte();
-    $latte->render(Misc::getView('following'), ['following' => $following, 'feed' => $feed]);
+    $latte->render(Misc::getView('following'), [
+        'following' => $following,
+        'feed' => $feed,
+        'title' => 'Following'
+    ]);
 });

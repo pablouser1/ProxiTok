@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{layout '../layouts/default.latte'}
 
-{include 'components/head.latte', title: 'Settings'}
+{block header}
+<p class="title">Settings</p>
+{/block}
 
-<body>
-  {include 'components/navbar.latte'}
-  <section class="hero is-primary">
-		<div class="hero-body">
-			<div class="container">
-				<p class="title">Settings</p>
-			</div>
-		</div>
-  </section>
-  <section class="section">
-		<!-- Proxy settings -->
-		<p class="title">Proxy</p>
-		{include 'components/settings/proxy.latte'}
-		<hr />
-		<!-- Following -->
-		<p class="title">Following</p>
-		{include 'components/settings/following.latte'}
-  </section>
-  {include 'components/footer.latte'}
-</body>
-</html>
+{block content}
+<!-- Proxy settings -->
+<p class="title">Proxy</p>
+{include '../components/settings/proxy.latte'}
+<hr />
+<!-- Following -->
+<p class="title">Following</p>
+{include '../components/settings/following.latte'}
+{/block}

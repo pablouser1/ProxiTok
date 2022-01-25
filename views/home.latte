@@ -1,74 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+{layout '../layouts/hero.latte'}
 
-{include 'components/head.latte', title: 'Home'}
+{block content}
+<p class="title">Welcome to ProxiTok!</p>
+<p class="subtitle">An alternative open source frontend for TikTok</p>
+<p>Search user:</p>
+<form id="username_form">
+  <div class="field has-addons has-addons-centered">
+    <div class="control">
+      <input name="username" class="input" type="text" placeholder="Type username" required />
+    </div>
+    <div class="control">
+      <button class="button is-success" type="submit">Go</button>
+    </div>
+  </div>
+</form>
+<hr />
+<p>Search video by id:</p>
+<form id="video_form">
+  <div class="field has-addons has-addons-centered">
+    <div class="control">
+      <input name="video_id" class="input" type="text" placeholder="Type video ID" required />
+    </div>
+    <div class="control">
+      <button class="button is-success" type="submit">Go</button>
+    </div>
+  </div>
+</form>
+<hr />
+<p>Search tag:</p>
+<form id="tag_form">
+  <div class="field has-addons has-addons-centered">
+    <div class="control">
+      <input name="tag" class="input" type="text" placeholder="Type tag" required />
+    </div>
+    <div class="control">
+      <button class="button is-success" type="submit">Go</button>
+    </div>
+  </div>
+</form>
+<hr />
+<p>Search music videos by id:</p>
+<form id="music_form">
+  <div class="field has-addons has-addons-centered">
+    <div class="control">
+      <input name="music_id" class="input" type="text" placeholder="Type music id" required />
+    </div>
+    <div class="control">
+      <button class="button is-success" type="submit">Go</button>
+    </div>
+  </div>
+</form>
+<hr />
+<p>Trending:</p>
+<a class="button is-success" href="./trending">Go</a>
+{/block}
 
-<body>
-	<section class="hero is-fullheight">
-		<div class="hero-head">
-			{include 'components/navbar.latte'}
-		</div>
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<p class="title">Welcome to ProxiTok!</p>
-				<p class="subtitle">An alternative open source frontend for TikTok</p>
-				<p>Search user:</p>
-				<form id="username_form">
-					<div class="field has-addons has-addons-centered">
-						<div class="control">
-							<input name="username" class="input" type="text" placeholder="Type username" required />
-						</div>
-						<div class="control">
-							<button class="button is-success" type="submit">Go</button>
-						</div>
-					</div>
-				</form>
-				<hr />
-				<p>Search video by id:</p>
-				<form id="video_form">
-					<div class="field has-addons has-addons-centered">
-						<div class="control">
-							<input name="video_id" class="input" type="text" placeholder="Type video ID" required />
-						</div>
-						<div class="control">
-							<button class="button is-success" type="submit">Go</button>
-						</div>
-					</div>
-				</form>
-				<hr />
-				<p>Search tag:</p>
-				<form id="tag_form">
-					<div class="field has-addons has-addons-centered">
-						<div class="control">
-							<input name="tag" class="input" type="text" placeholder="Type tag" required />
-						</div>
-						<div class="control">
-							<button class="button is-success" type="submit">Go</button>
-						</div>
-					</div>
-				</form>
-				<hr />
-				<p>Search music videos by id:</p>
-				<form id="music_form">
-					<div class="field has-addons has-addons-centered">
-						<div class="control">
-							<input name="music_id" class="input" type="text" placeholder="Type music id" required />
-						</div>
-						<div class="control">
-							<button class="button is-success" type="submit">Go</button>
-						</div>
-					</div>
-				</form>
-				<hr />
-				<p>Trending:</p>
-				<a class="button is-success" href="./trending">Go</a>
-			</div>
-    </div>
-    <div class="hero-foot">
-			{include 'components/footer.latte'}
-    </div>
-	</section>
+{block extra}
 	<script src="{assets('home.js', 'scripts')}"></script>
-</body>
-
-</html>
+{/block}

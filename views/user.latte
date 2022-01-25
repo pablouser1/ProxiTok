@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{layout '../layouts/default.latte'}
 
-{include 'components/head.latte', title: $feed->info->detail->user->nickname}
+{block header}
+<figure class="figure is-96x96">
+	<img src="{path('stream?url=' . urlencode($feed->info->detail->user->avatarThumb))}" />
+</figure>
+<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
+<p class="subtitle">{$feed->info->detail->user->signature}</p>
+<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
+<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
+{/block}
 
-<body>
-	{include 'components/navbar.latte'}
-  <section class="hero is-primary">
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<figure class="figure is-96x96">
-					<img src="{path('stream?url=' . urlencode($feed->info->detail->user->avatarThumb))}" />
-				</figure>
-				<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
-				<p class="subtitle">{$feed->info->detail->user->signature}</p>
-				<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
-				<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
-      </div>
-    </div>
-  </section>
-  {include 'components/feed.latte'}
-  {include 'components/footer.latte'}
-</body>
-</html>
+{block content}
+	{include '../components/feed.latte'}
+{/block}

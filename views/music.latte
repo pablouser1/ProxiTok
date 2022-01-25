@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{layout '../layouts/default.latte'}
 
-{include 'components/head.latte', title: 'Music'}
+{block header}
+<p class="title">{$feed->info->detail->music->title}</p>
+<p class="subtitle">{$feed->info->detail->music->desc}</p>
+<p>Videos: {number($feed->info->detail->stats->videoCount)}</p>
+{/block}
 
-<body>
-	{include 'components/navbar.latte'}
-  <section class="hero is-primary">
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<p class="title">{$feed->info->detail->music->title}</p>
-				<p class="subtitle">{$feed->info->detail->music->desc}</p>
-				<p>Videos: {number($feed->info->detail->stats->videoCount)}</p>
-      </div>
-    </div>
-  </section>
-  {include 'components/feed.latte'}
-  {include 'components/footer.latte'}
-</body>
-</html>
+{block content}
+	{include '../components/feed.latte'}
+{/block}

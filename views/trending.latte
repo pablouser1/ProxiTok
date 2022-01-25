@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{layout '../layouts/default.latte'}
 
-{include 'components/head.latte', title: 'Trending'}
+{block header}
+<p class="title">Trending</p>
+{/block}
 
-<body>
-	{include 'components/navbar.latte'}
-  <section class="hero is-primary">
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<p class="title">Trending</p>
-			</div>
-    </div>
-  </section>
-  {include 'components/feed.latte'}
-  {include 'components/footer.latte'}
-</body>
-</html>
+{block content}
+	{include '../components/feed.latte'}
+{/block}
