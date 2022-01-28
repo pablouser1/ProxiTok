@@ -7,14 +7,20 @@ use Helpers\CacheEngines\RedisCache;
 use Helpers\Settings;
 
 class Misc {
-    static public function getSubDir(): string {
-        return isset($_ENV['APP_SUBDIR']) && !empty($_ENV['APP_SUBDIR']) ? $_ENV['APP_SUBDIR'] : '/';
+    static public function env(string $key, mixed $default_value): string {
+        return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
     }
 
+    /**
+     * Returns absolute path for view
+     */
     static public function getView(string $template): string {
         return __DIR__ . "/../views/{$template}.latte";
     }
 
+    /**
+     * Setup of TikTok Api wrapper
+     */
     static public function api(): \Sovit\TikTok\Api {
         $options = [];
         $cacheEngine = false;
@@ -47,26 +53,25 @@ class Misc {
         return $api;
     }
 
+    /**
+     * Setup of Latte template engine
+     */
     static public function latte(): \Latte\Engine {
         // Workaround to avoid weird path issues
-        $subdir = Misc::getSubDir();
-        if ($subdir === '/') {
-            $subdir = '';
-        }
+        $url = self::env('APP_URL', '');
         $latte = new \Latte\Engine;
-        $cache_path = isset($_ENV['LATTE_CACHE']) && !empty($_ENV['LATTE_CACHE']) ? $_ENV['LATTE_CACHE'] : __DIR__ . '/../cache/latte';
+        $cache_path = self::env('LATTE_CACHE', __DIR__ . '/../cache/latte');
         $latte->setTempDirectory($cache_path);
 
         // -- CUSTOM FUNCTIONS -- //
         // Import assets
-        $latte->addFunction('assets', function (string $name, string $type)  use ($subdir) {
-            $path = "{$subdir}/{$type}/{$name}";
+        $latte->addFunction('assets', function (string $name, string $type)  use ($url) {
+            $path = "{$url}/{$type}/{$name}";
             return $path;
         });
-        // Relative path
-        $latte->addFunction('path', function (string $name) use ($subdir) {
-            $path = "{$subdir}/{$name}";
-            return $path;
+        // Get base URL
+        $latte->addFunction('path', function (string $path = '') use ($url) {
+            return "{$url}/{$path}";
         });
         // Version being used
         $latte->addFunction('version', function () {
@@ -85,6 +90,10 @@ class Misc {
                 return $x_display;
             }
             return $x;
+        });
+        $latte->addFunction('size', function (string $url) {
+            $download = new \Sovit\TikTok\Download();
+            return $download->file_size($url);
         });
         return $latte;
     }

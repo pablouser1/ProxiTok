@@ -8,6 +8,7 @@
 	<p class="subtitle">{$feed->info->detail->user->signature}</p>
 	<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
 	<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
+	<a href="{path('@' . $feed->info->detail->user->uniqueId . '/rss')}">RSS</a>
 {/block}
 
 {block content}

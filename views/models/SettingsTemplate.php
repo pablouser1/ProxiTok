@@ -14,6 +14,6 @@ class SettingsTemplate extends BaseTemplate {
     function __construct() {
         parent::__construct('Settings');
         $this->proxy_elements = Settings::PROXY;
-        $this->following = Following::get();
+        $this->following = Following::getUsers();
     }
 }

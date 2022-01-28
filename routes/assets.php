@@ -1,9 +1,9 @@
 <?php
-use Steampixel\Route;
-
 const VALID_TIKTOK_DOMAINS = [
     "tiktokcdn.com", "tiktokcdn-us.com", "tiktok.com"
 ];
+
+/**@var Bramus\Router\Router $router */
 
 /**
  * Check if an url has a valid domain
@@ -16,7 +16,7 @@ function isValidDomain(string $url): bool {
     return count($host_split) === 3 && in_array($host_split[1] . '.' . $host_split[2], VALID_TIKTOK_DOMAINS);
 }
 
-Route::add('/stream', function () {
+$router->get('/stream', function () {
 	if (!isset($_GET['url'])) {
 		die('You need to send a url!');
 	}

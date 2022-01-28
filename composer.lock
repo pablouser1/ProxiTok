@@ -4,8 +4,108 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c6e8300b7f0672000799c44a5fd19a3",
+    "content-hash": "c86d4aba41374f807418dde1044dba45",
     "packages": [
+        {
+            "name": "bhaktaraz/php-rss-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bhaktaraz/php-rss-generator.git",
+                "reference": "53cf11db18d87e65973e6df453fb8c1382e5a3bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bhaktaraz/php-rss-generator/zipball/53cf11db18d87e65973e6df453fb8c1382e5a3bd",
+                "reference": "53cf11db18d87e65973e6df453fb8c1382e5a3bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bhaktaraz\\RSSGenerator\\": "Source/Bhaktaraz/RSSGenerator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bhaktaraz Bhatta",
+                    "email": "bhattabhakta@gmail.com"
+                }
+            ],
+            "description": "Simple RSS generator library for PHP 5.5 or later.",
+            "homepage": "https://github.com/bhaktaraz/php-rss-generator",
+            "keywords": [
+                "Facebook product feed generator",
+                "feed",
+                "generator",
+                "rss",
+                "writer"
+            ],
+            "support": {
+                "issues": "https://github.com/bhaktaraz/php-rss-generator/issues",
+                "source": "https://github.com/bhaktaraz/php-rss-generator/tree/master"
+            },
+            "time": "2021-03-15T10:59:47+00:00"
+        },
+        {
+            "name": "bramus/router",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bramus/router.git",
+                "reference": "55657b76da8a0a509250fb55b9dd24e1aa237eba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bramus/router/zipball/55657b76da8a0a509250fb55b9dd24e1aa237eba",
+                "reference": "55657b76da8a0a509250fb55b9dd24e1aa237eba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.14",
+                "phpunit/php-code-coverage": "~2.0",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bramus": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bram(us) Van Damme",
+                    "email": "bramus@bram.us",
+                    "homepage": "http://www.bram.us"
+                }
+            ],
+            "description": "A lightweight and simple object oriented PHP Router",
+            "homepage": "https://github.com/bramus/router",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/bramus/router/issues",
+                "source": "https://github.com/bramus/router/tree/1.6.1"
+            },
+            "time": "2021-11-18T19:24:07+00:00"
+        },
         {
             "name": "graham-campbell/result-type",
             "version": "v1.0.4",
@@ -274,49 +374,6 @@
                 "email": "sovit.tamrakar@gmail.com"
             },
             "time": "2022-01-22T19:37:07+00:00"
-        },
-        {
-            "name": "steampixel/simple-php-router",
-            "version": "0.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/steampixel/simplePHPRouter.git",
-                "reference": "91aec2d0bca3619c0552e2bfcebb8936e6f83bb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/steampixel/simplePHPRouter/zipball/91aec2d0bca3619c0552e2bfcebb8936e6f83bb9",
-                "reference": "91aec2d0bca3619c0552e2bfcebb8936e6f83bb9",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Steampixel": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christoph Stitz",
-                    "email": "info@steampixel.de",
-                    "homepage": "https://steampixel.de/"
-                },
-                {
-                    "name": "Maximilian Götz",
-                    "email": "contact@maxbits.net",
-                    "homepage": "https://www.maxbits.net/"
-                }
-            ],
-            "description": "This is a simple and small PHP router that can handel the whole url routing for your project.",
-            "support": {
-                "issues": "https://github.com/steampixel/simplePHPRouter/issues",
-                "source": "https://github.com/steampixel/simplePHPRouter/tree/0.7.0"
-            },
-            "time": "2021-03-22T08:11:59+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -651,7 +708,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ssovit/tiktok-api": 20
+        "ssovit/tiktok-api": 20,
+        "bhaktaraz/php-rss-generator": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

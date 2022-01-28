@@ -3,7 +3,9 @@
 {block content}
 	<div class="columns is-centered is-vcentered">
 		<div class="column">
-			<video autoplay controls src="{path('stream?url=' . urlencode($item->items[0]->video->playAddr))}"></video>
+			<video controls poster="{path('stream?url=' . urlencode($item->items[0]->video->originCover))}">
+				<source src="{path('stream?url=' . urlencode($item->items[0]->video->playAddr))}" type="video/mp4" />
+			</video>
 		</div>
 		<div class="column has-text-centered">
 			<div class="box">

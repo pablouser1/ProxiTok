@@ -8,6 +8,7 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 * See tags
 * See video by id
 * Create a following list, which you can later use to see all the feeds from those users
+* RSS Feed for user, trending and tag (just add /rss to the url)
 
 ## Installation
 Clone the repository and fetch the requiered external packages with:
@@ -28,7 +29,7 @@ Move the .env.example file to .env and modify it.
 
 ### Cache engines
 Available cache engines:
-* redis: Writes response to Redis (check .env.example for config!)
+* redis: Writes response to Redis
 * json: Writes response to JSON file
 
 ### Apache
@@ -58,7 +59,7 @@ location /tiktok-viewer/.env {
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
-* [steampixel/simplePHPRouter](https://github.com/steampixel/simplePHPRouter)
+* [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma)
 * [Bulmaswatch](https://github.com/jenil/bulmaswatch)

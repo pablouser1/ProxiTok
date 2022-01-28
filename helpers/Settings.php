@@ -16,6 +16,6 @@ class Settings {
     }
 
     static public function set(string $name, string $value) {
-        setcookie($name, $value, time()+60*60*24*30, Misc::getSubDir(), '', isset($_SERVER['HTTPS']), true);
+        setcookie($name, $value, time()+60*60*24*30, '/', '', isset($_SERVER['HTTPS']), true);
     }
 };
