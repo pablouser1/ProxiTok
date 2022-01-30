@@ -1,9 +1,9 @@
 <?php
-namespace Helpers;
+namespace App\Helpers;
 
 class Following {
     static public function getUsers (): array {
-        $following_string = Settings::get('following');
+        $following_string = Cookies::get('following');
         if ($following_string) {
             return explode(',', $following_string);
         }

@@ -1,7 +1,7 @@
 {
     "name": "pablouser1/proxitok",
     "description": "An alternative frontend for TikTok",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "license": "AGPL-3.0-or-later",
     "repositories": [
         {
@@ -19,8 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Helpers\\": "helpers/",
-            "Views\\Models\\": "views/models/"
+            "App\\": "app/"
         }
     }
 }

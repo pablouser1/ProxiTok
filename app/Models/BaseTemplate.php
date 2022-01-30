@@ -1,5 +1,5 @@
 <?php
-namespace Views\Models;
+namespace App\Models;
 
 /**
 * Base for all templates, needs a Title to set

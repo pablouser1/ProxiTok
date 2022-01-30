@@ -1,7 +1,7 @@
 <?php
-namespace Helpers;
+namespace App\Helpers;
 
-class Settings {
+class Cookies {
     const PROXY = ['proxy-host', 'proxy-port', 'proxy-username', 'proxy-password'];
 
     static public function get(string $name): string {

@@ -36,17 +36,17 @@ Available cache engines:
 You don't have to do anything more
 
 ### Nginx
-Add the following to your config (you can modify the tiktok-viewer part if you have or not a subdir):
+Add the following to your config (you can modify the proxitok part if you have or not a subdir):
 ```
-location /tiktok-viewer {
-    return 302 $scheme://$host/tiktok-viewer/;
+location /proxitok {
+    return 302 $scheme://$host/proxitok/;
 }
 
-location /tiktok-viewer/ {
-    try_files $uri $uri/ /tiktok-viewer/index.php?$query_string;
+location /proxitok/ {
+    try_files $uri $uri/ /proxitok/index.php?$query_string;
 }
 
-location /tiktok-viewer/.env {
+location /proxitok/.env {
     deny all;
     return 404;
 }

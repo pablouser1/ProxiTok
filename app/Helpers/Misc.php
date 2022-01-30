@@ -1,12 +1,19 @@
 <?php
-namespace Helpers;
+namespace App\Helpers;
 
 use Exception;
-use Helpers\CacheEngines\JSONCache;
-use Helpers\CacheEngines\RedisCache;
-use Helpers\Settings;
+use App\Cache\JSONCache;
+use App\Cache\RedisCache;
 
 class Misc {
+    static public function getCursor(): int {
+        return isset($_GET['cursor']) && is_numeric($_GET['cursor']) ? (int) $_GET['cursor'] : 0;
+    }
+
+    static public function getURL(): string {
+        return self::env('APP_URL', '');
+    }
+
     static public function env(string $key, mixed $default_value): string {
         return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
     }
@@ -15,7 +22,7 @@ class Misc {
      * Returns absolute path for view
      */
     static public function getView(string $template): string {
-        return __DIR__ . "/../views/{$template}.latte";
+        return __DIR__ . "/../../views/{$template}.latte";
     }
 
     /**
@@ -25,7 +32,7 @@ class Misc {
         $options = [];
         $cacheEngine = false;
         // Proxy config
-        foreach(Settings::PROXY as $proxy_element) {
+        foreach(Cookies::PROXY as $proxy_element) {
             if (isset($_COOKIE[$proxy_element])) {
                 $options['proxy'][$proxy_element] = $_COOKIE[$proxy_element];
             }
@@ -58,14 +65,14 @@ class Misc {
      */
     static public function latte(): \Latte\Engine {
         // Workaround to avoid weird path issues
-        $url = self::env('APP_URL', '');
+        $url = self::getURL();
         $latte = new \Latte\Engine;
-        $cache_path = self::env('LATTE_CACHE', __DIR__ . '/../cache/latte');
+        $cache_path = self::env('LATTE_CACHE', __DIR__ . '/../../cache/latte');
         $latte->setTempDirectory($cache_path);
 
         // -- CUSTOM FUNCTIONS -- //
         // Import assets
-        $latte->addFunction('assets', function (string $name, string $type)  use ($url) {
+        $latte->addFunction('assets', function (string $name, string $type) use ($url) {
             $path = "{$url}/{$type}/{$name}";
             return $path;
         });

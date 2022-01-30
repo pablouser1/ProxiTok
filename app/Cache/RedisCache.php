@@ -1,5 +1,5 @@
 <?php
-namespace Helpers\CacheEngines;
+namespace App\Cache;
 
 class RedisCache {
     private \Redis $client;

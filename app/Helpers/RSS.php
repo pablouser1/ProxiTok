@@ -1,5 +1,5 @@
 <?php
-namespace Helpers;
+namespace App\Helpers;
 
 use \Bhaktaraz\RSSGenerator\Feed;
 use \Bhaktaraz\RSSGenerator\Channel;
@@ -7,7 +7,7 @@ use \Bhaktaraz\RSSGenerator\Item;
 use \Sovit\TikTok\Download;
 
 class RSS {
-    static public function build (string $endpoint, string $title, string $description, array $items, string $image = ''): Feed {
+    static public function build (string $endpoint, string $title, string $description, array $items): Feed {
         $url = Misc::env('APP_URL', '');
         $download = new Download();
         $rss_feed = new Feed();

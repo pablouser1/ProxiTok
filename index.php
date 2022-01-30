@@ -7,5 +7,8 @@ $dotenv->safeLoad();
 
 // ROUTER
 $router = new Bramus\Router\Router();
-require __DIR__ . '/routes/index.php';
+$router->setNamespace('\App\Controllers');
+
+require __DIR__ . '/routes.php';
+
 $router->run();

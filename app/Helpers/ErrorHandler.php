@@ -1,5 +1,5 @@
 <?php
-namespace Helpers;
+namespace App\Helpers;
 
 class ErrorHandler {
     static public function show(object $meta) {

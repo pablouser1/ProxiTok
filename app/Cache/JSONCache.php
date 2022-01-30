@@ -1,5 +1,5 @@
 <?php
-namespace Helpers\CacheEngines;
+namespace App\Cache;
 
 class JSONCache {
     private string $cache_path = __DIR__ . '/../../cache/api';

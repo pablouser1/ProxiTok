@@ -1,5 +1,5 @@
 <?php
-namespace Views\Models;
+namespace App\Models;
 
 /**
 * Base for templates with item (only /video at the time)

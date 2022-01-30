@@ -1,8 +1,8 @@
 <?php
-namespace Views\Models;
+namespace App\Models;
 
-use \Helpers\Following;
-use \Helpers\Settings;
+use App\Helpers\Cookies;
+use App\Helpers\Following;
 
 /**
 * Exclusive for /settings
@@ -13,7 +13,7 @@ class SettingsTemplate extends BaseTemplate {
 
     function __construct() {
         parent::__construct('Settings');
-        $this->proxy_elements = Settings::PROXY;
+        $this->proxy_elements = Cookies::PROXY;
         $this->following = Following::getUsers();
     }
 }

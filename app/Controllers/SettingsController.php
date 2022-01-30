@@ -1,29 +1,29 @@
 <?php
+namespace App\Controllers;
 
-/**@var Bramus\Router\Router $router */
+use App\Helpers\Misc;
+use App\Helpers\Cookies;
+use App\Helpers\Following;
+use App\Models\SettingsTemplate;
 
-use Helpers\Following;
-use Helpers\Settings;
-use Helpers\Misc;
-use Views\Models\SettingsTemplate;
-
-$router->mount('/settings', function () use ($router) {
-    $router->get('/', function () {
+class SettingsController {
+    static public function index() {
         $latte = Misc::latte();
         $latte->render(Misc::getView('settings'), new SettingsTemplate());
-    });
+    }
 
-    $router->post('/proxy', function () {
-        if (in_array(Settings::PROXY, $_POST)) {
-            foreach (Settings::PROXY as $proxy_element) {
-                Settings::set($proxy_element, $_POST[$proxy_element]);
+    static public function proxy() {
+        if (in_array(Cookies::PROXY, $_POST)) {
+            foreach (Cookies::PROXY as $proxy_element) {
+                Cookies::set($proxy_element, $_POST[$proxy_element]);
             }
         }
         http_response_code(302);
-        header('Location: ./home');
-    });
+        $url = Misc::env('APP_URL', '');
+        header("Location: {$url}");
+    }
 
-    $router->post('/following', function () {
+    static public function following() {
         $following = Following::getUsers();
         if (!isset($_POST['mode']) || empty($_POST['mode'])) {
             die('You need to send a mode');
@@ -48,7 +48,7 @@ $router->mount('/settings', function () use ($router) {
 
         // Build string
         $following_string = implode(',', $following);
-        Settings::set('following', $following_string);
+        Cookies::set('following', $following_string);
         header('Location: ../settings');
-    });
-});
+    }
+}

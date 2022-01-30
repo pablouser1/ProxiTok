@@ -1,5 +1,5 @@
 <?php
-namespace Views\Models;
+namespace App\Models;
 
 /**
 * Exclusive for /following
