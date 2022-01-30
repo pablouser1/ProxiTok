@@ -58,8 +58,8 @@ location /proxitok/.env {
 * Make video on /video fit screen and don't overflow
 
 ## Credits
-* [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP)
+* [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP) (Currently using my personal fork)
 * [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
-* [Bulma](https://github.com/jgthms/bulma)
-* [Bulmaswatch](https://github.com/jenil/bulmaswatch)
+* [Bulma](https://github.com/jgthms/bulma) and [Bulmaswatch](https://github.com/jenil/bulmaswatch)
+* [FeedWriter](https://github.com/mibe/FeedWriter)

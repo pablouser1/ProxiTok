@@ -1,36 +1,30 @@
 <?php
 namespace App\Helpers;
 
-use \Bhaktaraz\RSSGenerator\Feed;
-use \Bhaktaraz\RSSGenerator\Channel;
-use \Bhaktaraz\RSSGenerator\Item;
+use \FeedWriter\RSS2;
 use \Sovit\TikTok\Download;
 
 class RSS {
-    static public function build (string $endpoint, string $title, string $description, array $items): Feed {
+    static public function build(string $endpoint, string $title, string $description, array $items): string {
         $url = Misc::env('APP_URL', '');
         $download = new Download();
-        $rss_feed = new Feed();
-        $rss_channel = new Channel();
-        $rss_channel
-            ->title($title)
-            ->description($description)
-            ->url($url . $endpoint)
-            ->atomLinkSelf($url . $endpoint . '/rss')
-            ->appendTo($rss_feed);
+        $rss = new RSS2();
+        $rss->setTitle($title);
+        $rss->setDescription($description);
+        $rss->setLink($url . $endpoint);
+        $rss->setSelfLink($url . $endpoint . '/rss');
         foreach ($items as $item) {
-            $rss_item = new Item();
+            $item_rss = $rss->createNewItem();
             $video = $item->video->playAddr;
-            $rss_item
-                ->title($item->desc)
-                ->description($item->desc)
-                ->url($url . '/video/' . $item->id)
-                ->pubDate((int)$item->createTime)
-                ->guid($item->id, false)
-                ->enclosure($url . '/stream?url=' . urlencode($video), $download->file_size($video), 'video/mp4')
-                ->appendTo($rss_channel);
+            $item_rss->setTitle($item->desc);
+            $item_rss->setDescription($item->desc);
+            $item_rss->setLink($url . '/video/' . $item->id);
+            $item_rss->setDate((int) $item->createTime);
+            $item_rss->setId($item->id, false);
+            $item_rss->addEnclosure($url . '/stream?url=' . urlencode($video), $download->file_size($video), 'video/mp4');
+            $rss->addItem($item_rss);
         }
-        return $rss_feed;
+        return $rss->generateFeed();
     }
 
     static public function setHeaders (string $filename) {

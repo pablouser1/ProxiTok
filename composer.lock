@@ -4,57 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ecb565500ab6893126d60eeebcd7379",
+    "content-hash": "bf98cf536ad098372082ff5899967548",
     "packages": [
-        {
-            "name": "bhaktaraz/php-rss-generator",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bhaktaraz/php-rss-generator.git",
-                "reference": "53cf11db18d87e65973e6df453fb8c1382e5a3bd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bhaktaraz/php-rss-generator/zipball/53cf11db18d87e65973e6df453fb8c1382e5a3bd",
-                "reference": "53cf11db18d87e65973e6df453fb8c1382e5a3bd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bhaktaraz\\RSSGenerator\\": "Source/Bhaktaraz/RSSGenerator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bhaktaraz Bhatta",
-                    "email": "bhattabhakta@gmail.com"
-                }
-            ],
-            "description": "Simple RSS generator library for PHP 5.5 or later.",
-            "homepage": "https://github.com/bhaktaraz/php-rss-generator",
-            "keywords": [
-                "Facebook product feed generator",
-                "feed",
-                "generator",
-                "rss",
-                "writer"
-            ],
-            "support": {
-                "issues": "https://github.com/bhaktaraz/php-rss-generator/issues",
-                "source": "https://github.com/bhaktaraz/php-rss-generator/tree/master"
-            },
-            "time": "2021-03-15T10:59:47+00:00"
-        },
         {
             "name": "bramus/router",
             "version": "1.6.1",
@@ -251,6 +202,107 @@
                 "source": "https://github.com/nette/latte/tree/v2.10.8"
             },
             "time": "2022-01-04T14:13:28+00:00"
+        },
+        {
+            "name": "mibe/feedwriter",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mibe/FeedWriter.git",
+                "reference": "f4cc748ad8700e36663f08cfeebe7fd39b00eea2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mibe/FeedWriter/zipball/f4cc748ad8700e36663f08cfeebe7fd39b00eea2",
+                "reference": "f4cc748ad8700e36663f08cfeebe7fd39b00eea2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FeedWriter\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Bemmerl",
+                    "email": "mail@mx-server.de"
+                },
+                {
+                    "name": "Phil Freo"
+                },
+                {
+                    "name": "Paul Ferrett"
+                },
+                {
+                    "name": "Brennen Bearnes"
+                },
+                {
+                    "name": "Michael Robinson",
+                    "email": "mike@pagesofinterest.net"
+                },
+                {
+                    "name": "Baptiste Fontaine"
+                },
+                {
+                    "name": "Kristián Valentín"
+                },
+                {
+                    "name": "Brandtley McMinn"
+                },
+                {
+                    "name": "Julian Bogdani"
+                },
+                {
+                    "name": "Anis Uddin Ahmad",
+                    "email": "anis.programmer@gmail.com"
+                },
+                {
+                    "name": "Cedric Gampert"
+                },
+                {
+                    "name": "Yamek"
+                },
+                {
+                    "name": "thielj"
+                },
+                {
+                    "name": "Pavel Khakhlou"
+                },
+                {
+                    "name": "Daniel"
+                },
+                {
+                    "name": "Tino Goratsch"
+                }
+            ],
+            "description": "Generate feeds in either RSS 1.0, RSS 2.0 or ATOM formats",
+            "homepage": "https://github.com/mibe/FeedWriter",
+            "keywords": [
+                "RSS 1.0",
+                "atom",
+                "feed",
+                "rss",
+                "rss 2.0",
+                "rss2"
+            ],
+            "support": {
+                "issues": "https://github.com/mibe/FeedWriter/issues",
+                "source": "https://github.com/mibe/FeedWriter/tree/master"
+            },
+            "time": "2016-11-19T20:47:44+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -708,8 +760,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ssovit/tiktok-api": 20,
-        "bhaktaraz/php-rss-generator": 20
+        "ssovit/tiktok-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
