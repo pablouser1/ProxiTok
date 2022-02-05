@@ -1,10 +1,11 @@
 <?php
 use App\Helpers\Misc;
 use App\Models\BaseTemplate;
+use App\Models\HomeTemplate;
 
 $router->get('/', function () {
     $latte = Misc::latte();
-    $latte->render(Misc::getView('home'), new BaseTemplate('Home'));
+    $latte->render(Misc::getView('home'), new HomeTemplate);
 });
 
 $router->get('/about', function () {
@@ -13,6 +14,7 @@ $router->get('/about', function () {
 });
 
 $router->get('/stream', 'ProxyController@stream');
+$router->get('/redirect', 'RedirectController@redirect');
 
 $router->mount('/trending', function () use ($router) {
     $router->get('/', 'TrendingController@get');
@@ -40,4 +42,5 @@ $router->mount('/settings', function () use ($router) {
     $router->post('/following', 'SettingsController@following');
 });
 
+$router->get('/discover', 'DiscoverController@get');
 $router->get('/following', 'FollowingController@get');

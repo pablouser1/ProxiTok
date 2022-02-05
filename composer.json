@@ -1,8 +1,16 @@
 {
     "name": "pablouser1/proxitok",
     "description": "An alternative frontend for TikTok",
-    "version": "1.3.2",
+    "version": "1.4.0",
     "license": "AGPL-3.0-or-later",
+    "type": "project",
+    "homepage": "https://github.com/pablouser1/ProxiTok",
+    "authors": [
+        {
+            "name": "Pablo Ferreiro",
+            "homepage": "https://github.com/pablouser1"
+        }
+    ],
     "repositories": [
         {
             "type": "vcs",

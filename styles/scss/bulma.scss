@@ -24,8 +24,10 @@ $bulmaswatch-import-font: false;
 @import "./node_modules/bulma/sass/form/tools.sass";
 
 // Components
+@import "./node_modules/bulma/sass/components/card.sass";
 @import "./node_modules/bulma/sass/components/modal.sass";
 @import "./node_modules/bulma/sass/components/navbar.sass";
+@import "./node_modules/bulma/sass/components/media.sass";
 
 // Grids
 @import "./node_modules/bulma/sass/grid/columns.sass";

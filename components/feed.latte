@@ -1,16 +1,17 @@
-<link rel="stylesheet" href="{assets('feed.css', 'styles')}">
+<link rel="stylesheet" href="{path('/styles/feed.css')}">
+<noscript>JavaScript is required for this section to work!</noscript>
 <section class="section">
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
     <div class="column is-one-quarter">
 			<a class="clickable-img" id="{$item->id}" href="#{$item->id}"
-				data-video_url="{path('stream?url=' . urlencode($item->video->playAddr))}"
-				data-video_download="{path('stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
+				data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
+				data-video_download="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
         data-desc="{$item->desc}"
         data-music_title="{$item->music->title}"
-        data-music_url="{path('stream?url=' . urlencode($item->music->playUrl))}">
-        <img loading="lazy" src="{path('stream?url=' . urlencode($item->video->originCover))}" />
-				<img class="hidden" loading="lazy" data-src="{path('stream?url=' . urlencode($item->video->dynamicCover))}" />
+        data-music_url="{path('/stream?url=' . urlencode($item->music->playUrl))}">
+        <img loading="lazy" src="{path('/stream?url=' . urlencode($item->video->originCover))}" />
+				<img class="hidden" loading="lazy" data-src="{path('/stream?url=' . urlencode($item->video->dynamicCover))}" />
       </a>
     </div>
     {/foreach}
@@ -50,4 +51,4 @@
     </footer>
   </div>
 </div>
-<script src="{assets('feed.js', 'scripts')}"></script>
+<script src="{path('/scripts/feed.js')}"></script>

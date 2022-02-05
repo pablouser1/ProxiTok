@@ -18,8 +18,7 @@ class SettingsController {
                 Cookies::set($proxy_element, $_POST[$proxy_element]);
             }
         }
-        http_response_code(302);
-        $url = Misc::env('APP_URL', '');
+        $url = Misc::url('/settings');
         header("Location: {$url}");
     }
 
@@ -49,6 +48,7 @@ class SettingsController {
         // Build string
         $following_string = implode(',', $following);
         Cookies::set('following', $following_string);
-        header('Location: ../settings');
+        $url = Misc::url('/settings');
+        header("Location: {$url}");
     }
 }

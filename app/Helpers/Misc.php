@@ -1,7 +1,6 @@
 <?php
 namespace App\Helpers;
 
-use Exception;
 use App\Cache\JSONCache;
 use App\Cache\RedisCache;
 
@@ -10,11 +9,11 @@ class Misc {
         return isset($_GET['cursor']) && is_numeric($_GET['cursor']) ? (int) $_GET['cursor'] : 0;
     }
 
-    static public function getURL(): string {
-        return self::env('APP_URL', '');
+    static public function url(string $endpoint = '') {
+        return self::env('APP_URL', '') . $endpoint;
     }
 
-    static public function env(string $key, mixed $default_value): string {
+    static public function env(string $key, string $default_value): string {
         return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
     }
 
@@ -45,7 +44,7 @@ class Misc {
                     break;
                 case 'redis':
                     if (!isset($_ENV['REDIS_URL'])) {
-                        throw new Exception('You need to set REDIS_URL to use Redis Cache!');
+                        throw new \Exception('You need to set REDIS_URL to use Redis Cache!');
                     }
 
                     $url = parse_url($_ENV['REDIS_URL']);
@@ -64,24 +63,17 @@ class Misc {
      * Setup of Latte template engine
      */
     static public function latte(): \Latte\Engine {
-        // Workaround to avoid weird path issues
-        $url = self::getURL();
         $latte = new \Latte\Engine;
         $cache_path = self::env('LATTE_CACHE', __DIR__ . '/../../cache/latte');
         $latte->setTempDirectory($cache_path);
 
         // -- CUSTOM FUNCTIONS -- //
-        // Import assets
-        $latte->addFunction('assets', function (string $name, string $type) use ($url) {
-            $path = "{$url}/{$type}/{$name}";
-            return $path;
-        });
-        // Get base URL
-        $latte->addFunction('path', function (string $path = '') use ($url) {
-            return "{$url}/{$path}";
+        // Get URL with optional endpoint
+        $latte->addFunction('path', function (string $endpoint = ''): string {
+            return self::url($endpoint);
         });
         // Version being used
-        $latte->addFunction('version', function () {
+        $latte->addFunction('version', function (): string {
             return \Composer\InstalledVersions::getVersion('pablouser1/proxitok');
         });
         // https://stackoverflow.com/a/36365553
@@ -97,10 +89,6 @@ class Misc {
                 return $x_display;
             }
             return $x;
-        });
-        $latte->addFunction('size', function (string $url) {
-            $download = new \Sovit\TikTok\Download();
-            return $download->file_size($url);
         });
         return $latte;
     }
