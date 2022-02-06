@@ -17,13 +17,11 @@
     {/foreach}
   </div>
 	<div n:ifset="$feed->info" class="buttons">
-    <a n:ifset="$_GET['cursor']" class="button is-danger" href="?cursor=0">First</a>
-    <a class="button is-danger" href="?cursor={$feed->minCursor}">Back</a>
-    {if $feed->hasMore}
-    <a n-if="$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
-    {else}
-    <a class="button is-success" disabled title="No more videos available">Next</a>
-    {/if}
+		{if isset($_GET['cursor']) && $_GET['cursor'] != 0}
+    	<a class="button is-danger" href="?cursor=0">First</a>
+			<a class="button is-danger" href="?cursor={$feed->minCursor}">Back</a>
+		{/if}
+    <a n:attr="disabled => $feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
 	</div>
 </section>
 

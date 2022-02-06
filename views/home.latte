@@ -4,23 +4,35 @@
 	<p class="title">Welcome to ProxiTok!</p>
 	<p class="subtitle">An alternative open source frontend for TikTok</p>
 	<!-- Create forms from App\Models\HomeTemplate -->
-	{foreach $forms as $form}
-		<p>{$form['title']}</p>
-		<form action="{path('/redirect')}">
-			<div class="field has-addons has-addons-centered">
-				<div class="control">
-					<input name="{$form['input']}" class="input" type="text" placeholder="{$form['placeholder']}" required />
-				</div>
-	    	<div class="control">
-      		<button class="button is-success" type="submit">Go</button>
-    		</div>
+	<div class="columns is-centered is-vcentered is-multiline">
+		{foreach $forms as $form}
+			<div class="column is-narrow">
+				{embed '../components/card.latte'}
+					{block title}{$form['title']}{/block}
+					{block content}
+						<form action="{path('/redirect')}">
+							<div class="field has-addons has-addons-centered">
+								<div class="control">
+									<input name="{$form['input']}" class="input" type="text" placeholder="{$form['placeholder']}" required />
+								</div>
+	    					<div class="control">
+      						<button class="button is-success" type="submit">Search</button>
+    						</div>
+							</div>
+						</form>
+					{/block}
+				{/embed}
 			</div>
-		</form>
-		<hr />
-	{/foreach}
-	<p>Discover</p>
-	<a class="button is-success" href="{path('/discover')}">Go</a>
-	<hr />
-	<p>Trending</p>
-	<a class="button is-success" href="{path('/trending')}">Go</a>
+		{/foreach}
+	</div>
+	<div class="columns is-centered is-mobile">
+		<div class="column is-narrow">
+			<p>Discover</p>
+			<a class="button is-success" href="{path('/discover')}">Go</a>
+		</div>
+		<div class="column is-narrow">
+			<p>Trending</p>
+			<a class="button is-success" href="{path('/trending')}">Go</a>
+		</div>
+	</div>
 {/block}

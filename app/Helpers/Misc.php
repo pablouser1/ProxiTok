@@ -43,14 +43,20 @@ class Misc {
                     $cacheEngine = new JSONCache();
                     break;
                 case 'redis':
-                    if (!isset($_ENV['REDIS_URL'])) {
-                        throw new \Exception('You need to set REDIS_URL to use Redis Cache!');
+                    if (!(isset($_ENV['REDIS_URL']) || isset($_ENV['REDIS_HOST'], $_ENV['REDIS_PORT']))) {
+                        throw new \Exception('You need to set REDIS_URL or REDIS_HOST and REDIS_PORT to use Redis Cache!');
                     }
 
-                    $url = parse_url($_ENV['REDIS_URL']);
-                    $host = $url['host'];
-                    $port = $url['port'];
-                    $password = $url['pass'] ?? null;
+                    if (isset($_ENV['REDIS_URL'])) {
+                        $url = parse_url($_ENV['REDIS_URL']);
+                        $host = $url['host'];
+                        $port = $url['port'];
+                        $password = $url['pass'] ?? null;
+                    } else {
+                        $host = $_ENV['REDIS_HOST'];
+                        $port = (int) $_ENV['REDIS_PORT'];
+                        $password = isset($_ENV['REDIS_PASSWORD']) ? $_ENV['REDIS_PASSWORD'] : null;
+                    }
                     $cacheEngine = new RedisCache($host, $port, $password);
                     break;
             }
@@ -77,7 +83,7 @@ class Misc {
             return \Composer\InstalledVersions::getVersion('pablouser1/proxitok');
         });
         // https://stackoverflow.com/a/36365553
-        $latte->addFunction('number', function (int $x) {
+        $latte->addFunction('number', function (float $x) {
             if($x > 1000) {
                 $x_number_format = number_format($x);
                 $x_array = explode(',', $x_number_format);

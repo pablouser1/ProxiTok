@@ -39,8 +39,6 @@ $router->get('/music/([^/]+)', 'MusicController@get');
 $router->mount('/settings', function () use ($router) {
     $router->get('/', 'SettingsController@index');
     $router->post('/proxy', 'SettingsController@proxy');
-    $router->post('/following', 'SettingsController@following');
 });
 
 $router->get('/discover', 'DiscoverController@get');
-$router->get('/following', 'FollowingController@get');

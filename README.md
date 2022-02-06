@@ -57,10 +57,11 @@ location /proxitok/.env {
 * Add a NoJS version / Make the whole program without required JS
 * Better error handling
 * Make video on /video fit screen and don't overflow
-* Allow custom Region/Language
+* i18n
 
 ## Credits
 * [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP) (Currently using my personal fork)
+* [Latte](https://github.com/nette/latte)
 * [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma) and [Bulmaswatch](https://github.com/jenil/bulmaswatch)

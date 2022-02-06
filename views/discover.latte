@@ -10,29 +10,30 @@
 		<div class="columns is-multiline is-vcentered">
 			{foreach $items as $item}
 				<div class="column is-one-quarter">
-					<a href="{path($item->cardItem->link)}">
-						<div class="card">
-							<div class="card-content">
-								<div class="media">
-									<!-- Show image if exists -->
-									{if !empty($item->cardItem->cover)}
-										<div class="media-left">
-											<figure class="image is-96x96">
-												<img width="96" height="96" src="{path('/stream?url=' . urlencode($item->cardItem->cover))}" />
-											</figure>
-										</div>
-									{/if}
-									<div class="media-content">
-										<p class="title">{$item->cardItem->title}</p>
-										<p class="subtitle">{$item->cardItem->subTitle}</p>
+					{embed '../components/card.latte'}
+						{block content}
+							<div class="media">
+								<!-- Show image if exists -->
+								{if !empty($item->cardItem->cover)}
+									<div class="media-left">
+										<figure class="image is-96x96">
+											<img width="96" height="96" src="{path('/stream?url=' . urlencode($item->cardItem->cover))}" />
+										</figure>
 									</div>
-								</div>
-								<div class="content">
-									<p>{$item->cardItem->description}</p>
+								{/if}
+								<div class="media-content">
+									<p class="title">{$item->cardItem->title}</p>
+									<p class="subtitle">{$item->cardItem->subTitle}</p>
 								</div>
 							</div>
-						</div>
-					</a>
+							<div class="content">
+								<p>{$item->cardItem->description}</p>
+							</div>
+						{/block}
+						{block footer}
+							<a href="{path($item->cardItem->link)}" class="card-footer-item">Go</a>
+						{/block}
+					{/embed}
 				</div>
 			{/foreach}
 		</div>
