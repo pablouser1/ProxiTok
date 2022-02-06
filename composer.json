@@ -19,6 +19,7 @@
     ],
     "require": {
         "ext-redis": "^5.3.2",
+        "ext-mbstring": "*",
         "ssovit/tiktok-api": "dev-rework",
         "latte/latte": "^2.10",
         "vlucas/phpdotenv": "^5.4",
