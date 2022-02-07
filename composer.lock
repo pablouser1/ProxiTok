@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d34d2f322b7dfcf36f55780c95cd59",
+    "content-hash": "e829a003ddc8a31048406dfd3ec20815",
     "packages": [
         {
             "name": "bramus/router",
@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikTok-API-PHP.git",
-                "reference": "6d2be1b886e455d6e124453dff07de3e89c0d45a"
+                "reference": "390d12b967e0e072227171d8bdc6cfb4544a11f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/6d2be1b886e455d6e124453dff07de3e89c0d45a",
-                "reference": "6d2be1b886e455d6e124453dff07de3e89c0d45a",
+                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/390d12b967e0e072227171d8bdc6cfb4544a11f2",
+                "reference": "390d12b967e0e072227171d8bdc6cfb4544a11f2",
                 "shasum": ""
             },
             "type": "library",
@@ -425,7 +425,7 @@
                 "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
                 "email": "sovit.tamrakar@gmail.com"
             },
-            "time": "2022-02-07T20:07:07+00:00"
+            "time": "2022-02-07T20:13:16+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
