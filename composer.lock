@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikTok-API-PHP.git",
-                "reference": "390d12b967e0e072227171d8bdc6cfb4544a11f2"
+                "reference": "60c00cfd321888b80eba93b6214c8c4003e98e57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/390d12b967e0e072227171d8bdc6cfb4544a11f2",
-                "reference": "390d12b967e0e072227171d8bdc6cfb4544a11f2",
+                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/60c00cfd321888b80eba93b6214c8c4003e98e57",
+                "reference": "60c00cfd321888b80eba93b6214c8c4003e98e57",
                 "shasum": ""
             },
             "type": "library",
@@ -425,7 +425,7 @@
                 "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
                 "email": "sovit.tamrakar@gmail.com"
             },
-            "time": "2022-02-07T20:13:16+00:00"
+            "time": "2022-02-07T22:43:53+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

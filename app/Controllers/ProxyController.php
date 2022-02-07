@@ -19,27 +19,44 @@ class ProxyController {
         return false;
     }
 
-    static public function stream() {
+    static private function checkUrl() {
         if (!isset($_GET['url'])) {
-            die('You need to send a url!');
+            die('You need to send a URL');
         }
 
-        $url = $_GET['url'];
-        if (!filter_var($url, FILTER_VALIDATE_URL) || !self::isValidDomain($url)) {
+        if (!filter_var($_GET['url'], FILTER_VALIDATE_URL) || !self::isValidDomain($_GET['url'])) {
             die('Not a valid URL');
         }
 
+    }
+
+    static private function getFileName(): string {
+        $filename = 'tiktok-video';
+        if (isset($_GET['user'])) {
+            $filename .= '-' . $_GET['user'] . '-' . $_GET['id'];
+        }
+        return $filename;
+    }
+
+    static public function stream() {
         if (isset($_GET['download'])) {
-            // Download
-            $downloader = new \Sovit\TikTok\Download();
-            $filename = 'tiktok-video';
-            if (isset($_GET['id'], $_GET['user'])) {
-                $filename .= '-' . $_GET['user'] . '-' . $_GET['id'];
-            }
             $watermark = isset($_GET['watermark']);
-            $downloader->url($url, $filename, $watermark);
+            if ($watermark) {
+                self::checkUrl();
+                $filename = self::getFileName();
+                $downloader = new \Sovit\TikTok\Download();
+                $downloader->url($_GET['url'], $filename, true);
+            } else {
+                if (!isset($_GET['id'])) {
+                    die('You need to send an ID!');
+                }
+                $filename = self::getFileName();
+                $downloader = new \Sovit\TikTok\Download();
+                $downloader->url($_GET['id'], $filename, false);
+            }
         } else {
-            // Stream
+            self::checkUrl();
+            $url = $_GET['url'];
             $streamer = new \Sovit\TikTok\Stream();
             $streamer->stream($url);
         }
