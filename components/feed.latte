@@ -6,7 +6,7 @@
     <div class="column is-one-quarter">
 			<a class="clickable-img" id="{$item->id}" href="#{$item->id}"
 				data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
-				data-video_download="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1')}"
+				data-video_download="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id)}"
         data-desc="{$item->desc}"
         data-music_title="{$item->music->title}"
         data-music_url="{path('/stream?url=' . urlencode($item->music->playUrl))}">
@@ -17,11 +17,11 @@
     {/foreach}
   </div>
 	<div n:ifset="$feed->info" class="buttons">
-		{if isset($_GET['cursor']) && $_GET['cursor'] != 0}
-    	<a class="button is-danger" href="?cursor=0">First</a>
-			<a class="button is-danger" href="?cursor={$feed->minCursor}">Back</a>
+		{if isset($_GET['cursor']) && $_GET['cursor'] != 0 }
+    	<a class="button is-danger" href="?">First</a>
+			<button class="button is-danger" onclick="history.back()">Back</button>
 		{/if}
-    <a n:attr="disabled => $feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
+    <a n:attr="disabled => !$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
 	</div>
 </section>
 

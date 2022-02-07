@@ -25,7 +25,11 @@ class ProxyController {
         if (isset($_GET['download'])) {
             // Download
             $downloader = new \Sovit\TikTok\Download();
-            $downloader->url($url, "tiktok-video", 'mp4');
+            $filename = 'tiktok-video';
+            if (isset($_GET['id'])) {
+                $filename .= '-' . $_GET['id'];
+            }
+            $downloader->url($url, $filename, 'mp4');
         } else {
             // Stream
             $streamer = new \Sovit\TikTok\Stream();
