@@ -1,3 +1,5 @@
+var opened_video_id = null
+
 const video = document.getElementById('video')
 const item_title = document.getElementById('item_title')
 const audio = document.getElementById('audio')
@@ -5,13 +7,12 @@ const audio_title = document.getElementById('audio_title')
 const modal = document.getElementById('modal')
 const download_watermark = document.getElementById('download_watermark')
 const download_nowatermark = document.getElementById('download_nowatermark')
+const share_input = document.getElementById('share_input')
 
-// -- HELPERS -- //
-const getHash = () => window.location.hash.substring(1)
-
-const getVideoDataById = (id) => {
+const getVideoDataById = id => {
   const el = document.getElementById(id)
   if (el) {
+    opened_video_id = id
     return el.dataset
   }
   return false
@@ -19,19 +20,20 @@ const getVideoDataById = (id) => {
 
 const isModalActive = () => modal.classList.contains('is-active')
 
-const toggleButton = (id, force) => document.getElementById(id) ? document.getElementById(id).toggleAttribute('disabled', force) : alert('That button does not exist')
+const toggleButton = (id, force) => document.getElementById(id).toggleAttribute('disabled', force)
 
 // -- MODAL -- //
-const swapData = ({ video_url, desc, video_download_watermark, video_download_nowatermark, music_title, music_url }) => {
+const swapData = ({ video_url, desc, video_download_watermark, video_download_nowatermark, video_share_url, music_title, music_url }) => {
   video.src = video_url
   item_title.innerText = desc
   download_watermark.href = video_download_watermark
   download_nowatermark.href = video_download_nowatermark
+  share_input.value = video_share_url
   audio_title.innerText = music_title
   audio.src = music_url
 }
 
-const showModal = (id) => {
+const showModal = id => {
   const dataset = getVideoDataById(id)
   if (dataset) {
     swapData(dataset)
@@ -50,27 +52,27 @@ const hideModel = () => {
   history.pushState('', document.title, window.location.pathname + window.location.search)
 }
 
-const getPrevOrNext = (forward) => {
-  const hash = getHash()
-  if (hash) {
-    const el = document.getElementById(hash)
+const getPrevOrNext = forward => {
+  if (opened_video_id) {
+    const el = document.getElementById(opened_video_id)
     if (el) {
       if (forward) {
-        return el.parentElement.nextElementSibling ? el.parentElement.nextElementSibling.children[0] : null
+        return el.nextElementSibling
       }
-      return el.parentElement.previousElementSibling ? el.parentElement.previousElementSibling.children[0] : null
+      return el.previousElementSibling
     }
   }
   return null
 }
 
-const moveVideo = (forward) => {
+const moveVideo = forward => {
   // Re-enable buttons
   toggleButton('back-button', false)
   toggleButton('next-button', false)
   const new_el = getPrevOrNext(forward)
   if (new_el) {
-    window.location.hash = new_el.id
+    opened_video_id = new_el.id
+    swapData(new_el.dataset)
   } else {
     // Max reached, disable buttons depending on direction
     if (forward) {
@@ -82,58 +84,42 @@ const moveVideo = (forward) => {
 }
 
 // EVENTS //
-const hashChange = () => {
-  if (window.location.hash) {
-    const hash = getHash()
-    if (hash) {
-      // Check first if the modal is already active
-      if (isModalActive()) {
-        // If it is, get hash video id and swap data
-        const dataset = getVideoDataById(hash)
-        if (dataset) {
-          swapData(dataset)
-          video.play()
-        }
-      } else {
-        showModal(hash)
-      }
+const openVideo = video_id => {
+  if (isModalActive()) {
+    const dataset = getVideoDataById(video_id)
+    if (dataset) {
+      swapData(dataset)
     }
+  } else {
+    showModal(video_id)
   }
 }
 
-const swapImages = (e, mode) => {
-  let img = null
-  let gif = null
-  if (mode === 'gif') {
-    const a = e.target
-    img = a.children[0]
-    gif = a.children[1]
-  } else if (mode === 'img') {
-    gif = e.target
-    img = e.target.parentElement.children[0]
+const swapImages = e => {
+  const div = e.target
+  const img = div.children[0]
+  const gif = div.children[1]
+  if (!gif.src) {
+    gif.src = gif.dataset.src
   }
+  img.classList.toggle('hidden')
+  gif.classList.toggle('hidden')
+}
 
-  if (img && gif) {
-    if (!gif.src) {
-      gif.src = gif.dataset.src
-    }
-    img.classList.toggle('hidden')
-    gif.classList.toggle('hidden')
-  }
+const copyShare = () => {
+  share_input.select();
+  navigator.clipboard.writeText(share_input.value);
+  alert('Copied!')
 }
 
 document.getElementById('modal-background').addEventListener('click', hideModel)
 document.getElementById('modal-close').addEventListener('click', hideModel)
 document.getElementById('back-button').addEventListener('click', () => moveVideo(false))
 document.getElementById('next-button').addEventListener('click', () => moveVideo(true))
-window.addEventListener('hashchange', hashChange, false)
 
 // Image hover
 const images = document.getElementsByClassName("clickable-img")
 for (let i = 0; i < images.length; i++) {
-  images[i].addEventListener('mouseenter', e => swapImages(e, 'gif'), false)
-  images[i].addEventListener('mouseout', e => swapImages(e, 'img'), false)
+  images[i].addEventListener('mouseenter', swapImages, false)
+  images[i].addEventListener('mouseout', swapImages, false)
 }
-
-
-hashChange()
