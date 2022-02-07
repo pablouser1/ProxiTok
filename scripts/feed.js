@@ -3,7 +3,8 @@ const item_title = document.getElementById('item_title')
 const audio = document.getElementById('audio')
 const audio_title = document.getElementById('audio_title')
 const modal = document.getElementById('modal')
-const download_button = document.getElementById('download_button')
+const download_watermark = document.getElementById('download_watermark')
+const download_nowatermark = document.getElementById('download_nowatermark')
 
 // -- HELPERS -- //
 const getHash = () => window.location.hash.substring(1)
@@ -21,10 +22,11 @@ const isModalActive = () => modal.classList.contains('is-active')
 const toggleButton = (id, force) => document.getElementById(id) ? document.getElementById(id).toggleAttribute('disabled', force) : alert('That button does not exist')
 
 // -- MODAL -- //
-const swapData = ({ video_url, desc, video_download, music_title, music_url }) => {
+const swapData = ({ video_url, desc, video_download_watermark, video_download_nowatermark, music_title, music_url }) => {
   video.src = video_url
   item_title.innerText = desc
-  download_button.href = video_download
+  download_watermark.href = video_download_watermark
+  download_nowatermark.href = video_download_nowatermark
   audio_title.innerText = music_title
   audio.src = music_url
 }

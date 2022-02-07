@@ -9,7 +9,14 @@ class ProxyController {
     static private function isValidDomain(string $url) {
         $host = parse_url($url, PHP_URL_HOST);
         $host_split = explode('.', $host);
-        return count($host_split) === 3 && in_array($host_split[1] . '.' . $host_split[2], self::VALID_TIKTOK_DOMAINS);
+        $host_count = count($host_split);
+        if ($host_count === 2) {
+            // Using no watermark
+            return in_array($host_split[0] . '.' . $host_split[1], self::VALID_TIKTOK_DOMAINS);
+        } elseif ($host_count === 3) {
+            return in_array($host_split[1] . '.' . $host_split[2], self::VALID_TIKTOK_DOMAINS);
+        }
+        return false;
     }
 
     static public function stream() {
@@ -29,7 +36,8 @@ class ProxyController {
             if (isset($_GET['id'], $_GET['user'])) {
                 $filename .= '-' . $_GET['user'] . '-' . $_GET['id'];
             }
-            $downloader->url($url, $filename, 'mp4');
+            $watermark = isset($_GET['watermark']);
+            $downloader->url($url, $filename, $watermark);
         } else {
             // Stream
             $streamer = new \Sovit\TikTok\Stream();
