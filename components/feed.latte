@@ -6,7 +6,7 @@
     <div class="column is-one-quarter">
 			<a class="clickable-img" id="{$item->id}" href="#{$item->id}"
 				data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
-				data-video_download="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id)}"
+				data-video_download="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id . '&user=' . $item->author->uniqueId)}"
         data-desc="{$item->desc}"
         data-music_title="{$item->music->title}"
         data-music_url="{path('/stream?url=' . urlencode($item->music->playUrl))}">
