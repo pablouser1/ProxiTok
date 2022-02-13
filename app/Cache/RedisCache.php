@@ -31,7 +31,7 @@ class RedisCache {
         return $this->client->exists($cache_key);
     }
 
-    public function set(string $cache_key, array $data, $timeout = 3600) {
-        $this->client->set($cache_key, json_encode($data), $timeout);
+    public function set(string $cache_key, string $data, $timeout = 3600) {
+        $this->client->set($cache_key, $data, $timeout);
     }
 }
