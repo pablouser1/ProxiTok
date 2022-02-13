@@ -3,7 +3,7 @@
 <section class="section">
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
-		{do $share_url = 'https://tiktok.com/@' . $item->author->uniqueId . '/' . $item->id}
+		{do $share_url = 'https://tiktok.com/@' . $item->author->uniqueId . '/video/' . $item->id}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
 			data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
 			data-video_download_watermark="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
