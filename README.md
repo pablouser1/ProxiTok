@@ -60,7 +60,7 @@ location /proxitok/.env {
 * i18n
 
 ## Credits
-* [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP) (Currently using my personal fork)
+* [TikScraper](https://github.com/pablouser1/TikScraperPHP)
 * [Latte](https://github.com/nette/latte)
 * [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)

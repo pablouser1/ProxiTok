@@ -17,7 +17,7 @@
     </div>
     {/foreach}
   </div>
-	<div n:ifset="$feed->info" class="buttons">
+	<div class="buttons">
 		{if isset($_GET['cursor']) && $_GET['cursor'] != 0 }
     	<a class="button is-danger" href="?">First</a>
 			<button class="button is-danger" onclick="history.back()">Back</button>

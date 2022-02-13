@@ -40,25 +40,24 @@ class ProxyController {
 
     static public function stream() {
         if (isset($_GET['download'])) {
+            $downloader = new \TikScraper\Download();
             $watermark = isset($_GET['watermark']);
             if ($watermark) {
                 self::checkUrl();
                 $filename = self::getFileName();
-                $downloader = new \Sovit\TikTok\Download();
                 $downloader->url($_GET['url'], $filename, true);
             } else {
                 if (!isset($_GET['id'])) {
                     die('You need to send an ID!');
                 }
                 $filename = self::getFileName();
-                $downloader = new \Sovit\TikTok\Download();
                 $downloader->url($_GET['id'], $filename, false);
             }
         } else {
             self::checkUrl();
             $url = $_GET['url'];
-            $streamer = new \Sovit\TikTok\Stream();
-            $streamer->stream($url);
+            $streamer = new \TikScraper\Stream();
+            $streamer->url($url);
         }
     }
 }

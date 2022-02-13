@@ -2,13 +2,13 @@
 
 {block header}
 	<figure class="figure is-96x96">
-		<img src="{path('/stream?url=' . urlencode($feed->info->detail->user->avatarThumb))}" />
+		<img src="{path('/stream?url=' . urlencode($feed->info->detail->avatarThumb))}" />
 	</figure>
-	<p class="title">{$feed->info->detail->user->uniqueId}'s profile</p>
-	<p class="subtitle">{$feed->info->detail->user->signature}</p>
-	<p>Following: {number($feed->info->detail->stats->followingCount)} / Followers: {number($feed->info->detail->stats->followerCount)}</p>
-	<p>Hearts: {number($feed->info->detail->stats->heartCount)} / Videos: {$feed->info->detail->stats->videoCount}</p>
-	<a href="{path('/@' . $feed->info->detail->user->uniqueId . '/rss')}">RSS</a>
+	<p class="title">{$feed->info->detail->uniqueId}'s profile</p>
+	<p class="subtitle">{$feed->info->detail->signature}</p>
+	<p>Following: {number($feed->info->stats->followingCount)} / Followers: {number($feed->info->stats->followerCount)}</p>
+	<p>Hearts: {number($feed->info->stats->heartCount)} / Videos: {$feed->info->stats->videoCount}</p>
+	<a href="{path('/@' . $feed->info->detail->uniqueId . '/rss')}">RSS</a>
 {/block}
 
 {block content}

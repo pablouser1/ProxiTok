@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
-use App\Models\FeedTemplate;
+use App\Models\DiscoverTemplate;
 
 class DiscoverController {
     static public function get() {
@@ -11,7 +11,7 @@ class DiscoverController {
         $feed = $api->getDiscover();
         if ($feed->meta->success) {
             $latte = Misc::latte();
-            $latte->render(Misc::getView('discover'), new FeedTemplate('Discover', $feed));
+            $latte->render(Misc::getView('discover'), new DiscoverTemplate($feed));
         } else {
             ErrorHandler::show($feed->meta);
         }

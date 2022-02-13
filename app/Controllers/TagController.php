@@ -10,7 +10,7 @@ class TagController {
     static public function get(string $name) {
         $cursor = Misc::getCursor();
         $api = Misc::api();
-        $feed = $api->getChallengeFeed($name, $cursor);
+        $feed = $api->getHashtagFeed($name, $cursor);
         if ($feed->meta->success) {
             $latte = Misc::latte();
             $latte->render(Misc::getView('tag'), new FeedTemplate('Tag', $feed));
@@ -21,9 +21,9 @@ class TagController {
 
     static public function rss(string $name) {
         $api = Misc::api();
-        $feed = $api->getChallengeFeed($name);
+        $feed = $api->getHashtagFeed($name);
         if ($feed->meta->success) {
-            $feed = RSS::build("/tag/{$name}", "{$name} Tag", $feed->info->detail->challenge->desc, $feed->items);
+            $feed = RSS::build("/tag/{$name}", "{$name} Tag", $feed->info->detail->desc, $feed->items);
             // Setup headers
             RSS::setHeaders('tag.rss');
             echo $feed;

@@ -27,8 +27,10 @@ class Misc {
     /**
      * Setup of TikTok Api wrapper
      */
-    static public function api(): \Sovit\TikTok\Api {
-        $options = [];
+    static public function api(): \TikScraper\Api {
+        $options = [
+            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature')
+        ];
         $cacheEngine = false;
         // Proxy config
         foreach(Cookies::PROXY as $proxy_element) {
@@ -55,13 +57,13 @@ class Misc {
                     } else {
                         $host = $_ENV['REDIS_HOST'];
                         $port = (int) $_ENV['REDIS_PORT'];
-                        $password = isset($_ENV['REDIS_PASSWORD']) ? $_ENV['REDIS_PASSWORD'] : null;
+                        $password = $_ENV['REDIS_PASSWORD'] ?? null;
                     }
                     $cacheEngine = new RedisCache($host, $port, $password);
                     break;
             }
         }
-        $api = new \Sovit\TikTok\Api($options, $cacheEngine);
+        $api = new \TikScraper\Api($options, $cacheEngine);
         return $api;
     }
 
