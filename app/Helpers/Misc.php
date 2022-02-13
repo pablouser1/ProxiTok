@@ -9,6 +9,10 @@ class Misc {
         return isset($_GET['cursor']) && is_numeric($_GET['cursor']) ? (int) $_GET['cursor'] : 0;
     }
 
+    static public function getTtwid(): string {
+        return $_GET['cursor'] ?? '';
+    }
+
     static public function url(string $endpoint = '') {
         return self::env('APP_URL', '') . $endpoint;
     }

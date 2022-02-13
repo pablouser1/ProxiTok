@@ -8,7 +8,7 @@ use App\Helpers\RSS;
 
 class TrendingController {
     static public function get() {
-        $cursor = Misc::getCursor();
+        $cursor = Misc::getTtwid();
         $page = $_GET['page'] ?? 0;
         $api = Misc::api();
         $feed = $api->getTrending($cursor, $page);
