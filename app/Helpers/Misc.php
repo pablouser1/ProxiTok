@@ -18,7 +18,7 @@ class Misc {
     }
 
     static public function env(string $key, string $default_value): string {
-        return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
+        return $_ENV[$key] ?? $default_value;
     }
 
     /**
@@ -33,7 +33,8 @@ class Misc {
      */
     static public function api(): \TikScraper\Api {
         $options = [
-            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature')
+            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
+            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false)
         ];
         $cacheEngine = false;
         // Proxy config
