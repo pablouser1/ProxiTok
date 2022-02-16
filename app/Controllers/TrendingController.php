@@ -8,10 +8,9 @@ use App\Helpers\RSS;
 
 class TrendingController {
     static public function get() {
-        $cursor = Misc::getTtwid();
-        $page = $_GET['page'] ?? 0;
+        $cursor = Misc::getCursor();
         $api = Misc::api();
-        $feed = $api->getTrending($cursor, $page);
+        $feed = $api->getTrendingFeed($cursor);
         if ($feed->meta->success) {
             $latte = Misc::latte();
             $latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));
@@ -22,7 +21,7 @@ class TrendingController {
 
     static public function rss() {
         $api = Misc::api();
-        $feed = $api->getTrending();
+        $feed = $api->getTrendingFeed();
         if ($feed->meta->success) {
             $feed = RSS::build('/trending', 'Trending', 'Tiktok trending', $feed->items);
             // Setup headers

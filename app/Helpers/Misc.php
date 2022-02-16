@@ -9,16 +9,12 @@ class Misc {
         return isset($_GET['cursor']) && is_numeric($_GET['cursor']) ? (int) $_GET['cursor'] : 0;
     }
 
-    static public function getTtwid(): string {
-        return $_GET['cursor'] ?? '';
-    }
-
     static public function url(string $endpoint = '') {
         return self::env('APP_URL', '') . $endpoint;
     }
 
     static public function env(string $key, string $default_value): string {
-        return $_ENV[$key] ?? $default_value;
+        return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
     }
 
     /**
@@ -31,11 +27,8 @@ class Misc {
     /**
      * Setup of TikTok Api wrapper
      */
-    static public function api(): \TikScraper\Api {
-        $options = [
-            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
-            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false)
-        ];
+    static public function api(): \Sovit\TikTok\Api {
+        $options = [];
         $cacheEngine = false;
         // Proxy config
         foreach(Cookies::PROXY as $proxy_element) {
@@ -62,13 +55,13 @@ class Misc {
                     } else {
                         $host = $_ENV['REDIS_HOST'];
                         $port = (int) $_ENV['REDIS_PORT'];
-                        $password = $_ENV['REDIS_PASSWORD'] ?? null;
+                        $password = isset($_ENV['REDIS_PASSWORD']) ? $_ENV['REDIS_PASSWORD'] : null;
                     }
                     $cacheEngine = new RedisCache($host, $port, $password);
                     break;
             }
         }
-        $api = new \TikScraper\Api($options, $cacheEngine);
+        $api = new \Sovit\TikTok\Api($options, $cacheEngine);
         return $api;
     }
 

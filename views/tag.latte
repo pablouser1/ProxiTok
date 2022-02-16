@@ -1,10 +1,10 @@
 {layout '../layouts/default.latte'}
 
 {block header}
-	<p class="title">{$feed->info->detail->title}</p>
-	<p class="subtitle">{$feed->info->detail->desc}</p>
-	<p>Videos: {number($feed->info->stats->videoCount)} / Views: {number($feed->info->stats->viewCount)}</p>
-	<a href="{path('tag/' . $feed->info->detail->title . '/rss')}">RSS</a>
+	<p class="title">{$feed->info->detail->challenge->title}</p>
+	<p class="subtitle">{$feed->info->detail->challenge->desc}</p>
+	<p>Videos: {number($feed->info->detail->stats->videoCount)} / Views: {number($feed->info->detail->stats->viewCount)}</p>
+	<a href="{path('tag/' . $feed->info->detail->challenge->title . '/rss')}">RSS</a>
 {/block}
 
 {block content}
