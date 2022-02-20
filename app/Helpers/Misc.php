@@ -17,7 +17,7 @@ class Misc {
         return self::env('APP_URL', '') . $endpoint;
     }
 
-    static public function env(string $key, string $default_value): string {
+    static public function env(string $key, $default_value) {
         return $_ENV[$key] ?? $default_value;
     }
 
@@ -34,16 +34,23 @@ class Misc {
     static public function api(): \TikScraper\Api {
         $options = [
             'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
-            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false)
+            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false),
+            // Instance level proxy config
+            'proxy' => [
+                'host' => self::env('PROXY_HOST', null),
+                'port' => self::env('PROXY_PORT', null),
+                'user' => self::env('PROXY_USER', null),
+                'password' => self::env('PROXY_PASSWORD', null)
+            ]
         ];
-        $cacheEngine = false;
-        // Proxy config
+        // User level proxy config, will overwrite instance config
         foreach(Cookies::PROXY as $proxy_element) {
             if (isset($_COOKIE[$proxy_element])) {
                 $options['proxy'][$proxy_element] = $_COOKIE[$proxy_element];
             }
         }
         // Cache config
+        $cacheEngine = false;
         if (isset($_ENV['API_CACHE'])) {
             switch ($_ENV['API_CACHE']) {
                 case 'json':

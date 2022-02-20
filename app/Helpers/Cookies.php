@@ -2,13 +2,13 @@
 namespace App\Helpers;
 
 class Cookies {
-    const PROXY = ['proxy-host', 'proxy-port', 'proxy-username', 'proxy-password'];
+    const PROXY = ['host', 'port', 'user', 'password'];
 
-    static public function get(string $name): string {
+    static public function get(string $name): ?string {
         if (isset($_COOKIE[$name]) && !empty($_COOKIE[$name])) {
             return $_COOKIE[$name];
         }
-        return '';
+        return null;
     }
 
     static public function exists(string $name): bool {

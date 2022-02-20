@@ -8,7 +8,7 @@ use App\Models\SettingsTemplate;
 class SettingsController {
     static public function index() {
         $latte = Misc::latte();
-        $latte->render(Misc::getView('settings'), new SettingsTemplate());
+        $latte->render(Misc::getView('settings'), new SettingsTemplate);
     }
 
     static public function proxy() {
