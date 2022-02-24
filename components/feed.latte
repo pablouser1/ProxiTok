@@ -47,9 +47,16 @@
 						<button class="button is-primary" onclick="copyShare()">Copy</button>
 					</div>
 				</div>
-				<div class="buttons is-centered">
-					<a target="_blank" id="download_watermark" class="button is-info">Download with watermark</a>
-					<a target="_blank" id="download_nowatermark" class="button is-info">Download without watermark</a>
+				<div id="download_dropdown" class="dropdown is-hoverable">
+					<div class="dropdown-trigger">
+						<button id="download_button" class="button" aria-haspopup="true" aria-controls="dropdown-menu">Download</button>
+					</div>
+					<div class="dropdown-menu" role="menu">
+						<div class="dropdown-content">
+							<a id="download_watermark" target="_blank" class="dropdown-item">With watermark</a>
+							<a id="download_nowatermark" target="_blank" class="dropdown-item">Without watermark</a>
+						</div>
+					</div>
 				</div>
         <p id="audio_title"></p>
         <audio id="audio" controls preload="none"></audio>
