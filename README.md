@@ -11,6 +11,9 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 * Create a following list, which you can later use to see all the feeds from those users
 * RSS Feed for user, trending and tag (just add /rss to the url)
 
+## Extension 
+If you want to automatically redirect Tiktok links to ProxiTok, download [Libredirect](https://github.com/libredirect/libredirect)
+
 ## Installation
 Clone the repository and fetch the requiered external packages with:
 ```bash
