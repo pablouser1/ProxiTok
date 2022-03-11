@@ -8,11 +8,23 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 * See tags
 * See video by id
 * Discovery
-* Create a following list, which you can later use to see all the feeds from those users
 * RSS Feed for user, trending and tag (just add /rss to the url)
 
 ## Extension 
-If you want to automatically redirect Tiktok links to ProxiTok, download [Libredirect](https://github.com/libredirect/libredirect)
+If you want to automatically redirect Tiktok links to ProxiTok you can use:
+* [Libredirect](https://github.com/libredirect/libredirect)
+* [Redirector](https://github.com/einaregilsson/Redirector)
+
+You can use the following config if you want to use Redirector (you can change https://proxitok.herokuapp.com with whatever instance you want to use):
+```
+Description: TikTok to ProxiTok
+Example URL: https://www.tiktok.com/@tiktok
+Include pattern: (.*//.*)(tiktok.com)(.*)
+Redirect to: https://proxitok.herokuapp.com$3
+Example result: https://proxitok.herokuapp.com/@tiktok
+Pattern type: Regular Expression
+Apply to: Main window (address bar)
+```
 
 ## Installation
 Clone the repository and fetch the requiered external packages with:
