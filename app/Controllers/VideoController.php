@@ -11,7 +11,7 @@ class VideoController {
         $item = $api->getVideoByID($video_id);
         if ($item->meta->success) {
             $latte = Misc::latte();
-            $latte->render(Misc::getView('video'), new ItemTemplate($item->info->detail->user->nickname, $item));
+            $latte->render(Misc::getView('video'), new ItemTemplate($item->info->detail->nickname, $item));
         } else {
             ErrorHandler::show($item->meta);
         }

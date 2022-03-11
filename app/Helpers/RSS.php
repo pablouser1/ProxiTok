@@ -2,7 +2,7 @@
 namespace App\Helpers;
 
 use \FeedWriter\RSS2;
-use TikScraper\Download;
+use \TikScraper\Download;
 
 class RSS {
     static public function build(string $endpoint, string $title, string $description, array $items): string {
