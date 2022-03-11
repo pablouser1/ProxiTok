@@ -4,12 +4,18 @@
 	{do $item = $feed->items[0]}
 	<div class="columns is-centered is-vcentered">
 		<div class="column">
+<<<<<<< HEAD
 			<video controls poster="{path('/stream?url=' . urlencode($item->video->originCover))}">
 				<source src="{path('/stream?url=' . urlencode($item->video->playAddr))}" type="video/mp4" />
+=======
+			<video controls poster="{path('/stream?url=' . urlencode($item->items[0]->video->originCover))}">
+				<source src="{path('/stream?url=' . urlencode($item->items[0]->video->playAddr))}" type="video/mp4" />
+>>>>>>> master
 			</video>
 		</div>
 		<div class="column has-text-centered">
 			<div class="box">
+<<<<<<< HEAD
 				<p class="title">Video by <a href="{path('/@'.$feed->info->detail->uniqueId)}">{$feed->info->detail->uniqueId}</a></p>
 				<p class="subtitle">{$item->desc}</p>
 				<p>Played {number($feed->info->stats->playCount)} times</p>
@@ -28,6 +34,16 @@
 				</div>
       	<p>{$item->music->title}</p>
       	<audio src="{path('/stream?url=' . urlencode($item->music->playUrl))}" controls preload="none"></audio>
+=======
+				<p class="title">Video by <a href="{path('/@'.$item->info->detail->user->uniqueId)}">{$item->info->detail->user->uniqueId}</a></p>
+				<p class="subtitle">{$item->items[0]->desc}</p>
+				<p>Played {number($item->info->detail->stats->playCount)} times</p>
+				<p>Shared {number($item->info->detail->stats->shareCount)} times / {number($item->info->detail->stats->commentCount)} comments</p>
+				<hr />
+				<a href="{path('/stream?url=' . urlencode($item->items[0]->video->playAddr) . '&download=1')}" class="button is-info">Download video</a>
+      	<p>{$item->items[0]->music->title}</p>
+      	<audio src="{path('/stream?url=' . urlencode($item->items[0]->music->playUrl))}" controls preload="none"></audio>
+>>>>>>> master
 			</div>
 		</div>
 	</div>

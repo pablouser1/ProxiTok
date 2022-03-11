@@ -11,10 +11,16 @@
             "homepage": "https://github.com/pablouser1"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/pablouser1/TikTok-API-PHP"
+        }
+    ],
     "require": {
         "ext-redis": "^5.3.2",
         "ext-mbstring": "*",
-        "pablouser1/tikscraper": "^1.0",
+        "ssovit/tiktok-api": "dev-rework",
         "latte/latte": "^2.10",
         "vlucas/phpdotenv": "^5.4",
         "bramus/router": "^1.6",

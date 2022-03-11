@@ -415,6 +415,58 @@
             "time": "2021-12-04T23:24:31+00:00"
         },
         {
+            "name": "ssovit/tiktok-api",
+            "version": "dev-rework",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pablouser1/TikTok-API-PHP.git",
+                "reference": "60c00cfd321888b80eba93b6214c8c4003e98e57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pablouser1/TikTok-API-PHP/zipball/60c00cfd321888b80eba93b6214c8c4003e98e57",
+                "reference": "60c00cfd321888b80eba93b6214c8c4003e98e57",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sovit\\": "lib"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "/example",
+                    "/.github",
+                    "/.editorconfig"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sovit Tamrakar",
+                    "email": "sovit.tamrakar@gmail.com",
+                    "homepage": "https://github.com/ssovit/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Unofficial TikTok API for PHP",
+            "homepage": "https://github.com/ssovit/TikTok-API-PHP",
+            "keywords": [
+                "tiktok",
+                "tiktok-api",
+                "tiktok-scraper"
+            ],
+            "support": {
+                "source": "https://github.com/ssovit/TikTok-API-PHP",
+                "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
+                "email": "sovit.tamrakar@gmail.com"
+            },
+            "time": "2022-02-07T22:43:53+00:00"
+        },
+        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.25.0",
             "source": {
@@ -746,7 +798,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssovit/tiktok-api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
