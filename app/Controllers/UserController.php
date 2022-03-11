@@ -18,7 +18,7 @@ class UserController {
                 exit;
             }
             $latte = Misc::latte();
-            $latte->render(Misc::getView('user'), new FeedTemplate($feed->info->detail->user->nickname, $feed));
+            $latte->render(Misc::getView('user'), new FeedTemplate($feed->info->detail->nickname, $feed));
         } else {
             ErrorHandler::show($feed->meta);
         }
@@ -28,7 +28,7 @@ class UserController {
         $api = Misc::api();
         $feed = $api->getUserFeed($username);
         if ($feed->meta->success) {
-            $feed = RSS::build('/@'.$username, $feed->info->detail->user->nickname, $feed->info->detail->user->signature, $feed->items);
+            $feed = RSS::build('/@'.$username, $feed->info->detail->nickname, $feed->info->detail->signature, $feed->items);
             // Setup headers
             RSS::setHeaders('user.rss');
             echo $feed;

@@ -24,6 +24,11 @@ class JSONCache {
         return false;
     }
 
+    public function exists(string $cache_key): bool  {
+        $filename = $this->cache_path . '/' . $cache_key . '.json';
+        return is_file($filename);
+    }
+
     public function set(string $cache_key, mixed $data, $timeout = 3600) {
         file_put_contents($this->cache_path . '/' . $cache_key . '.json', json_encode([
             'data' => $data,

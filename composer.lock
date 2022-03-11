@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee56c4949779c846be760de720c1eaf6",
+    "content-hash": "2e80bafe776f5af404ce602d03f554b6",
     "packages": [
         {
             "name": "bramus/router",
