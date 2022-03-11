@@ -1,7 +1,7 @@
 {
     "name": "pablouser1/proxitok",
     "description": "An alternative frontend for TikTok",
-    "version": "2.0.0",
+    "version": "2.0.0.1",
     "license": "AGPL-3.0-or-later",
     "type": "project",
     "homepage": "https://github.com/pablouser1/ProxiTok",
@@ -20,11 +20,11 @@
     "require": {
         "ext-redis": "^5.3.2",
         "ext-mbstring": "*",
-        "ssovit/tiktok-api": "dev-rework",
         "latte/latte": "^2.10",
         "vlucas/phpdotenv": "^5.4",
         "bramus/router": "^1.6",
-        "mibe/feedwriter": "^1.1"
+        "mibe/feedwriter": "^1.1",
+        "pablouser1/tikscraper": "v1.2.7.4"
     },
     "autoload": {
         "psr-4": {
