@@ -6,7 +6,11 @@
 {/block}
 
 {block content}
-	<p class="title">Why?</p>
+	<p class="title">About this instance</p>
+	<p>Forcing Legacy mode: {isset($_ENV['FORCE_LEGACY']) ? 'yes' : 'no'}</p>
+	<p>Instance-level Proxy: {isset($_ENV['PROXY_HOST']) ? 'yes' : 'no'}</p>
+	<hr />
+	<p class="title">Why would I want to use ProxiTok?</p>
 	<p>
 		There are already
 		<a rel="nofollow" href="https://penetrum.com/tiktok/Penetrum_TikTok_Security_Analysis_whitepaper.pdf">multiple</a>

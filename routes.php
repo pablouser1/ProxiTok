@@ -14,6 +14,11 @@ $router->get('/about', function () {
     $latte->render(Misc::getView('about'), new BaseTemplate('About'));
 });
 
+$router->get('/verify', function () {
+    $latte = Misc::latte();
+    $latte->render(Misc::getView('verify'), new BaseTemplate('Verify'));
+});
+
 $router->get('/stream', 'ProxyController@stream');
 $router->get('/download', 'ProxyController@download');
 $router->get('/redirect', 'RedirectController@redirect');
