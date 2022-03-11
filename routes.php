@@ -1,4 +1,5 @@
 <?php
+/** @var \Bramus\Router\Router $router */
 use App\Helpers\Misc;
 use App\Models\BaseTemplate;
 use App\Models\HomeTemplate;
@@ -13,7 +14,13 @@ $router->get('/about', function () {
     $latte->render(Misc::getView('about'), new BaseTemplate('About'));
 });
 
+$router->get('/verify', function () {
+    $latte = Misc::latte();
+    $latte->render(Misc::getView('verify'), new BaseTemplate('Verify'));
+});
+
 $router->get('/stream', 'ProxyController@stream');
+$router->get('/download', 'ProxyController@download');
 $router->get('/redirect', 'RedirectController@redirect');
 
 $router->mount('/trending', function () use ($router) {
@@ -39,6 +46,7 @@ $router->get('/music/([^/]+)', 'MusicController@get');
 $router->mount('/settings', function () use ($router) {
     $router->get('/', 'SettingsController@index');
     $router->post('/proxy', 'SettingsController@proxy');
+    $router->post('/api', 'SettingsController@api');
 });
 
 $router->get('/discover', 'DiscoverController@get');

@@ -8,9 +8,16 @@ use App\Helpers\RSS;
 
 class TrendingController {
     static public function get() {
-        $cursor = Misc::getCursor();
+        $cursor = Misc::getTtwid();
         $api = Misc::api();
-        $feed = $api->getTrendingFeed($cursor);
+
+        // Ttwid if normal, cursor if legacy
+        if ($api::class === 'TikScraper\Api') {
+            $cursor = Misc::getTtwid();
+        } else {
+            $cursor = Misc::getCursor();
+        }
+        $feed = $api->getTrending($cursor);
         if ($feed->meta->success) {
             $latte = Misc::latte();
             $latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));

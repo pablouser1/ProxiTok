@@ -1,0 +1,38 @@
+{layout '../layouts/default.latte'}
+
+{block header}
+	<p class="title">VERIFY_CODE</p>
+	<p class="subtitle">What can I do?</p>
+{/block}
+
+{block content}
+	<p>TL;DR You probably have to search for another instance or wait some hours (or even better, have your own self-hosted instance)</p>
+	<p>TikTok has some mecanisms in order to stop scraping on their latest api (/api/...):</p>
+	<hr />
+	<div class="block">
+		<p class="is-size-4">Rate limits</p>
+		<p>
+			This is pretty standard stuff,
+			it blocks ips temporarly if you send too many requests to an endpoint and unbans you after some hours.
+		</p>
+	</div>
+	<div class="block">
+		<p class="is-size-4">IP Blacklist</p>
+		<p>
+			It is a list with IPs from popular Hosters (AWS, Heroku...). This IPs are banned <i>(I think) permanently</i> and
+			can barely make requests.
+		</p>
+		<p>
+			This makes hosting a public instance really hard. Even if you use a hosting platform that is not banned by TikTok, it is only a matter of time
+			that it inevitably gets banned.
+		</p>
+		<p class="is-size-5">(For webmasters) How can I know if my server is not blacklisted?</p>
+		<p>Run this command on your instance:</p>
+		<code>
+			curl \
+				--url 'https://www.tiktok.com/@tiktok/?lang=en' \
+				--header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36'
+		</code>
+		<p>If you don't get an empty response or a captcha, you are good to go</p>
+	</div>
+{/block}

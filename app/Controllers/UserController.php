@@ -12,9 +12,10 @@ class UserController {
         $api = Misc::api();
         $feed = $api->getUserFeed($username, $cursor);
         if ($feed->meta->success) {
-            if ($feed->info->detail->user->privateAccount) {
-                http_response_code(400);
+            if ($feed->info->detail->privateAccount) {
+                http_response_code(403);
                 echo 'Private account detected! Not supported';
+                exit;
             }
             $latte = Misc::latte();
             $latte->render(Misc::getView('user'), new FeedTemplate($feed->info->detail->user->nickname, $feed));

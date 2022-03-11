@@ -1,7 +1,7 @@
 <form action="{path('/settings/proxy')}" method="POST">
 	{foreach $proxy_elements as $proxy_element}
 	<div class="field">
-		<label class="label">{$proxy_element}</label>
+		<label class="label">{$proxy_element|firstUpper}</label>
 		<div class="control">
       <input name="{$proxy_element}" class="input" value="{isset($_COOKIE[$proxy_element]) ? $_COOKIE[$proxy_element] : ''}" required />
     </div>

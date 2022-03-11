@@ -8,7 +8,7 @@ use App\Models\SettingsTemplate;
 class SettingsController {
     static public function index() {
         $latte = Misc::latte();
-        $latte->render(Misc::getView('settings'), new SettingsTemplate());
+        $latte->render(Misc::getView('settings'), new SettingsTemplate);
     }
 
     static public function proxy() {
@@ -17,6 +17,12 @@ class SettingsController {
                 Cookies::set($proxy_element, $_POST[$proxy_element]);
             }
         }
+        $url = Misc::url('/settings');
+        header("Location: {$url}");
+    }
+
+    static public function api() {
+        $_POST['legacy'] ?? Cookies::set('api-legacy', '1');
         $url = Misc::url('/settings');
         header("Location: {$url}");
     }

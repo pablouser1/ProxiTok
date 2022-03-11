@@ -6,8 +6,8 @@
 		{do $share_url = 'https://tiktok.com/@' . $item->author->uniqueId . '/video/' . $item->id}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
 			data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
-			data-video_download_watermark="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
-			data-video_download_nowatermark="{path('/stream?download=1&id=' . $item->id . '&user=' . $item->author->uniqueId)}"
+			data-video_download_watermark="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
+			data-video_download_nowatermark="{path('/download?id=' . $item->id . '&user=' . $item->author->uniqueId)}"
 			data-video_share_url="{$share_url}"
 			data-desc="{$item->desc}"
       data-music_title="{$item->music->title}"
@@ -47,9 +47,16 @@
 						<button class="button is-primary" onclick="copyShare()">Copy</button>
 					</div>
 				</div>
-				<div class="buttons is-centered">
-					<a target="_blank" id="download_watermark" class="button is-info">Download with watermark</a>
-					<a target="_blank" id="download_nowatermark" class="button is-info">Download without watermark</a>
+				<div id="download_dropdown" class="dropdown is-hoverable">
+					<div class="dropdown-trigger">
+						<button id="download_button" class="button" aria-haspopup="true" aria-controls="dropdown-menu">Download</button>
+					</div>
+					<div class="dropdown-menu" role="menu">
+						<div class="dropdown-content">
+							<a id="download_watermark" target="_blank" class="dropdown-item">With watermark</a>
+							<a id="download_nowatermark" target="_blank" class="dropdown-item">Without watermark</a>
+						</div>
+					</div>
 				</div>
         <p id="audio_title"></p>
         <audio id="audio" controls preload="none"></audio>

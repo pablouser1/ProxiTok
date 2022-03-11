@@ -13,8 +13,8 @@ class Misc {
         return self::env('APP_URL', '') . $endpoint;
     }
 
-    static public function env(string $key, string $default_value): string {
-        return isset($_ENV[$key]) && !empty($_ENV[$key]) ? $_ENV[$key] : $default_value;
+    static public function env(string $key, $default_value) {
+        return $_ENV[$key] ?? $default_value;
     }
 
     /**
@@ -26,17 +26,28 @@ class Misc {
 
     /**
      * Setup of TikTok Api wrapper
+     * @return \TikScraper\Api|\TikScraper\Legacy
      */
-    static public function api(): \Sovit\TikTok\Api {
-        $options = [];
-        $cacheEngine = false;
-        // Proxy config
+    static public function api() {
+        $options = [
+            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
+            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false),
+            // Instance level proxy config
+            'proxy' => [
+                'host' => self::env('PROXY_HOST', null),
+                'port' => self::env('PROXY_PORT', null),
+                'user' => self::env('PROXY_USER', null),
+                'password' => self::env('PROXY_PASSWORD', null)
+            ]
+        ];
+        // User level proxy config, will overwrite instance config
         foreach(Cookies::PROXY as $proxy_element) {
             if (isset($_COOKIE[$proxy_element])) {
                 $options['proxy'][$proxy_element] = $_COOKIE[$proxy_element];
             }
         }
         // Cache config
+        $cacheEngine = false;
         if (isset($_ENV['API_CACHE'])) {
             switch ($_ENV['API_CACHE']) {
                 case 'json':
@@ -61,8 +72,12 @@ class Misc {
                     break;
             }
         }
-        $api = new \Sovit\TikTok\Api($options, $cacheEngine);
-        return $api;
+
+        // Legacy mode
+        $legacy = self::env('FORCE_LEGACY', false); // Instance level
+        $_COOKIE['enable_legacy'] ?? $legacy = true; // User level
+
+        return $legacy === false ? new \TikScraper\Api($options, $cacheEngine) : new \TikScraper\Legacy($options, $cacheEngine);
     }
 
     /**
