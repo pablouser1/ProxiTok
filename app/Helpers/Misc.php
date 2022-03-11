@@ -30,8 +30,9 @@ class Misc {
 
     /**
      * Setup of TikTok Api wrapper
+     * @return \TikScraper\Api|\TikScraper\Legacy
      */
-    static public function api(): \TikScraper\Api {
+    static public function api() {
         $options = [
             'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
             'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false),
@@ -75,8 +76,12 @@ class Misc {
                     break;
             }
         }
-        $api = new \TikScraper\Api($options, $cacheEngine);
-        return $api;
+
+        // Legacy mode
+        $legacy = self::env('FORCE_LEGACY', false); // Instance level
+        $_COOKIE['enable_legacy'] ?? $legacy = true; // User level
+
+        return $legacy === false ? new \TikScraper\Api($options, $cacheEngine) : new \TikScraper\Legacy($options, $cacheEngine);
     }
 
     /**

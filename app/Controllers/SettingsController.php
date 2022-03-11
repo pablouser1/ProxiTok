@@ -20,4 +20,10 @@ class SettingsController {
         $url = Misc::url('/settings');
         header("Location: {$url}");
     }
+
+    static public function api() {
+        $_POST['legacy'] ?? Cookies::set('api-legacy', '1');
+        $url = Misc::url('/settings');
+        header("Location: {$url}");
+    }
 }
