@@ -28,7 +28,7 @@ class TrendingController {
 
     static public function rss() {
         $api = Misc::api();
-        $feed = $api->getTrendingFeed();
+        $feed = $api->getTrending();
         if ($feed->meta->success) {
             $feed = RSS::build('/trending', 'Trending', 'Tiktok trending', $feed->items);
             // Setup headers
