@@ -1,4 +1,5 @@
 <?php
+/** @var \Bramus\Router\Router $router */
 use App\Helpers\Misc;
 use App\Models\BaseTemplate;
 use App\Models\HomeTemplate;
@@ -14,6 +15,7 @@ $router->get('/about', function () {
 });
 
 $router->get('/stream', 'ProxyController@stream');
+$router->get('/download', 'ProxyController@download');
 $router->get('/redirect', 'RedirectController@redirect');
 
 $router->mount('/trending', function () use ($router) {

@@ -6,8 +6,8 @@
 		{do $share_url = 'https://tiktok.com/@' . $item->author->uniqueId . '/video/' . $item->id}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
 			data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
-			data-video_download_watermark="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
-			data-video_download_nowatermark="{path('/stream?download=1&id=' . $item->id . '&user=' . $item->author->uniqueId)}"
+			data-video_download_watermark="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
+			data-video_download_nowatermark="{path('/download?id=' . $item->id . '&user=' . $item->author->uniqueId)}"
 			data-video_share_url="{$share_url}"
 			data-desc="{$item->desc}"
       data-music_title="{$item->music->title}"

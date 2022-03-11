@@ -21,7 +21,7 @@ WARNING: You'll need a personal Github token for composer.
 
 Then you can run it using for example the PHP Development Server with:
 ```bash
-php -S localhost:8080
+php -S localhost:8080 -t public
 ```
 
 ## Configuration

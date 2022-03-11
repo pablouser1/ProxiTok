@@ -15,9 +15,16 @@
 				<p>Played {number($feed->info->stats->playCount)} times</p>
 				<p>Shared {number($feed->info->stats->shareCount)} times / {number($feed->info->stats->commentCount)} comments</p>
 				<hr />
-				<div class="buttons is-centered">
-					<a href="{path('/stream?url=' . urlencode($item->video->playAddr) . '&download=1&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}" class="button is-info">Download watermark</a>
-					<a href="{path('/stream?download=1&id=' . $item->id . '&user=' . $feed->info->detail->uniqueId)}" class="button is-info">Download no watermark</a>
+				<div class="dropdown is-hoverable">
+					<div class="dropdown-trigger">
+						<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">Download</button>
+					</div>
+					<div class="dropdown-menu" role="menu">
+						<div class="dropdown-content">
+					<a href="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}" class="dropdown-item">Watermark</a>
+					<a href="{path('/download?id=' . $item->id . '&user=' . $feed->info->detail->uniqueId)}" class="dropdown-item">No watermark</a>
+						</div>
+					</div>
 				</div>
       	<p>{$item->music->title}</p>
       	<audio src="{path('/stream?url=' . urlencode($item->music->playUrl))}" controls preload="none"></audio>
