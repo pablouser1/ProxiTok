@@ -10,7 +10,7 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 * Discovery
 * RSS Feed for user, trending and tag (just add /rss to the url)
 
-## Extension 
+## Extensions
 If you want to automatically redirect Tiktok links to ProxiTok you can use:
 * [Libredirect](https://github.com/libredirect/libredirect)
 * [Redirector](https://github.com/einaregilsson/Redirector)
@@ -31,8 +31,6 @@ Clone the repository and fetch the requiered external packages with:
 ```bash
 composer install
 ```
-
-WARNING: You'll need a personal Github token for composer.
 
 Then you can run it using for example the PHP Development Server with:
 ```bash
@@ -75,7 +73,7 @@ location /proxitok/.env {
 * i18n
 
 ## Credits
-* [TikTok-API-PHP](https://github.com/ssovit/TikTok-API-PHP) (Currently using my personal fork)
+* [TikScraperPHP](https://github.com/pablouser1/TikScraperPHP)
 * [Latte](https://github.com/nette/latte)
 * [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)

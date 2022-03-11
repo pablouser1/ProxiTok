@@ -78,8 +78,8 @@ class Misc {
         }
 
         // Legacy mode
-        $legacy = self::env('FORCE_LEGACY', false); // Instance level
         $_COOKIE['enable_legacy'] ?? $legacy = true; // User level
+        $legacy = self::env('FORCE_LEGACY', false); // Instance level (has priority over user)
 
         return $legacy === false ? new \TikScraper\Api($options, $cacheEngine) : new \TikScraper\Legacy($options, $cacheEngine);
     }
