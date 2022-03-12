@@ -24,7 +24,7 @@
         "vlucas/phpdotenv": "^5.4",
         "bramus/router": "^1.6",
         "mibe/feedwriter": "^1.1",
-        "pablouser1/tikscraper": "v1.2.7.4"
+        "pablouser1/tikscraper": "^1.2"
     },
     "autoload": {
         "psr-4": {
