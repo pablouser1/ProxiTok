@@ -5,3 +5,8 @@ RewriteRule ^ index.php [QSA,L]
 
 # Disable index view
 Options -Indexes
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>

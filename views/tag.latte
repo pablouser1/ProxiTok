@@ -4,7 +4,7 @@
 	<p class="title">{$feed->info->detail->title}</p>
 	<p class="subtitle">{$feed->info->detail->desc}</p>
 	<p>Videos: {number($feed->info->stats->videoCount)} / Views: {number($feed->info->stats->viewCount)}</p>
-	<a href="{path('tag/' . $feed->info->detail->title . '/rss')}">RSS</a>
+	<a href="{path('/tag/' . $feed->info->detail->title . '/rss')}">RSS</a>
 {/block}
 
 {block content}

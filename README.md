@@ -31,16 +31,14 @@ Clone the repository and fetch the requiered external packages with:
 ```bash
 composer install
 ```
+Move the .env.example file to .env and modify it.
 
 Then you can run it using for example the PHP Development Server with:
 ```bash
-php -S localhost:8080 -t public
+php -S localhost:8080
 ```
 
 ## Configuration
-### .env
-Move the .env.example file to .env and modify it.
-
 ### Cache engines
 Available cache engines:
 * redis: Writes response to Redis
@@ -50,21 +48,7 @@ Available cache engines:
 You don't have to do anything more
 
 ### Nginx
-Add the following to your config (you can modify the proxitok part if you have or not a subdir):
-```
-location /proxitok {
-    return 302 $scheme://$host/proxitok/;
-}
-
-location /proxitok/ {
-    try_files $uri $uri/ /proxitok/index.php?$query_string;
-}
-
-location /proxitok/.env {
-    deny all;
-    return 404;
-}
-```
+You can get a config example on /setup/nginx.conf
 
 ## TODO
 * Add a NoJS version / Make the whole program without required JS

@@ -1,7 +1,9 @@
 <form action="{path('/settings/api')}" method="POST">
 	<div class="field">
 		<label class="checkbox">
-			<input name="api-legacy" type="checkbox" checked="{isset($_COOKIE['api-legacy']) ? 'true' : 'false'}">Enable legacy mode
+			<input name="api-legacy" type="checkbox"
+				checked="{isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on' ? 'true' : 'false'}"
+				value="{isset($_COOKIE['api-legacy']) ? $_COOKIE['api-legacy'] : 'off'}">Enable legacy mode
 		</label>
   </div>
   <div class="field">
