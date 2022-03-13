@@ -48,11 +48,21 @@ Available cache engines:
 You don't have to do anything more
 
 ### Nginx
-You can get a config example on /setup/nginx.conf
+```
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
 
-## TODO
+location /.env {
+    deny all;
+    return 404;
+}
+```
+
+## TODO / Known issues
+* Docker
+* Full installation instructions
 * Add a NoJS version / Make the whole program without required JS
-* Better error handling
 * Make video on /video fit screen and don't overflow
 * i18n
 

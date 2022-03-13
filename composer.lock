@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cadd5f76328389373f21a069e55f8aae",
+    "content-hash": "dcd701a81d130026c44b63870c9a9f73",
     "packages": [
         {
             "name": "bramus/router",
@@ -306,20 +306,22 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v1.2.7.6",
+            "version": "v1.3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "e7e682726e76541dc47d14dd259a29b3c0364790"
+                "reference": "793dde26e17362af304b9f50890c7fc178387629"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/e7e682726e76541dc47d14dd259a29b3c0364790",
-                "reference": "e7e682726e76541dc47d14dd259a29b3c0364790",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/793dde26e17362af304b9f50890c7fc178387629",
+                "reference": "793dde26e17362af304b9f50890c7fc178387629",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.3|^8.0"
+                "php": ">=7.3|^8.0",
+                "php-webdriver/webdriver": "^1.12",
+                "sapistudio/seleniumstealth": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -339,9 +341,74 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.2.7.6"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.0.3"
             },
-            "time": "2022-03-12T18:27:40+00:00"
+            "time": "2022-03-13T20:53:27+00:00"
+        },
+        {
+            "name": "php-webdriver/webdriver",
+            "version": "1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-webdriver/php-webdriver.git",
+                "reference": "99d4856ed7dffcdf6a52eccd6551e83d8d557ceb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/99d4856ed7dffcdf6a52eccd6551e83d8d557ceb",
+                "reference": "99d4856ed7dffcdf6a52eccd6551e83d8d557ceb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-zip": "*",
+                "php": "^5.6 || ~7.0 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.12",
+                "symfony/process": "^2.8 || ^3.1 || ^4.0 || ^5.0 || ^6.0"
+            },
+            "replace": {
+                "facebook/webdriver": "*"
+            },
+            "require-dev": {
+                "ondram/ci-detector": "^2.1 || ^3.5 || ^4.0",
+                "php-coveralls/php-coveralls": "^2.4",
+                "php-mock/php-mock-phpunit": "^1.1 || ^2.0",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^7 || ^8 || ^9",
+                "squizlabs/php_codesniffer": "^3.5",
+                "symfony/var-dumper": "^3.3 || ^4.0 || ^5.0 || ^6.0"
+            },
+            "suggest": {
+                "ext-SimpleXML": "For Firefox profile creation"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/Exception/TimeoutException.php"
+                ],
+                "psr-4": {
+                    "Facebook\\WebDriver\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP client for Selenium WebDriver. Previously facebook/webdriver.",
+            "homepage": "https://github.com/php-webdriver/php-webdriver",
+            "keywords": [
+                "Chromedriver",
+                "geckodriver",
+                "php",
+                "selenium",
+                "webdriver"
+            ],
+            "support": {
+                "issues": "https://github.com/php-webdriver/php-webdriver/issues",
+                "source": "https://github.com/php-webdriver/php-webdriver/tree/1.12.0"
+            },
+            "time": "2021-10-14T09:30:02+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -413,6 +480,36 @@
                 }
             ],
             "time": "2021-12-04T23:24:31+00:00"
+        },
+        {
+            "name": "sapistudio/seleniumstealth",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sapistudio/SeleniumStealth.git",
+                "reference": "4b392077e3d609fed564b78ae2e8becb98f01957"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sapistudio/SeleniumStealth/zipball/4b392077e3d609fed564b78ae2e8becb98f01957",
+                "reference": "4b392077e3d609fed564b78ae2e8becb98f01957",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SapiStudio\\SeleniumStealth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/Sapistudio/SeleniumStealth/issues",
+                "source": "https://github.com/Sapistudio/SeleniumStealth/tree/1.0.3"
+            },
+            "time": "2022-01-10T20:04:41+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -661,6 +758,67 @@
                 }
             ],
             "time": "2022-03-04T08:16:47+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v6.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "1ccceccc6497e96f4f646218f04b97ae7d9fa7a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1ccceccc6497e96f4f646218f04b97ae7d9fa7a1",
+                "reference": "1ccceccc6497e96f4f646218f04b97ae7d9fa7a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Executes commands in sub-processes",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v6.0.5"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-01-30T18:19:12+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

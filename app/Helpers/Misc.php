@@ -34,14 +34,18 @@ class Misc {
      */
     static public function api() {
         $options = [
-            'remote_signer' => self::env('SIGNER_URL', 'http://localhost:8080/signature'),
-            'use_test_endpoints' => self::env('USE_TEST_ENDPOINTS', false),
+            'use_test_endpoints' => self::env('API_TEST_ENDPOINTS', false),
             // Instance level proxy config
             'proxy' => [
                 'host' => self::env('PROXY_HOST', null),
                 'port' => self::env('PROXY_PORT', null),
                 'user' => self::env('PROXY_USER', null),
                 'password' => self::env('PROXY_PASSWORD', null)
+            ],
+            'signer' => [
+                'remote_url' => self::env('API_SIGNER_URL', ''),
+                'browser_url' => self::env('API_BROWSER_URL', ''),
+                'close_when_done' => false
             ]
         ];
         // User level proxy config, will overwrite instance config
@@ -78,7 +82,7 @@ class Misc {
         }
 
         // Legacy mode
-        $legacy = self::env('FORCE_LEGACY', false) || isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on';
+        $legacy = self::env('API_FORCE_LEGACY', false) || isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on';
 
         return $legacy === false ? new \TikScraper\Api($options, $cacheEngine) : new \TikScraper\Legacy($options, $cacheEngine);
     }
