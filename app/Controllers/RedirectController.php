@@ -15,7 +15,9 @@ class RedirectController {
         } else if (isset($_GET['music'])) {
             $endpoint = '/music/' . $_GET['music'];
         } else if (isset($_GET['video'])) {
-            $endpoint = '/video/' . $_GET['video'];
+            // The @username part is not used, but
+            // it is the schema that TikTok follows
+            $endpoint = '/@placeholder/video/' . $_GET['video'];
         }
 
         $url = Misc::url($endpoint);

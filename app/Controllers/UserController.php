@@ -24,6 +24,17 @@ class UserController {
         }
     }
 
+    static public function video(string $username, string $video_id) {
+        $api = Misc::api();
+        $feed = $api->getVideoByID($video_id);
+        if ($feed->meta->success) {
+            $latte = Misc::latte();
+            $latte->render(Misc::getView('video'), new FeedTemplate('Video', $feed));
+        } else {
+            ErrorHandler::show($feed->meta);
+        }
+    }
+
     static public function rss(string $username) {
         $api = Misc::api();
         $feed = $api->getUserFeed($username);

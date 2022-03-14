@@ -30,9 +30,13 @@ $router->mount('/trending', function () use ($router) {
 
 $router->mount('/@([^/]+)', function () use ($router) {
     $router->get('/', 'UserController@get');
+    $router->get('/video/(\w+)', 'UserController@video');
     $router->get('/rss', 'UserController@rss');
 });
 
+/**
+ * @deprecated Please use /@username/video/id instead
+ */
 $router->get('/video/(\w+)', 'VideoController@get');
 
 $router->mount('/tag', function () use ($router) {
