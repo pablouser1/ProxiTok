@@ -10,7 +10,7 @@ class Misc {
     }
 
     static public function getTtwid(): string {
-        return $_GET['cursor'] ?? '';
+        return isset($_GET['cursor']) ?  $_GET['cursor'] : '';
     }
 
     static public function url(string $endpoint = '') {

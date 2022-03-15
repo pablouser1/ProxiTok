@@ -8,7 +8,6 @@ use App\Helpers\RSS;
 
 class TrendingController {
     static public function get() {
-        $cursor = Misc::getTtwid();
         $api = Misc::api();
 
         // Ttwid if normal, cursor if legacy
