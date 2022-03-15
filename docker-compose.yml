@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  web:
+    container_name: proxitok-web
+    build: .
+    ports:
+      - 8080:80
+    environment:
+      - LATTE_CACHE=/cache
+      - API_CACHE=redis
+      - REDIS_HOST=proxitok-redis
+      - REDIS_PORT=6379
+      - API_BROWSER_URL=http://proxitok-chrome:9515
+    volumes:
+      - proxitok-cache:/cache
+    depends_on:
+      - redis
+      - chrome
+
+  redis:
+    container_name: proxitok-redis
+    image: redis:6-alpine
+    command: redis-server --save 60 1 --loglevel warning
+    restart: unless-stopped
+
+  chrome:
+    container_name: proxitok-chrome
+    image: zenika/alpine-chrome:with-chromedriver
+    shm_size: 1g
+    ports:
+      - "9515:9515"
+volumes:
+  proxitok-cache:

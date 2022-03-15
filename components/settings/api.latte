@@ -1,14 +1,14 @@
-<form action="{path('/settings/api')}" method="POST">
+{embed '../form.latte', path: '/settings/api'}
+{block fields}
 	<div class="field">
-		<label class="checkbox">
-			<input name="api-legacy" type="checkbox"
-				checked="{isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on' ? 'true' : 'false'}"
-				value="{isset($_COOKIE['api-legacy']) ? $_COOKIE['api-legacy'] : 'off'}">Enable legacy mode
-		</label>
+		<label class="label">Legacy mode</label>
+		<div class="select">
+			<select name="api-legacy">
+				<option hidden disabled selected value> -- Select an option -- </option>
+				<option value="on">On</option>
+				<option value="off">Off</option>
+			</select>
+		</div>
   </div>
-  <div class="field">
-    <div class="control">
-      <button class="button is-success" type="submit">Submit</button>
-    </div>
-  </div>
-</form>
+{/block}
+{/embed}

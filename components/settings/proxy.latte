@@ -1,4 +1,5 @@
-<form action="{path('/settings/proxy')}" method="POST">
+{embed '../form.latte', path: '/settings/proxy'}
+{block fields}
 	{foreach $proxy_elements as $proxy_element}
 	<div class="field">
 		<label class="label">{$proxy_element|firstUpper}</label>
@@ -7,9 +8,5 @@
     </div>
   </div>
   {/foreach}
-  <div class="field">
-    <div class="control">
-      <button class="button is-success" type="submit">Submit</button>
-    </div>
-  </div>
-</form>
+{/block}
+{/embed}

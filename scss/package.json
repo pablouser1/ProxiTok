@@ -2,11 +2,9 @@
   "name": "proxitok-scss",
   "private": true,
   "scripts": {
-    "bulma": "sass --style=compressed bulma.scss ./styles/vendor/bulma.min.css",
-    "fa": "sass --style=compressed fontawesome.scss ./styles/vendor/fontawesome.min.css"
+    "bulma": "sass --style=compressed bulma.scss ../styles/vendor/bulma.min.css"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.0.0",
     "bulma": "^0.9.3",
     "bulmaswatch": "^0.8.1",
     "sass": "^1.46.0"

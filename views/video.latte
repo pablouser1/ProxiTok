@@ -21,8 +21,8 @@
 					</div>
 					<div class="dropdown-menu" role="menu">
 						<div class="dropdown-content">
-					<a href="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}" class="dropdown-item">Watermark</a>
-					<a href="{path('/download?id=' . $item->id . '&user=' . $feed->info->detail->uniqueId)}" class="dropdown-item">No watermark</a>
+							<a href="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $feed->info->detail->uniqueId) . '&watermark='}" class="dropdown-item">Watermark</a>
+							<a href="{path('/download?id=' . $item->id . '&user=' . $feed->info->detail->uniqueId)}" class="dropdown-item">No watermark</a>
 						</div>
 					</div>
 				</div>
