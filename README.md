@@ -30,7 +30,6 @@ Apply to: Main window (address bar)
 Please check [this](https://github.com/pablouser1/ProxiTok/wiki/Self-hosting) wiki article for info on how to self-host your own instance
 
 ## TODO / Known issues
-* Docker
 * Add a NoJS version / Make the whole program without required JS
 * Make video on /video fit screen and don't overflow
 * i18n
