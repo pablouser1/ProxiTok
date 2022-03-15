@@ -26,42 +26,11 @@ Pattern type: Regular Expression
 Apply to: Main window (address bar)
 ```
 
-## Installation
-Clone the repository and fetch the requiered external packages with:
-```bash
-composer install
-```
-Move the .env.example file to .env and modify it.
-
-Then you can run it using for example the PHP Development Server with:
-```bash
-php -S localhost:8080
-```
-
-## Configuration
-### Cache engines
-Available cache engines:
-* redis: Writes response to Redis
-* json: Writes response to JSON file
-
-### Apache
-You don't have to do anything more
-
-### Nginx
-```
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
-
-location /.env {
-    deny all;
-    return 404;
-}
-```
+## Self-hosting
+Please check [this](https://github.com/pablouser1/ProxiTok/wiki/Self-hosting) wiki article for info on how to self-host your own instance
 
 ## TODO / Known issues
 * Docker
-* Full installation instructions
 * Add a NoJS version / Make the whole program without required JS
 * Make video on /video fit screen and don't overflow
 * i18n
