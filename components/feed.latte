@@ -16,6 +16,9 @@
 			<img class="hidden" loading="lazy" data-src="{path('/stream?url=' . urlencode($item->video->dynamicCover))}" />
     </div>
     {/foreach}
+		{if empty($feed->items)}
+		<p class="title">No items sent by TikTok!</p>
+		{/if}
   </div>
 	<div n:ifset="$feed->info" class="buttons">
 		{if isset($_GET['cursor']) && $_GET['cursor'] != 0 }

@@ -306,16 +306,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v1.3.0.3",
+            "version": "v1.3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "793dde26e17362af304b9f50890c7fc178387629"
+                "reference": "6a13c165f73e0924d9d8d52dd8987fa848795b2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/793dde26e17362af304b9f50890c7fc178387629",
-                "reference": "793dde26e17362af304b9f50890c7fc178387629",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/6a13c165f73e0924d9d8d52dd8987fa848795b2c",
+                "reference": "6a13c165f73e0924d9d8d52dd8987fa848795b2c",
                 "shasum": ""
             },
             "require": {
@@ -341,9 +341,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.0.3"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.0.5"
             },
-            "time": "2022-03-13T20:53:27+00:00"
+            "time": "2022-03-18T13:43:50+00:00"
         },
         {
             "name": "php-webdriver/webdriver",

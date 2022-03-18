@@ -14,8 +14,8 @@ RUN apt update -y && apt upgrade -y \
 COPY . .
 
 # Run composer and clean
-RUN composer update \
-    && composer install --no-interaction --optimize-autoloader --no-dev \
+RUN composer update --no-cache \
+    && composer install --no-interaction --optimize-autoloader --no-dev --no-cache \
     && apt autoclean -y \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
