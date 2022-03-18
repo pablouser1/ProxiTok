@@ -10,6 +10,12 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 * Discovery
 * RSS Feed for user, trending and tag (just add /rss to the url)
 
+## Self-hosting
+Please check [this](https://github.com/pablouser1/ProxiTok/wiki/Self-hosting) wiki article for info on how to self-host your own instance
+
+## Public instances
+[This](https://github.com/pablouser1/ProxiTok/wiki/Public-instances) wiki article contains a list with all the known public instances.
+
 ## Extensions
 If you want to automatically redirect Tiktok links to ProxiTok you can use:
 * [Libredirect](https://github.com/libredirect/libredirect)
@@ -25,9 +31,6 @@ Example result: https://proxitok.herokuapp.com/@tiktok
 Pattern type: Regular Expression
 Apply to: Main window (address bar)
 ```
-
-## Self-hosting
-Please check [this](https://github.com/pablouser1/ProxiTok/wiki/Self-hosting) wiki article for info on how to self-host your own instance
 
 ## TODO / Known issues
 * Add a NoJS version / Make the whole program without required JS
