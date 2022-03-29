@@ -2,10 +2,6 @@
 namespace App\Helpers;
 
 class Misc {
-    static private function isSecure() {
-        return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
-    }
-
     static public function getCursor(): int {
         return isset($_GET['cursor']) && is_numeric($_GET['cursor']) ? (int) $_GET['cursor'] : 0;
     }
@@ -15,9 +11,7 @@ class Misc {
     }
 
     static public function url(string $endpoint = ''): string {
-        $protocol = self::isSecure() ? 'https' : 'http';
-        $root = $protocol . '://' . $_SERVER['HTTP_HOST'];
-        return $root . self::env('APP_PATH', '') . $endpoint;
+        return self::env('APP_URL', '') . $endpoint;
     }
 
     static public function env(string $key, $default_value) {
