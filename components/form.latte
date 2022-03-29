@@ -1,8 +1,10 @@
-<form action="{path($path)}" method="POST">
+<form action="{path($path)}" method="{$method}">
 	{block fields}{/block}
-  <div class="field">
-    <div class="control">
-      <button class="button is-success" type="submit">Submit</button>
-    </div>
-  </div>
+	{ifset $submit}
+  	<div class="field">
+    	<div class="control">
+      	<button class="button is-success" type="submit">Submit</button>
+    	</div>
+  	</div>
+	{/ifset}
 </form>

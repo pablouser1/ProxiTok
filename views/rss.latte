@@ -1,0 +1,23 @@
+{contentType application/rss+xml}
+{do header('Content-Disposition: attachment; filename="' . $title . '.rss' . '"')}
+{do $full_link = path($link)}
+{var $download = new \TikScraper\Download}
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{$title}</title>
+		<description><![CDATA[{$desc}]]></description>
+		<link>{$full_link}</link>
+		<atom:link href="{$full_link . '/rss'}" rel="self" type="application/rss+xml"></atom:link>
+		{foreach $items as $item}
+			<item>
+				<title>{$item->desc}</title>
+				<description><![CDATA[{$item->desc}]]></description>
+				<link>{path('/@' . $item->author->uniqueId . '/video/' . $item->id)}</link>
+				<pubDate>{(int) $item->createTime}</pubDate>
+				<guid isPermaLink="false">{$item->id}</guid>
+				<enclosure length="{$download->file_size($item->video->playAddr)}" type="video/mp4" url="{path('/stream?url=' . urlencode($item->video->playAddr))}"></enclosure>
+			</item>
+		{/foreach}
+	</channel>
+</rss>

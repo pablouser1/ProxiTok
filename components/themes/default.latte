@@ -1,0 +1,36 @@
+<div class="container">
+	{foreach $feed->items as $item}
+	<article class="media">
+  	<figure class="media-left">
+    	<p class="image is-64x64">
+      	<img src="{path('/stream?url=' . urlencode($item->author->avatarThumb))}" />
+    	</p>
+  	</figure>
+  	<div class="media-content">
+    	<div class="content">
+      	<p>
+        	<strong>{$item->author->nickname}</strong> <small><a href="{path('/@' . $item->author->uniqueId)}">@{$item->author->uniqueId}</a></small>
+      	</p>
+				{if !empty($item->challenges)}
+				<p>{include './common/tags.latte', challenges: $item->challenges}</p>
+				{/if}
+				<p n:ifcontent>{$item->desc}</p>
+				{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
+    	</div>
+			<div class="has-text-centered">
+				<video width="{$item->video->width}" height="{$item->video->height}" controls preload="none" poster="{path('/stream?url=' . urlencode($item->video->originCover))}">
+					<source src="{path('/stream?url=' . $item->video->playAddr)}" type="video/mp4" />
+				</video>
+			</div>
+			<div class="has-text-centered">
+				{include './common/share.latte', uniqueId: $item->author->uniqueId, id: $item->id}
+				{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}
+			</div>
+  	</div>
+	</article>
+	{/foreach}
+	{if empty($feed->items)}
+		<p class="title">No items sent by TikTok!</p>
+	{/if}
+</div>
+{include './common/controls.latte'}

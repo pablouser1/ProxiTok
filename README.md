@@ -4,10 +4,10 @@ Use Tiktok with an alternative frontend, inspired by Nitter.
 ## Features
 * Privacy: All requests made to TikTok are server-side, so you will never connect to their servers
 * See user's feed
-* See trending
+* See trending and discovery tab
 * See tags
 * See video by id
-* Discovery
+* Themes
 * RSS Feed for user, trending and tag (just add /rss to the url)
 
 ## Self-hosting
@@ -33,9 +33,8 @@ Apply to: Main window (address bar)
 ```
 
 ## TODO / Known issues
-* Add a NoJS version / Make the whole program without required JS
 * Make video on /video fit screen and don't overflow
-* i18n
+* Search
 
 ## Credits
 [@TheFrenchGhosty](https://github.com/TheFrenchGhosty): Initial Dockerfile and fixes to a usable state. You can check his Docker image [here](https://github.com/PussTheCat-org/docker-proxitok-quay) on Github or [here](https://quay.io/repository/pussthecatorg/proxitok) on Quay
@@ -45,4 +44,3 @@ Apply to: Main window (address bar)
 * [bramus/router](https://github.com/bramus/router)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Bulma](https://github.com/jgthms/bulma) and [Bulmaswatch](https://github.com/jenil/bulmaswatch)
-* [FeedWriter](https://github.com/mibe/FeedWriter)

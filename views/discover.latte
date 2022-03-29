@@ -17,7 +17,7 @@
 								{if !empty($item->cardItem->cover)}
 									<div class="media-left">
 										<figure class="image is-96x96">
-											<img width="96" height="96" src="{path('/stream?url=' . urlencode($item->cardItem->cover))}" />
+											<img loading="lazy" width="96" height="96" src="{path('/stream?url=' . urlencode($item->cardItem->cover))}" />
 										</figure>
 									</div>
 								{/if}

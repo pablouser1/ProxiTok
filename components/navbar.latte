@@ -9,9 +9,13 @@
 
   <div id="navbar-menu" class="navbar-menu">
     <div class="navbar-start">
-      <a href="{path('/')}" class="navbar-item">Home</a>
+      <a href="{path('/')}" class="navbar-item">
+				{include './icon.latte', icon: 'home', text: 'Home'}
+			</a>
       <a href="{path('/settings')}" class="navbar-item">Settings</a>
-      <a href="{path('/about')}" class="navbar-item">About</a>
+      <a href="{path('/about')}" class="navbar-item">
+				{include './icon.latte', icon: 'info', text: 'About'}
+			</a>
     </div>
   </div>
 </nav>

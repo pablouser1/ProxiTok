@@ -11,8 +11,9 @@ $bulmaswatch-import-font: false;
 
 // Elements
 @import "./node_modules/bulma/sass/elements/button.sass";
-@import "./node_modules/bulma/sass/elements/box.sass";
 @import "./node_modules/bulma/sass/elements/container.sass";
+@import "./node_modules/bulma/sass/elements/icon.sass";
+@import "./node_modules/bulma/sass/elements/image.sass";
 @import "./node_modules/bulma/sass/elements/other.sass";
 @import "./node_modules/bulma/sass/elements/tag.sass";
 @import "./node_modules/bulma/sass/elements/title.sass";
@@ -21,14 +22,15 @@ $bulmaswatch-import-font: false;
 @import "./node_modules/bulma/sass/form/shared.sass";
 @import "./node_modules/bulma/sass/form/input-textarea.sass";
 @import "./node_modules/bulma/sass/form/checkbox-radio.sass";
+@import "./node_modules/bulma/sass/form/select.sass";
 @import "./node_modules/bulma/sass/form/tools.sass";
 
 // Components
 @import "./node_modules/bulma/sass/components/card.sass";
 @import "./node_modules/bulma/sass/components/dropdown.sass";
+@import "./node_modules/bulma/sass/components/media.sass";
 @import "./node_modules/bulma/sass/components/modal.sass";
 @import "./node_modules/bulma/sass/components/navbar.sass";
-@import "./node_modules/bulma/sass/components/media.sass";
 
 // Grids
 @import "./node_modules/bulma/sass/grid/columns.sass";

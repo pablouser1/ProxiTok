@@ -1,21 +1,21 @@
 <?php
 /** @var \Bramus\Router\Router $router */
 use App\Helpers\Misc;
+use App\Helpers\Wrappers;
 use App\Models\BaseTemplate;
-use App\Models\HomeTemplate;
 
 $router->get('/', function () {
-    $latte = Misc::latte();
-    $latte->render(Misc::getView('home'), new HomeTemplate);
+    $latte = Wrappers::latte();
+    $latte->render(Misc::getView('home'), new BaseTemplate('Home'));
 });
 
 $router->get('/about', function () {
-    $latte = Misc::latte();
+    $latte = Wrappers::latte();
     $latte->render(Misc::getView('about'), new BaseTemplate('About'));
 });
 
 $router->get('/verify', function () {
-    $latte = Misc::latte();
+    $latte = Wrappers::latte();
     $latte->render(Misc::getView('verify'), new BaseTemplate('Verify'));
 });
 
@@ -39,8 +39,8 @@ $router->mount('/@([^/]+)', function () use ($router) {
  */
 $router->get('/video/(\w+)', 'VideoController@get');
 
-$router->mount('/tag', function () use ($router) {
-    $router->get('/([^/]+)', 'TagController@get');
+$router->mount('/tag/([^/]+)', function () use ($router) {
+    $router->get('/', 'TagController@get');
     $router->get('/rss', 'TagController@rss');
 });
 
@@ -49,7 +49,7 @@ $router->get('/music/([^/]+)', 'MusicController@get');
 // -- Settings -- //
 $router->mount('/settings', function () use ($router) {
     $router->get('/', 'SettingsController@index');
-    $router->post('/proxy', 'SettingsController@proxy');
+    $router->post('/general', 'SettingsController@general');
     $router->post('/api', 'SettingsController@api');
 });
 

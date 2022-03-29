@@ -1,0 +1,14 @@
+{define icon_common, $icon}
+<span class="icon">
+	<i class="gg-{$icon}"></i>
+</span>
+{/define}
+
+{if isset($text)}
+<span class="icon-text">
+	{include icon_common, icon: $icon}
+	<span>{$text}</span>
+</span>
+{else}
+{include icon_common, icon: $icon}
+{/if}

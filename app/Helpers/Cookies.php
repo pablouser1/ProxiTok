@@ -2,13 +2,21 @@
 namespace App\Helpers;
 
 class Cookies {
-    const PROXY = ['host', 'port', 'user', 'password'];
+    const ALLOWED_THEMES = ['default', 'card'];
 
-    static public function get(string $name): ?string {
+    static public function get(string $name, string $default_value = ''): string {
         if (isset($_COOKIE[$name]) && !empty($_COOKIE[$name])) {
             return $_COOKIE[$name];
         }
-        return null;
+        return $default_value;
+    }
+
+    static public function theme(): string {
+        $theme = self::get('theme');
+        if ($theme && in_array($theme, self::ALLOWED_THEMES)) {
+            return $theme;
+        }
+        return 'default';
     }
 
     static public function exists(string $name): bool {

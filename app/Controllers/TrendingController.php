@@ -4,11 +4,12 @@ namespace App\Controllers;
 use App\Helpers\Misc;
 use App\Models\FeedTemplate;
 use App\Helpers\ErrorHandler;
-use App\Helpers\RSS;
+use App\Helpers\Wrappers;
+use App\Models\RSSTemplate;
 
 class TrendingController {
     static public function get() {
-        $api = Misc::api();
+        $api = Wrappers::api();
 
         // Ttwid if normal, cursor if legacy
         if ($api::class === 'TikScraper\Api') {
@@ -18,7 +19,7 @@ class TrendingController {
         }
         $feed = $api->getTrending($cursor);
         if ($feed->meta->success) {
-            $latte = Misc::latte();
+            $latte = Wrappers::latte();
             $latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));
         } else {
             ErrorHandler::show($feed->meta);
@@ -26,13 +27,11 @@ class TrendingController {
     }
 
     static public function rss() {
-        $api = Misc::api();
+        $api = Wrappers::api();
         $feed = $api->getTrending();
         if ($feed->meta->success) {
-            $feed = RSS::build('/trending', 'Trending', 'Tiktok trending', $feed->items);
-            // Setup headers
-            RSS::setHeaders('trending.rss');
-            echo $feed;
+            $latte = Wrappers::latte();
+            $latte->render(Misc::getView('rss'), new RSSTemplate('Trending', 'Trending on TikTok', '/trending', $feed->items));
         }
     }
 }

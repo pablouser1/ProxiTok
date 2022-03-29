@@ -1,0 +1,14 @@
+{embed '../form.latte', path: '/settings/general', method: 'POST', submit: true}
+{block fields}
+	<div class="field">
+		<label class="label">Theme</label>
+		<div class="select">
+			<select name="theme">
+				<option hidden disabled selected value> -- Select an option -- </option>
+				<option value="default">Default</option>
+				<option value="card">Card</option>
+			</select>
+		</div>
+  </div>
+{/block}
+{/embed}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6b066c447574f88ad9255a88892659e",
+    "content-hash": "def7d3d4bbdae6916d99e50b33b3595a",
     "packages": [
         {
             "name": "bramus/router",
@@ -204,118 +204,17 @@
             "time": "2022-02-22T18:39:58+00:00"
         },
         {
-            "name": "mibe/feedwriter",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mibe/FeedWriter.git",
-                "reference": "f4cc748ad8700e36663f08cfeebe7fd39b00eea2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mibe/FeedWriter/zipball/f4cc748ad8700e36663f08cfeebe7fd39b00eea2",
-                "reference": "f4cc748ad8700e36663f08cfeebe7fd39b00eea2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FeedWriter\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Bemmerl",
-                    "email": "mail@mx-server.de"
-                },
-                {
-                    "name": "Phil Freo"
-                },
-                {
-                    "name": "Paul Ferrett"
-                },
-                {
-                    "name": "Brennen Bearnes"
-                },
-                {
-                    "name": "Michael Robinson",
-                    "email": "mike@pagesofinterest.net"
-                },
-                {
-                    "name": "Baptiste Fontaine"
-                },
-                {
-                    "name": "Kristián Valentín"
-                },
-                {
-                    "name": "Brandtley McMinn"
-                },
-                {
-                    "name": "Julian Bogdani"
-                },
-                {
-                    "name": "Anis Uddin Ahmad",
-                    "email": "anis.programmer@gmail.com"
-                },
-                {
-                    "name": "Cedric Gampert"
-                },
-                {
-                    "name": "Yamek"
-                },
-                {
-                    "name": "thielj"
-                },
-                {
-                    "name": "Pavel Khakhlou"
-                },
-                {
-                    "name": "Daniel"
-                },
-                {
-                    "name": "Tino Goratsch"
-                }
-            ],
-            "description": "Generate feeds in either RSS 1.0, RSS 2.0 or ATOM formats",
-            "homepage": "https://github.com/mibe/FeedWriter",
-            "keywords": [
-                "RSS 1.0",
-                "atom",
-                "feed",
-                "rss",
-                "rss 2.0",
-                "rss2"
-            ],
-            "support": {
-                "issues": "https://github.com/mibe/FeedWriter/issues",
-                "source": "https://github.com/mibe/FeedWriter/tree/master"
-            },
-            "time": "2016-11-19T20:47:44+00:00"
-        },
-        {
             "name": "pablouser1/tikscraper",
-            "version": "v1.3.1.0",
+            "version": "v1.3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "7edba857ea7bccff3d77d487f2ee041e526ee16c"
+                "reference": "8aa4524d3f11c4087dcae565a874b9440b1468c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/7edba857ea7bccff3d77d487f2ee041e526ee16c",
-                "reference": "7edba857ea7bccff3d77d487f2ee041e526ee16c",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/8aa4524d3f11c4087dcae565a874b9440b1468c7",
+                "reference": "8aa4524d3f11c4087dcae565a874b9440b1468c7",
                 "shasum": ""
             },
             "require": {
@@ -341,9 +240,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.1.0"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.2.0"
             },
-            "time": "2022-03-28T16:02:56+00:00"
+            "time": "2022-03-29T17:10:36+00:00"
         },
         {
             "name": "php-webdriver/webdriver",

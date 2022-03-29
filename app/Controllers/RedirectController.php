@@ -7,17 +7,25 @@ use App\Helpers\Misc;
  */
 class RedirectController {
     static public function redirect() {
-        $endpoint = '';
-        if (isset($_GET['user'])) {
-            $endpoint = '/@' . $_GET['user'];
-        } else if (isset($_GET['tag'])) {
-            $endpoint = '/tag/' . $_GET['tag'];
-        } else if (isset($_GET['music'])) {
-            $endpoint = '/music/' . $_GET['music'];
-        } else if (isset($_GET['video'])) {
-            // The @username part is not used, but
-            // it is the schema that TikTok follows
-            $endpoint = '/@placeholder/video/' . $_GET['video'];
+        $endpoint = '/';
+        if (isset($_GET['type'], $_GET['term'])) {
+            $term = $_GET['term'];
+            switch ($_GET['type']) {
+                case 'user':
+                    $endpoint = '/@' . $term;
+                    break;
+                case 'tag':
+                    $endpoint = '/tag/' . $term;
+                    break;
+                case 'music':
+                    $endpoint = '/music/' . $term;
+                    break;
+                case 'video':
+                    // The @username part is not used, but
+                    // it is the schema that TikTok follows
+                    $endpoint = '/@placeholder/video/' . $term;
+                    break;
+                }
         }
 
         $url = Misc::url($endpoint);

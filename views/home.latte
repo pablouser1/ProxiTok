@@ -3,28 +3,30 @@
 {block content}
 	<p class="title">Welcome to ProxiTok!</p>
 	<p class="subtitle">An alternative open source frontend for TikTok</p>
-	<!-- Create forms from App\Models\HomeTemplate -->
-	<div class="columns is-centered is-vcentered is-multiline">
-		{foreach $forms as $form}
-			<div class="column is-narrow">
-				{embed '../components/card.latte'}
-					{block title}{$form['title']}{/block}
-					{block content}
-						<form action="{path('/redirect')}">
-							<div class="field has-addons has-addons-centered">
-								<div class="control">
-									<input name="{$form['input']}" class="input" type="text" placeholder="{$form['placeholder']}" required />
-								</div>
-	    					<div class="control">
-      						<button class="button is-success" type="submit">Search</button>
-    						</div>
-							</div>
-						</form>
-					{/block}
-				{/embed}
+	{embed '../components/form.latte', path: '/redirect', method: 'GET'}
+		{block fields}
+			<div class="field has-addons has-addons-centered">
+				<div class="control">
+					<input class="input" name="term" placeholder="Search" required>
+				</div>
+				<div class="control">
+					<div class="select">
+						<select name="type">
+							<option value="user">Username</option>
+							<option value="tag">Tag</option>
+							<option value="music">Music ID</option>
+							<option value="video">Video ID</option>
+						</select>
+					</div>
+				</div>
+				<div class="control">
+					<button type="submit" class="button is-success">
+						{include '../components/icon.latte', icon: 'search', text: 'Search'}
+					</a>
+				</div>
 			</div>
-		{/foreach}
-	</div>
+		{/block}
+	{/embed}
 	<div class="columns is-centered is-mobile">
 		<div class="column is-narrow">
 			<p>Discover</p>

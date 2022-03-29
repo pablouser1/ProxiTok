@@ -1,0 +1,13 @@
+<div class="dropdown is-hoverable">
+	<div class="dropdown-trigger">
+		<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+			{include '../../icon.latte', icon: 'software-download', text: 'Download'}
+		</button>
+	</div>
+	<div class="dropdown-menu" role="menu">
+		<div class="dropdown-content">
+			<a target="_blank" href="{path('/download?url=' . urlencode($playAddr) . '&id=' . $item->id . '&user=' . $uniqueId) . '&watermark=1'}" class="dropdown-item">Watermark</a>
+			<a target="_blank" href="{path('/download?id=' . $id . '&user=' . $uniqueId)}" class="dropdown-item">No watermark</a>
+		</div>
+	</div>
+</div>
