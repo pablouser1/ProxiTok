@@ -34,7 +34,7 @@ Apply to: Main window (address bar)
 
 ## TODO / Known issues
 * Make video on /video fit screen and don't overflow
-* Search
+* Fix embed styling
 
 ## Credits
 [@TheFrenchGhosty](https://github.com/TheFrenchGhosty): Initial Dockerfile and fixes to a usable state. You can check his Docker image [here](https://github.com/PussTheCat-org/docker-proxitok-quay) on Github or [here](https://quay.io/repository/pussthecatorg/proxitok) on Quay

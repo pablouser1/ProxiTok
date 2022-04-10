@@ -54,3 +54,6 @@ $router->mount('/settings', function () use ($router) {
 });
 
 $router->get('/discover', 'DiscoverController@get');
+
+// -- EMBED -- //
+$router->get('/embed/v2/(\d+)', 'EmbedController@v2');

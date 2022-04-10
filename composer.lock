@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "def7d3d4bbdae6916d99e50b33b3595a",
+    "content-hash": "417e49088860de4bd40099b5cef1e215",
     "packages": [
         {
             "name": "bramus/router",
@@ -121,16 +121,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.11.0",
+            "version": "v2.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "a815687bfadaf3af51ae99f92edb4ea310c43426"
+                "reference": "21316b42fb0a4e43df01f73c55d52bd531823fda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/a815687bfadaf3af51ae99f92edb4ea310c43426",
-                "reference": "a815687bfadaf3af51ae99f92edb4ea310c43426",
+                "url": "https://api.github.com/repos/nette/latte/zipball/21316b42fb0a4e43df01f73c55d52bd531823fda",
+                "reference": "21316b42fb0a4e43df01f73c55d52bd531823fda",
                 "shasum": ""
             },
             "require": {
@@ -199,22 +199,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.11.0"
+                "source": "https://github.com/nette/latte/tree/v2.11.1"
             },
-            "time": "2022-02-22T18:39:58+00:00"
+            "time": "2022-04-07T13:21:53+00:00"
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v1.3.2.0",
+            "version": "v1.3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "8aa4524d3f11c4087dcae565a874b9440b1468c7"
+                "reference": "412bbbe5415e13207fe24b8e8274c527c82f01d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/8aa4524d3f11c4087dcae565a874b9440b1468c7",
-                "reference": "8aa4524d3f11c4087dcae565a874b9440b1468c7",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/412bbbe5415e13207fe24b8e8274c527c82f01d6",
+                "reference": "412bbbe5415e13207fe24b8e8274c527c82f01d6",
                 "shasum": ""
             },
             "require": {
@@ -240,9 +240,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.2.0"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.3.0"
             },
-            "time": "2022-03-29T17:10:36+00:00"
+            "time": "2022-04-10T10:08:40+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -660,16 +660,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v6.0.5",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "1ccceccc6497e96f4f646218f04b97ae7d9fa7a1"
+                "reference": "e13f6757e267d687e20ec5b26ccfcbbe511cd8f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/1ccceccc6497e96f4f646218f04b97ae7d9fa7a1",
-                "reference": "1ccceccc6497e96f4f646218f04b97ae7d9fa7a1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/e13f6757e267d687e20ec5b26ccfcbbe511cd8f4",
+                "reference": "e13f6757e267d687e20ec5b26ccfcbbe511cd8f4",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +701,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.0.5"
+                "source": "https://github.com/symfony/process/tree/v6.0.7"
             },
             "funding": [
                 {
@@ -717,7 +717,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-30T18:19:12+00:00"
+            "time": "2022-03-18T16:21:55+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -811,5 +811,5 @@
         "ext-mbstring": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

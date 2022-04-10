@@ -2,11 +2,14 @@
 
 {block header}
 	<p class="title">Welcome to Proxitok!</p>
-	<p class="subtitle">An alternative frontend for TikTok</p>
+	<p class="subtitle">
+    Made with <span style="color: #e25555;">&#9829;</span> in <a href="https://github.com/pablouser1/ProxiTok">Github</a>
+	</p>
 {/block}
 
 {block content}
 	<p class="title">About this instance</p>
+	<p>Version: {version()}</p>
 	<p>Forcing Legacy mode: {isset($_ENV['API_FORCE_LEGACY']) ? 'yes' : 'no'}</p>
 	<hr />
 	<p class="title">Why would I want to use ProxiTok?</p>

@@ -6,6 +6,7 @@ use App\Helpers\Misc;
 use App\Helpers\Wrappers;
 use App\Models\FeedTemplate;
 use App\Models\RSSTemplate;
+use App\Models\VideoTemplate;
 
 class UserController {
     static public function get(string $username) {
@@ -30,7 +31,7 @@ class UserController {
         $feed = $api->getVideoByID($video_id);
         if ($feed->meta->success) {
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('video'), new FeedTemplate('Video', $feed));
+            $latte->render(Misc::getView('video'), new VideoTemplate($feed->items[0], $feed->info->detail));
         } else {
             ErrorHandler::show($feed->meta);
         }
