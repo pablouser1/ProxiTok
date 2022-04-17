@@ -11,8 +11,8 @@ class TrendingController {
     static public function get() {
         $api = Wrappers::api();
 
-        // Ttwid if normal, cursor if legacy
-        if ($api::class === 'TikScraper\Api') {
+        // Ttwid if standard, cursor if legacy
+        if ($api::MODE === 'STANDARD') {
             $cursor = Misc::getTtwid();
         } else {
             $cursor = Misc::getCursor();
