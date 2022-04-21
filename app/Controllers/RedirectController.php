@@ -9,12 +9,20 @@ class RedirectController {
     static public function redirect() {
         $endpoint = '/';
         if (isset($_GET['type'], $_GET['term'])) {
-            $term = $_GET['term'];
+            $term = trim($_GET['term']);
             switch ($_GET['type']) {
                 case 'user':
+                    // Remove @ if sent
+                    if ($term[0] === '@') {
+                        $term = substr($term, 1);
+                    }
                     $endpoint = '/@' . $term;
                     break;
                 case 'tag':
+                    // Remove # if sent
+                    if ($term[0] === '#') {
+                        $term = substr($term, 1);
+                    }
                     $endpoint = '/tag/' . $term;
                     break;
                 case 'music':
