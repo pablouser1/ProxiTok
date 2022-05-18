@@ -14,7 +14,7 @@
 				<title>{$item->desc}</title>
 				<description><![CDATA[{$item->desc}]]></description>
 				<link>{path('/@' . $item->author->uniqueId . '/video/' . $item->id)}</link>
-				<pubDate>{(int) $item->createTime}</pubDate>
+				<pubDate>{date('r', $item->createTime)}</pubDate>
 				<guid isPermaLink="false">{$item->id}</guid>
 				<enclosure length="{$download->file_size($item->video->playAddr)}" type="video/mp4" url="{path('/stream?url=' . urlencode($item->video->playAddr))}"></enclosure>
 			</item>
