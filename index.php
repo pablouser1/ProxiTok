@@ -1,9 +1,9 @@
 <?php
 require __DIR__ . "/vendor/autoload.php";
 
-// LOAD DOTENV
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
+$dotenv = new josegonzalez\Dotenv\Loader(__DIR__ . '/.env');
+$dotenv->parse();
+$dotenv->toEnv();
 
 // ROUTER
 $router = new Bramus\Router\Router();
