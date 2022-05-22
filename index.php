@@ -3,8 +3,10 @@ require __DIR__ . "/vendor/autoload.php";
 
 $dotenv = new josegonzalez\Dotenv\Loader(__DIR__ . '/.env');
 $dotenv->raiseExceptions(false);
-$dotenv->parse();
-$dotenv->toEnv();
+$result = $dotenv->parse();
+if ($result !== false) {
+    $dotenv->toEnv();
+}
 
 // ROUTER
 $router = new Bramus\Router\Router();
