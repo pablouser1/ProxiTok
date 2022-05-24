@@ -4,28 +4,32 @@ namespace App\Controllers;
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
 use App\Helpers\Wrappers;
-use App\Models\FeedTemplate;
+use App\Models\FullTemplate;
 use App\Models\RSSTemplate;
 
 class TagController {
     static public function get(string $name) {
         $cursor = Misc::getCursor();
         $api = Wrappers::api();
-        $feed = $api->getHashtagFeed($name, $cursor);
-        if ($feed->meta->success) {
+        $hashtag = $api->hashtag($name);
+        $hashtag->feed($cursor);
+        if ($hashtag->ok()) {
+            $data = $hashtag->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('tag'), new FeedTemplate('Tag', $feed));
+            $latte->render(Misc::getView('tag'), new FullTemplate('Tag', $data));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::show($hashtag->error());
         }
     }
 
     static public function rss(string $name) {
         $api = Wrappers::api();
-        $feed = $api->getHashtagFeed($name);
-        if ($feed->meta->success) {
+        $hashtag = $api->hashtag($name);
+        $hashtag->feed();
+        if ($hashtag->ok()) {
+            $data = $hashtag->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('rss'), new RSSTemplate($name, $feed->info->detail->desc, "/tag/{$name}", $feed->items));
+            $latte->render(Misc::getView('rss'), new RSSTemplate($name, $data->info->detail->desc, "/tag/{$name}", $data->feed->items));
         }
     }
 }

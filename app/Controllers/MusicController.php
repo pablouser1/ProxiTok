@@ -4,19 +4,21 @@ namespace App\Controllers;
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
 use App\Helpers\Wrappers;
-use App\Models\FeedTemplate;
+use App\Models\FullTemplate;
 
 class MusicController {
     static public function get(string $music_id) {
         $cursor = Misc::getCursor();
 
         $api = Wrappers::api();
-        $feed = $api->getMusicFeed($music_id, $cursor);
-        if ($feed->meta->success) {
+        $music = $api->music($music_id);
+        $music->feed($cursor);
+        if ($music->ok()) {
+            $data = $music->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('music'), new FeedTemplate('Music', $feed));
+            $latte->render(Misc::getView('music'), new FullTemplate('Music', $data));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::show($music->error());
         }
     }
 }

@@ -42,11 +42,10 @@ class Wrappers {
         return $latte;
     }
 
-        /**
+    /**
      * Setup of TikTok Api wrapper
-     * @return \TikScraper\Api|\TikScraper\Legacy
      */
-    static public function api() {
+    static public function api(): \TikScraper\Api {
         $options = [
             'use_test_endpoints' => Misc::env('API_TEST_ENDPOINTS', false),
             'signer' => [
@@ -84,7 +83,6 @@ class Wrappers {
 
         // Legacy mode
         $legacy = Misc::env('API_FORCE_LEGACY', false) || isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on';
-
-        return $legacy === false ? new \TikScraper\Api($options, $cacheEngine) : new \TikScraper\Legacy($options, $cacheEngine);
+        return new \TikScraper\Api($options, $legacy, $cacheEngine);
     }
 }

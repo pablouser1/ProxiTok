@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1c0945357108862633ea87a1f6bbdd8",
+    "content-hash": "e0e24f4588d6e34423fa8931ae8ae9a3",
     "packages": [
         {
             "name": "bramus/router",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v1.3.5.2",
+            "version": "v2.0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "cb2580e9868cd4f77f3ab93987786fbd57e4efaf"
+                "reference": "45812af395b376dff6835af192827f34ba7a4cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/cb2580e9868cd4f77f3ab93987786fbd57e4efaf",
-                "reference": "cb2580e9868cd4f77f3ab93987786fbd57e4efaf",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/45812af395b376dff6835af192827f34ba7a4cf9",
+                "reference": "45812af395b376dff6835af192827f34ba7a4cf9",
                 "shasum": ""
             },
             "require": {
@@ -298,9 +298,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v1.3.5.2"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.0.1.3"
             },
-            "time": "2022-05-22T09:33:26+00:00"
+            "time": "2022-05-24T12:08:22+00:00"
         },
         {
             "name": "php-webdriver/webdriver",

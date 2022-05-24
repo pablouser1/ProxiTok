@@ -1,9 +1,9 @@
 {layout '../layouts/default.latte'}
 
 {block header}
-	<p class="title">{$feed->info->detail->title}</p>
-	<p class="subtitle">{$feed->info->detail->desc}</p>
-	<p>Videos: {number($feed->info->stats->videoCount)}</p>
+	<p class="title">{$data->info->detail->title}</p>
+	<p class="subtitle">{$data->info->detail->desc}</p>
+	<p>Videos: {number($data->info->stats->videoCount)}</p>
 {/block}
 
 {block content}

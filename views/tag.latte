@@ -1,14 +1,14 @@
 {layout '../layouts/default.latte'}
 
 {block header}
-	{if $feed->info->detail->profileThumb !== ''}
+	{if $data->info->detail->profileThumb !== ''}
 	<figure class="figure is-96x96">
-		<img src="{path('/stream?url=' . urlencode($feed->info->detail->profileThumb))}" />
+		<img src="{path('/stream?url=' . urlencode($data->info->detail->profileThumb))}" />
 	</figure>
 	{/if}
-	<p class="title">{$feed->info->detail->title}</p>
+	<p class="title">{$data->info->detail->title}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
-	<p>Videos: {number($feed->info->stats->videoCount)} / Views: {number($feed->info->stats->viewCount)}</p>
+	<p>Videos: {number($data->info->stats->videoCount)} / Views: {number($data->info->stats->viewCount)}</p>
 {/block}
 
 {block content}

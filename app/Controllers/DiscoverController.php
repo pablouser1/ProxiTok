@@ -9,7 +9,7 @@ use App\Models\FeedTemplate;
 class DiscoverController {
     static public function get() {
         $api = Wrappers::api();
-        $feed = $api->getDiscover();
+        $feed = $api->discover();
         if ($feed->meta->success) {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('discover'), new FeedTemplate('Discover', $feed));

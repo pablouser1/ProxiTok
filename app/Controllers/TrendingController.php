@@ -12,24 +12,30 @@ class TrendingController {
         $api = Wrappers::api();
 
         // Ttwid if standard, cursor if legacy
-        if ($api::MODE === 'STANDARD') {
-            $cursor = Misc::getTtwid();
-        } else {
+        if ($api->isLegacy()) {
             $cursor = Misc::getCursor();
+        } else {
+            $cursor = Misc::getTtwid();
         }
-        $feed = $api->getTrending($cursor);
-        if ($feed->meta->success) {
+        $trending = $api->trending();
+        $trending->feed($cursor);
+
+        $feed = $trending->getFeed();
+        if ($feed && $feed->meta->success) {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::show($trending->error());
         }
     }
 
     static public function rss() {
         $api = Wrappers::api();
-        $feed = $api->getTrending();
-        if ($feed->meta->success) {
+        $trending = $api->trending();
+        $trending->feed();
+
+        $feed = $trending->getFeed();
+        if ($feed && $feed->meta->success) {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('rss'), new RSSTemplate('Trending', 'Trending on TikTok', '/trending', $feed->items));
         }

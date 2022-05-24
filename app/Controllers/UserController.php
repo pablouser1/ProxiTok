@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
 use App\Helpers\Wrappers;
-use App\Models\FeedTemplate;
+use App\Models\FullTemplate;
 use App\Models\RSSTemplate;
 use App\Models\VideoTemplate;
 
@@ -12,37 +12,43 @@ class UserController {
     static public function get(string $username) {
         $cursor = Misc::getCursor();
         $api = Wrappers::api();
-        $feed = $api->getUserFeed($username, $cursor);
-        if ($feed->meta->success) {
-            if ($feed->info->detail->privateAccount) {
+        $user = $api->user($username);
+        $user->feed($cursor);
+        if ($user->ok()) {
+            $data = $user->getFull();
+            if ($data->info->detail->privateAccount) {
                 http_response_code(403);
                 echo 'Private account detected! Not supported';
                 exit;
             }
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('user'), new FeedTemplate($feed->info->detail->nickname, $feed));
+            $latte->render(Misc::getView('user'), new FullTemplate($data->info->detail->nickname, $data));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::show($user->error());
         }
     }
 
     static public function video(string $username, string $video_id) {
         $api = Wrappers::api();
-        $feed = $api->getVideoByID($video_id);
-        if ($feed->meta->success) {
+        $video = $api->video($video_id);
+        $video->feed();
+        if ($video->ok()) {
+            $data = $video->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('video'), new VideoTemplate($feed->items[0], $feed->info->detail));
+            $latte->render(Misc::getView('video'), new VideoTemplate($data->feed->items[0], $data->info->detail));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::show($video->error());
         }
     }
 
     static public function rss(string $username) {
         $api = Wrappers::api();
-        $feed = $api->getUserFeed($username);
-        if ($feed->meta->success) {
+        $user = $api->user($username);
+        $user->feed();
+        if ($user->ok()) {
+            $data = $user->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('rss'), new RSSTemplate($username, $feed->info->detail->signature, '/@' . $username, $feed->items));
+            $latte->render(Misc::getView('rss'), new RSSTemplate($username, $data->info->detail->signature, '/@' . $username, $data->feed->items));
         }
     }
 }

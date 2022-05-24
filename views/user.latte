@@ -2,13 +2,13 @@
 
 {block header}
 	<figure class="figure is-96x96">
-		<img src="{path('/stream?url=' . urlencode($feed->info->detail->avatarThumb))}" />
+		<img src="{path('/stream?url=' . urlencode($data->info->detail->avatarThumb))}" />
 	</figure>
-	<p class="title">{$feed->info->detail->uniqueId}</p>
+	<p class="title">{$data->info->detail->uniqueId}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
-	<p>{$feed->info->detail->signature}</p>
-	<p>Following: {number($feed->info->stats->followingCount)} / Followers: {number($feed->info->stats->followerCount)}</p>
-	<p>Hearts: {number($feed->info->stats->heartCount)} / Videos: {$feed->info->stats->videoCount}</p>
+	<p>{$data->info->detail->signature}</p>
+	<p>Following: {number($data->info->stats->followingCount)} / Followers: {number($data->info->stats->followerCount)}</p>
+	<p>Hearts: {number($data->info->stats->heartCount)} / Videos: {$data->info->stats->videoCount}</p>
 {/block}
 
 {block content}
