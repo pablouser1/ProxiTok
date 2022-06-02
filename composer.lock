@@ -117,16 +117,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.11.3",
+            "version": "v2.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "f2e16d3ec6968854029740452c20c38a514e6842"
+                "reference": "3a5ed09d92b3bb2c428814bb919c2f8637bc49b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/f2e16d3ec6968854029740452c20c38a514e6842",
-                "reference": "f2e16d3ec6968854029740452c20c38a514e6842",
+                "url": "https://api.github.com/repos/nette/latte/zipball/3a5ed09d92b3bb2c428814bb919c2f8637bc49b1",
+                "reference": "3a5ed09d92b3bb2c428814bb919c2f8637bc49b1",
                 "shasum": ""
             },
             "require": {
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.11.3"
+                "source": "https://github.com/nette/latte/tree/v2.11.4"
             },
-            "time": "2022-05-08T03:22:55+00:00"
+            "time": "2022-05-30T13:34:15+00:00"
         },
         {
             "name": "m1/env",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.0.2.0",
+            "version": "v2.0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "f0594187000ac522b320d9d612010a346b270aa9"
+                "reference": "979a3fda0c6f0005fd4ee28a2ade2badc6e8286d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/f0594187000ac522b320d9d612010a346b270aa9",
-                "reference": "f0594187000ac522b320d9d612010a346b270aa9",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/979a3fda0c6f0005fd4ee28a2ade2badc6e8286d",
+                "reference": "979a3fda0c6f0005fd4ee28a2ade2badc6e8286d",
                 "shasum": ""
             },
             "require": {
@@ -298,9 +298,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.0.2.0"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.0.2.1"
             },
-            "time": "2022-05-30T11:46:48+00:00"
+            "time": "2022-06-02T09:14:57+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -399,16 +399,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
+                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
-                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
+                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
                 "shasum": ""
             },
             "require": {
@@ -423,7 +423,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -462,7 +462,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -478,20 +478,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-30T18:21:41+00:00"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c"
+                "reference": "cfa0ae98841b9e461207c13ab093d76b0fa7bace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4407588e0d3f1f52efb65fbe92babe41f37fe50c",
-                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/cfa0ae98841b9e461207c13ab093d76b0fa7bace",
+                "reference": "cfa0ae98841b9e461207c13ab093d76b0fa7bace",
                 "shasum": ""
             },
             "require": {
@@ -500,7 +500,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -545,7 +545,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -561,7 +561,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-04T08:16:47+00:00"
+            "time": "2022-05-10T07:21:04+00:00"
         },
         {
             "name": "symfony/process",
