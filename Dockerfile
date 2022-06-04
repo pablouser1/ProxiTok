@@ -22,3 +22,4 @@ RUN composer update --no-cache \
     && rm -rf /usr/bin/composer
 
 EXPOSE 80
+CMD apachectl -D FOREGROUND
