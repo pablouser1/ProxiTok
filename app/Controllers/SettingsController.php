@@ -25,10 +25,7 @@ class SettingsController {
         self::redirect();
     }
     static public function api() {
-        if (isset($_POST['api-legacy'])) {
-            $legacy = $_POST['api-legacy'];
-        }
-        Cookies::set('api-legacy', $legacy);
+        // TODO, ADD COUNT
         self::redirect();
     }
 }

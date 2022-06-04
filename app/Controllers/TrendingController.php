@@ -10,13 +10,8 @@ use App\Models\RSSTemplate;
 class TrendingController {
     static public function get() {
         $api = Wrappers::api();
+        $cursor = Misc::getTtwid();
 
-        // Ttwid if standard, cursor if legacy
-        if ($api->isLegacy()) {
-            $cursor = Misc::getCursor();
-        } else {
-            $cursor = Misc::getTtwid();
-        }
         $trending = $api->trending();
         $trending->feed($cursor);
 

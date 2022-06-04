@@ -81,8 +81,6 @@ class Wrappers {
             }
         }
 
-        // Legacy mode
-        $legacy = Misc::env('API_FORCE_LEGACY', false) || isset($_COOKIE['api-legacy']) && $_COOKIE['api-legacy'] === 'on';
-        return new \TikScraper\Api($options, $legacy, $cacheEngine);
+        return new \TikScraper\Api($options, $cacheEngine);
     }
 }
