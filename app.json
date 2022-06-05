@@ -1,0 +1,39 @@
+{
+    "name": "ProxiTok",
+    "description": "Open source alternative frontend for TikTok",
+    "keywords": [
+        "php",
+        "tiktok",
+        "alternative-frontends"
+    ],
+    "website": "https://github.com/pablouser1/ProxiTok",
+    "repository": "https://github.com/pablouser1/ProxiTok",
+    "env": {
+        "APP_URL": {
+            "description": "Your instance url (example: https://proxitok.herokuapp.com)"
+        },
+        "API_CACHE": {
+            "description": "Cache system in use",
+            "value": "redis"
+        },
+        "LATTE_CACHE": {
+            "description": "Latte cache path",
+            "value": "/tmp/latte"
+        },
+        "API_SIGNER_URL": {
+            "description": "Remote signer url",
+            "value": "https://signtok.vercel.app/api"
+        }
+    },
+    "addons": [
+        {
+            "plan": "heroku-redis:hobby-dev",
+            "as": "REDIS"
+        }
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/php"
+        }
+    ]
+}
