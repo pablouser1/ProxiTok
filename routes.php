@@ -34,10 +34,10 @@ $router->mount('/@([^/]+)', function () use ($router) {
     $router->get('/rss', 'UserController@rss');
 });
 
-/**
- * @deprecated Please use /@username/video/id instead
- */
+// Deprecated, please use /@USERNAME/video/VIDEO_ID instead
 $router->get('/video/(\w+)', 'VideoController@get');
+// Workaround that allows /t endpoints
+$router->get('/t/([^/]+)', 'VideoController@get');
 
 $router->mount('/tag/([^/]+)', function () use ($router) {
     $router->get('/', 'TagController@get');
