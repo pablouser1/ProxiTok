@@ -9,7 +9,11 @@
   	<div class="media-content">
     	<div class="content">
       	<p>
-        	<strong>{$item->author->nickname}</strong> <small><a href="{path('/@' . $item->author->uniqueId)}">@{$item->author->uniqueId}</a></small>
+        	<strong>{$item->author->nickname}</strong>
+					<small>
+						<a href="{path('/@' . $item->author->uniqueId)}">@{$item->author->uniqueId}</a>
+					</small>
+					<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
       	</p>
 				{if !empty($item->challenges)}
 				<p>{include './common/tags.latte', challenges: $item->challenges}</p>

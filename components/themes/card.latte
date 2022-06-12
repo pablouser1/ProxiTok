@@ -10,6 +10,7 @@
 			data-video_download_nowatermark="{path('/download?id=' . $item->id . '&user=' . $item->author->uniqueId)}"
 			data-video_share_url="{$share_url}"
 			data-desc="{$item->desc}"
+			data-createtime="{$item->createTime}"
       data-music_title="{$item->music->title}"
       data-music_url="{path('/stream?url=' . urlencode($item->music->playUrl))}">
       <img loading="lazy" src="{path('/stream?url=' . urlencode($item->video->originCover))}" />
@@ -36,6 +37,7 @@
     </section>
 		<footer class="modal-card-foot has-text-centered">
 			<div class="container">
+				<p id="item_date"></p>
 				<div class="field has-addons has-addons-centered">
 					<div class="control">
 						<input id="share_input" class="input" readonly />

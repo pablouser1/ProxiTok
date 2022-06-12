@@ -2,6 +2,7 @@ var opened_video_id = null
 
 const video = document.getElementById('video')
 const item_title = document.getElementById('item_title')
+const item_date = document.getElementById('item_date')
 const audio = document.getElementById('audio')
 const audio_title = document.getElementById('audio_title')
 const modal = document.getElementById('modal')
@@ -15,7 +16,7 @@ const getVideoDataById = id => {
     opened_video_id = id
     return el.dataset
   }
-  return false
+  return null
 }
 
 const isModalActive = () => modal.classList.contains('is-active')
@@ -23,9 +24,10 @@ const isModalActive = () => modal.classList.contains('is-active')
 const toggleButton = (id, force) => document.getElementById(id).toggleAttribute('disabled', force)
 
 // -- MODAL -- //
-const swapData = ({ video_url, desc, video_download_watermark, video_download_nowatermark, video_share_url, music_title, music_url }) => {
+const swapData = ({ video_url, desc, createtime, video_download_watermark, video_download_nowatermark, video_share_url, music_title, music_url }) => {
   video.src = video_url
   item_title.innerText = desc
+  item_date.innerText = new Date(createtime * 1000).toLocaleString()
   download_watermark.href = video_download_watermark
   download_nowatermark.href = video_download_nowatermark
   share_input.value = video_share_url
