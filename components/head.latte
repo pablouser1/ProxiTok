@@ -5,6 +5,9 @@
 	<meta property="og:title" content="ProxiTok" />
 	<meta property="og:description" content="Alternative frontend for TikTok" />
 	<meta property="og:type" content="website" />
+	{if isset($has_rss)}
+		<link rel="alternate" type="application/rss+xml" title="{$title}" href="{$_SERVER['REQUEST_URI'] . '/rss'}" />
+	{/if}
 	<link rel="stylesheet" href="{path('/styles/vendor/cssgg.min.css')}">
 	<link rel="stylesheet" href="{path('/styles/vendor/bulma.min.css')}">
 	<title>{$title} - ProxiTok</title>

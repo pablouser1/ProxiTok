@@ -1,5 +1,7 @@
 {layout '../layouts/default.latte'}
 
+{var $has_rss = true}
+
 {block header}
 	<figure class="figure is-96x96">
 		<img src="{path('/stream?url=' . urlencode($data->info->detail->avatarThumb))}" />
