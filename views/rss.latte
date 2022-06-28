@@ -1,7 +1,6 @@
 {contentType application/rss+xml}
 {do header('Content-Disposition: attachment; filename="' . $title . '.rss' . '"')}
 {do $full_link = path($link)}
-{var $download = new \TikScraper\Download}
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
@@ -16,7 +15,6 @@
 				<link>{path('/@' . $item->author->uniqueId . '/video/' . $item->id)}</link>
 				<pubDate>{date('r', $item->createTime)}</pubDate>
 				<guid isPermaLink="false">{$item->id}</guid>
-				<enclosure length="{$download->file_size($item->video->playAddr)}" type="video/mp4" url="{path('/stream?url=' . urlencode($item->video->playAddr))}"></enclosure>
 			</item>
 		{/foreach}
 	</channel>
