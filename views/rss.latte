@@ -12,7 +12,7 @@
 		{foreach $items as $item}
 			<item>
 				<title>{$item->desc}</title>
-				<description><![CDATA[{$item->desc}]]></description>
+				<description><![CDATA[<p>{$item->desc}</p><video controls="controls" preload="auto" src="{path('/stream?url=' . urlencode($item->video->playAddr))}"></video>]]></description>
 				<link>{path('/@' . $item->author->uniqueId . '/video/' . $item->id)}</link>
 				<pubDate>{date('r', $item->createTime)}</pubDate>
 				<guid isPermaLink="false">{$item->id}</guid>
