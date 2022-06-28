@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "387c0d1d767d85d4d08fadad9b583080",
+    "content-hash": "5c6b3247dd4d2f94f65a47d2eb39717a",
     "packages": [
         {
             "name": "bramus/router",
@@ -117,16 +117,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.11.4",
+            "version": "v2.11.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "3a5ed09d92b3bb2c428814bb919c2f8637bc49b1"
+                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/3a5ed09d92b3bb2c428814bb919c2f8637bc49b1",
-                "reference": "3a5ed09d92b3bb2c428814bb919c2f8637bc49b1",
+                "url": "https://api.github.com/repos/nette/latte/zipball/89e647e51213af8a270fe9903b8735a2f6c83ad1",
+                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1",
                 "shasum": ""
             },
             "require": {
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.11.4"
+                "source": "https://github.com/nette/latte/tree/v2.11.5"
             },
-            "time": "2022-05-30T13:34:15+00:00"
+            "time": "2022-06-26T10:12:18+00:00"
         },
         {
             "name": "m1/env",

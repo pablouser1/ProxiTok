@@ -19,8 +19,11 @@ class Wrappers {
             return Misc::url($endpoint);
         });
         // Version being used
-        $latte->addFunction('version', function (): string {
+        $latte->addFunction('version_frontend', function (): string {
             return \Composer\InstalledVersions::getVersion('pablouser1/proxitok');
+        });
+        $latte->addFunction('version_scraper', function (): string {
+            return \Composer\InstalledVersions::getVersion('pablouser1/tikscraper');
         });
         $latte->addFunction('theme', function(): string {
             return Cookies::theme();
@@ -47,7 +50,7 @@ class Wrappers {
      */
     static public function api(): \TikScraper\Api {
         $options = [
-            'use_test_endpoints' => Misc::env('API_TEST_ENDPOINTS', false),
+            'use_test_endpoints' => Misc::env('API_TEST_ENDPOINTS', false) || isset($_COOKIE['api-test_endpoints']) && $_COOKIE['api-test_endpoints'] === 'yes',
             'signer' => [
                 'remote_url' => Misc::env('API_SIGNER_URL', ''),
                 'browser_url' => Misc::env('API_BROWSER_URL', ''),

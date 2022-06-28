@@ -1,7 +1,19 @@
 {embed '../form.latte', path: '/settings/api', method: 'POST', submit: true}
 {block fields}
+	{var $use_endpoints = \App\Helpers\Cookies::check('api-test_endpoints', 'yes')}
 	<div class="field">
-		<p>TODO</p>
+		<label class="label">Use test endpoints</label>
+		<div class="control">
+			<label class="radio">
+    		<input type="radio" name="api-test_endpoints" value="yes" n:attr="checked => $use_endpoints" />
+				<span>Yes</span>
+			</label>
+			<label class="radio">
+    		<input type="radio" name="api-test_endpoints" value="no" n:attr="checked => !$use_endpoints" />
+				<span>No</span>
+			</label>
+		</div>
+		<p class="help">This <i>may</i> help bypass rate limits</p>
   </div>
 {/block}
 {/embed}

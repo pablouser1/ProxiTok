@@ -23,6 +23,10 @@ class Cookies {
         return isset($_COOKIE[$name]);
     }
 
+    static public function check(string $name, string $value): bool {
+        return self::exists($name) && $_COOKIE[$name] === $value;
+    }
+
     static public function set(string $name, string $value) {
         setcookie($name, $value, time()+60*60*24*30, '/', '', isset($_SERVER['HTTPS']), true);
     }

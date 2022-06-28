@@ -12,11 +12,6 @@ class SettingsController {
         $latte->render(Misc::getView('settings'), new BaseTemplate('Settings'));
     }
 
-    static private function redirect() {
-        $url = Misc::url('/settings');
-        header("Location: {$url}");
-    }
-
     static public function general() {
         if (isset($_POST['theme'])) {
             $theme = $_POST['theme'];
@@ -26,6 +21,15 @@ class SettingsController {
     }
     static public function api() {
         // TODO, ADD COUNT
+        if (isset($_POST['api-test_endpoints'])) {
+            $test_endpoints = $_POST['api-test_endpoints'];
+            Cookies::set('api-test_endpoints', $test_endpoints);
+        }
         self::redirect();
+    }
+
+    static private function redirect() {
+        $url = Misc::url('/settings');
+        header("Location: {$url}");
     }
 }
