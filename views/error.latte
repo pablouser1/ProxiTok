@@ -3,10 +3,8 @@
 {block content}
 	<p class="title">There was an error processing your request!</p>
 	<p class="subtitle">HTTP Code: {$error->http_code}</p>
-	{if $error->tiktok_code}
-		<p class="subtitle">API error code {$error->tiktok_code} ({$error->tiktok_msg})</p>
-		{if $error->tiktok_code === 10000}
-			<a href="{path('/verify')}">What does this mean?</a>
-		{/if}
+	<p class="subtitle">API error code {$error->tiktok_code} ({$error->tiktok_msg})</p>
+	{if $error->tiktok_code === 10000 || $error->tiktok_code === -1}
+		<a href="{path('/verify')}">What does this mean?</a>
 	{/if}
 {/block}
