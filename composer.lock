@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c6b3247dd4d2f94f65a47d2eb39717a",
+    "content-hash": "15ff00ea59afbf0d6d064d4cbefb05fb",
     "packages": [
         {
             "name": "bramus/router",
@@ -263,19 +263,21 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.1.0.2",
+            "version": "v2.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "1d330412c4767e3e4f9131ff54ccde18e60407c5"
+                "reference": "4aa97bbcb54f1d1677830acd2fae5b6c8f22c699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/1d330412c4767e3e4f9131ff54ccde18e60407c5",
-                "reference": "1d330412c4767e3e4f9131ff54ccde18e60407c5",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/4aa97bbcb54f1d1677830acd2fae5b6c8f22c699",
+                "reference": "4aa97bbcb54f1d1677830acd2fae5b6c8f22c699",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
                 "ext-xml": "*",
                 "php": ">=7.4|^8.0",
                 "php-webdriver/webdriver": "^1.12",
@@ -302,9 +304,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.1.0.2"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.1.1.0"
             },
-            "time": "2022-06-16T09:17:37+00:00"
+            "time": "2022-07-03T16:07:00+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
