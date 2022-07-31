@@ -13,9 +13,9 @@ class RedirectController {
             $term = trim($_GET['term']);
             switch ($_GET['type']) {
                 case 'url':
-                    $endpoint = to_endpoint($term);
+                    $endpoint = self::to_endpoint($term);
                     if (!$endpoint) {
-                        ErrorHandler::show('Invalid or unknown TikTok URL format');
+                        echo 'Invalid or unknown TikTok URL format';
                         return;
                     }
                     break;
@@ -51,7 +51,7 @@ class RedirectController {
     /**
      * to_endpoint maps a TikTok URL into a ProxiTok-compatible endpoint URL.
      */
-    static private function to_endpoint($url) {
+    static private function to_endpoint(string $url): string {
         if (preg_match('%^https://vm\.tiktok\.com/([A-Za-z0-9]+)%', $url, $m)) {
             // Short video URL
             return '/@placeholder/video/' . $m[1];
