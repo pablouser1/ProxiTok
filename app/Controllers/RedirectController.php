@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
 
 /**
@@ -11,6 +12,13 @@ class RedirectController {
         if (isset($_GET['type'], $_GET['term'])) {
             $term = trim($_GET['term']);
             switch ($_GET['type']) {
+                case 'url':
+                    $endpoint = self::to_endpoint($term);
+                    if (!$endpoint) {
+                        echo 'Invalid or unknown TikTok URL format';
+                        return;
+                    }
+                    break;
                 case 'user':
                     // Remove @ if sent
                     if ($term[0] === '@') {
@@ -38,5 +46,34 @@ class RedirectController {
 
         $url = Misc::url($endpoint);
         header("Location: {$url}");
+    }
+
+    /**
+     * to_endpoint maps a TikTok URL into a ProxiTok-compatible endpoint URL.
+     */
+    static private function to_endpoint(string $url): string {
+        if (preg_match('%^https://vm\.tiktok\.com/([A-Za-z0-9]+)%', $url, $m)) {
+            // Short video URL
+            return '/@placeholder/video/' . $m[1];
+        } elseif (preg_match('%^https://www\.tiktok\.com/(.+)%', $url, $m)) {
+            // Username component (which may indicate a user profile URL or a video URL)
+            if (preg_match('%^(@[A-Za-z0-9_.]+)(?:/|$)(.*)%', $m[1], $u)) {
+                if ($u[2] == '') {
+                    // User profile URL
+                    return '/' . $u[1];
+                } elseif (preg_match('%^video/(\d+)%', $u[2], $v)) {
+                    // Video URL
+                    return '/' . $u[1] . '/video/' . $v[1];
+                }
+            } elseif (preg_match('%^tag/([^ ]+?)(?:/|$)%', $m[1], $t)) {
+                // Tag URL
+                return '/tag/' . $t[1];
+            } elseif (preg_match('%^music/([^ ]+?)(?:/|$)%', $m[1], $m)) {
+                // Music URL
+                return '/music/' . $m[1];
+            }
+        }
+
+        return '';
     }
 }
