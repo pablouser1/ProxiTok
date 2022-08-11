@@ -37,6 +37,7 @@ Apply to: Main window (address bar)
 * Fix embed styling
 * Fix crash when invalid vm.tiktok.com/CODE or www.tiktok.com/t/CODE is provided
 * Add custom amount of videos per page
+* Discover does not work
 
 ## Credits
 [@TheFrenchGhosty](https://github.com/TheFrenchGhosty): Initial Dockerfile and fixes to a usable state. You can check his Docker image [here](https://github.com/PussTheCat-org/docker-proxitok-quay) on Github or [here](https://quay.io/repository/pussthecatorg/proxitok) on Quay
