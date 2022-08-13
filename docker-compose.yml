@@ -11,6 +11,7 @@ services:
       - API_CACHE=redis
       - REDIS_HOST=proxitok-redis
       - REDIS_PORT=6379
+      - API_SIGNER=remote
       - API_SIGNER_URL=http://proxitok-signer:8080/signature
     volumes:
       - proxitok-cache:/cache

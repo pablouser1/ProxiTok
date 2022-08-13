@@ -1,7 +1,9 @@
 <?php
 namespace App\Cache;
 
-class RedisCache {
+use TikScraper\CacheInterface;
+
+class RedisCache implements CacheInterface {
     private \Redis $client;
     function __construct(string $host, int $port, ?string $password) {
         $this->client = new \Redis();
@@ -21,10 +23,7 @@ class RedisCache {
 
     public function get(string $cache_key): ?object {
         $data = $this->client->get($cache_key);
-        if ($data) {
-            return json_decode($data);
-        }
-        return null;
+        return $data ? json_decode($data) : null;
     }
 
     public function exists(string $cache_key): bool {

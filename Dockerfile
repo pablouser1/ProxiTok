@@ -1,4 +1,4 @@
-FROM php:8-apache
+FROM php:8.1-apache
 WORKDIR /var/www/html
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN apt update -y && apt upgrade -y \

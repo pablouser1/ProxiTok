@@ -3,6 +3,7 @@ namespace App\Helpers;
 
 use App\Cache\JSONCache;
 use App\Cache\RedisCache;
+use App\Constants\CacheMethods;
 
 class Wrappers {
     /**
@@ -49,22 +50,35 @@ class Wrappers {
      * Setup of TikTok Api wrapper
      */
     static public function api(): \TikScraper\Api {
+        $method = Misc::env('API_SIGNER', '');
+        $url = Misc::env('API_SIGNER_URL', '');
+        if (!$method) {
+            // Legacy support
+            $browser_url = Misc::env('API_BROWSER_URL', '');
+            if ($url) {
+                $method = 'remote';
+            } elseif ($browser_url) {
+                $url = $browser_url;
+                $method = 'browser';
+            }
+        }
+
         $options = [
             'use_test_endpoints' => Misc::env('API_TEST_ENDPOINTS', false) || isset($_COOKIE['api-test_endpoints']) && $_COOKIE['api-test_endpoints'] === 'yes',
             'signer' => [
-                'remote_url' => Misc::env('API_SIGNER_URL', ''),
-                'browser_url' => Misc::env('API_BROWSER_URL', ''),
+                'method' => $method,
+                'url' => $url,
                 'close_when_done' => false
             ]
         ];
         // Cache config
-        $cacheEngine = false;
+        $cacheEngine = null;
         if (isset($_ENV['API_CACHE'])) {
             switch ($_ENV['API_CACHE']) {
-                case 'json':
+                case CacheMethods::JSON:
                     $cacheEngine = new JSONCache();
                     break;
-                case 'redis':
+                case CacheMethods::REDIS:
                     if (!(isset($_ENV['REDIS_URL']) || isset($_ENV['REDIS_HOST'], $_ENV['REDIS_PORT']))) {
                         throw new \Exception('You need to set REDIS_URL or REDIS_HOST and REDIS_PORT to use Redis Cache!');
                     }

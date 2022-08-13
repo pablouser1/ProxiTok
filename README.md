@@ -33,6 +33,7 @@ Apply to: Main window (address bar)
 ```
 
 ## TODO / Known issues
+* Replace placeholder favicon
 * Make video on /video fit screen and don't overflow
 * Fix embed styling
 * Fix crash when invalid vm.tiktok.com/CODE or www.tiktok.com/t/CODE is provided
