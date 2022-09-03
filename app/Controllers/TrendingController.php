@@ -20,7 +20,7 @@ class TrendingController {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('trending'), new FeedTemplate('Trending', $feed));
         } else {
-            ErrorHandler::show($trending->error());
+            ErrorHandler::showMeta($trending->error());
         }
     }
 

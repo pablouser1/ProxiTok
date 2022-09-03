@@ -18,7 +18,7 @@ class TagController {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('tag'), new FullTemplate('Tag', $data));
         } else {
-            ErrorHandler::show($hashtag->error());
+            ErrorHandler::showMeta($hashtag->error());
         }
     }
 

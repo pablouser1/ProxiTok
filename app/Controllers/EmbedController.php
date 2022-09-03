@@ -9,12 +9,14 @@ use App\Models\VideoTemplate;
 class EmbedController {
     static public function v2(int $id) {
         $api = Wrappers::api();
-        $feed = $api->getVideoByID($id);
-        if ($feed->meta->success) {
+        $video = $api->video($id);
+        $video->feed();
+        if ($video->ok()) {
+            $data = $video->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('video'), new VideoTemplate($feed->items[0], $feed->info->detail, true));
+            $latte->render(Misc::getView('video'), new VideoTemplate($data->feed->items[0], $data->info->detail, true));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::showMeta($video->error());
         }
     }
 }

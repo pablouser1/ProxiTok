@@ -15,7 +15,7 @@ class RedirectController {
                 case 'url':
                     $endpoint = self::to_endpoint($term);
                     if (!$endpoint) {
-                        echo 'Invalid or unknown TikTok URL format';
+                        ErrorHandler::showText(400, 'Invalid TikTok URL');
                         return;
                     }
                     break;

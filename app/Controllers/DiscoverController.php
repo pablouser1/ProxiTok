@@ -14,7 +14,7 @@ class DiscoverController {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('discover'), new FeedTemplate('Discover', $feed));
         } else {
-            ErrorHandler::show($feed->meta);
+            ErrorHandler::showMeta($feed->meta);
         }
     }
 }

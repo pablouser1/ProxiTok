@@ -1,8 +1,14 @@
 <?php
 /** @var \Bramus\Router\Router $router */
+
+use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
 use App\Helpers\Wrappers;
 use App\Models\BaseTemplate;
+
+$router->set404(function () {
+    ErrorHandler::showText(404, "That endpoint doesn't exist");
+});
 
 $router->get('/', function () {
     $latte = Wrappers::latte();

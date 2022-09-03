@@ -17,14 +17,13 @@ class UserController {
         if ($user->ok()) {
             $data = $user->getFull();
             if ($data->info->detail->privateAccount) {
-                http_response_code(403);
-                echo 'Private account detected! Not supported';
-                exit;
+                ErrorHandler::showText(401, "Private account detected! Not supported");
+                return;
             }
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('user'), new FullTemplate($data->info->detail->nickname, $data));
         } else {
-            ErrorHandler::show($user->error());
+            ErrorHandler::showMeta($user->error());
         }
     }
 
@@ -37,7 +36,7 @@ class UserController {
             $latte = Wrappers::latte();
             $latte->render(Misc::getView('video'), new VideoTemplate($data->feed->items[0], $data->info->detail));
         } else {
-            ErrorHandler::show($video->error());
+            ErrorHandler::showMeta($video->error());
         }
     }
 
