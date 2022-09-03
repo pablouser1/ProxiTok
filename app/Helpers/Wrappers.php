@@ -71,6 +71,20 @@ class Wrappers {
                 'close_when_done' => false
             ]
         ];
+
+        // -- PROXY CONFIG -- //
+        $proxy_host = Misc::env('PROXY_HOST', '');
+        $proxy_port = Misc::env('PROXY_PORT', '');
+
+        if ($proxy_host && $proxy_port) {
+            $options['proxy'] = [
+                'host' => $proxy_host,
+                'port' => $proxy_port,
+                'username' => Misc::env('PROXY_USERNAME', null),
+                'password' => Misc::env('PROXY_PASSWORD', null)
+            ];
+        }
+
         // Cache config
         $cacheEngine = null;
         if (isset($_ENV['API_CACHE'])) {
