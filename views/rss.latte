@@ -1,6 +1,6 @@
 {contentType application/rss+xml}
 {do header('Content-Disposition: attachment; filename="' . $title . '.rss' . '"')}
-{do $full_link = path($link)}
+{var $full_link = path($link)}
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
