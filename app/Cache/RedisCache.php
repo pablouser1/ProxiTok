@@ -1,7 +1,7 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\CacheInterface;
+use TikScraper\Interfaces\CacheInterface;
 
 class RedisCache implements CacheInterface {
     private \Redis $client;

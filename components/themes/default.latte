@@ -3,7 +3,7 @@
 	<article class="media">
   	<figure class="media-left">
     	<p class="image is-64x64">
-      	<img src="{path('/stream?url=' . urlencode($item->author->avatarThumb))}" />
+      	<img src="{url_stream($item->author->avatarThumb)}" />
     	</p>
   	</figure>
   	<div class="media-content">
@@ -11,7 +11,7 @@
       	<p>
         	<strong>{$item->author->nickname}</strong>
 					<small>
-						<a href="{path('/@' . $item->author->uniqueId)}">@{$item->author->uniqueId}</a>
+						<a href="{url_user($item->author->uniqueId)}">@{$item->author->uniqueId}</a>
 					</small>
 					<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
       	</p>
@@ -22,8 +22,8 @@
 				{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
     	</div>
 			<div class="has-text-centered">
-				<video width="{$item->video->width}" height="{$item->video->height}" controls preload="none" poster="{path('/stream?url=' . urlencode($item->video->originCover))}">
-					<source src="{path('/stream?url=' . $item->video->playAddr)}" type="video/mp4" />
+				<video width="{$item->video->width}" height="{$item->video->height}" controls preload="none" poster="{url_stream($item->video->originCover)}">
+					<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
 				</video>
 			</div>
 			<div class="has-text-centered">

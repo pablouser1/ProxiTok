@@ -10,6 +10,7 @@ $bulmaswatch-import-font: false;
 @import "./node_modules/bulma/sass/base/_all.sass";
 
 // Elements
+@import "./node_modules/bulma/sass/elements/box.sass";
 @import "./node_modules/bulma/sass/elements/button.sass";
 @import "./node_modules/bulma/sass/elements/container.sass";
 @import "./node_modules/bulma/sass/elements/icon.sass";

@@ -4,12 +4,12 @@ namespace App\Controllers;
 use App\Helpers\Misc;
 use App\Helpers\Cookies;
 use App\Helpers\Wrappers;
-use App\Models\BaseTemplate;
+use App\Models\SettingsTemplate;
 
 class SettingsController {
     static public function index() {
         $latte = Wrappers::latte();
-        $latte->render(Misc::getView('settings'), new BaseTemplate('Settings'));
+        $latte->render(Misc::getView('settings'), new SettingsTemplate());
     }
 
     static public function general() {
@@ -24,6 +24,11 @@ class SettingsController {
         if (isset($_POST['api-test_endpoints'])) {
             $test_endpoints = $_POST['api-test_endpoints'];
             Cookies::set('api-test_endpoints', $test_endpoints);
+        }
+
+        if (isset($_POST['api-downloader'])) {
+            $downloader = $_POST['api-downloader'];
+            Cookies::set("api-downloader", $downloader);
         }
         self::redirect();
     }

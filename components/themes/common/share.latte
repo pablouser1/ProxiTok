@@ -1,5 +1,5 @@
 {do $endpoint = '/@' . $uniqueId . '/video/' . $id}
 <div class="buttons is-centered">
-	<a class="button is-success is-small" href="{path($endpoint)}">Instance Link</a>
-	<a class="button is-danger is-small" href="https://www.tiktok.com{$endpoint}">Original Link</a>
+	<a class="button is-success is-small" href="{url_video_internal($uniqueId, $id)}">Instance Link</a>
+	<a class="button is-danger is-small" href="{url_video_external($uniqueId, $id)}">Original Link</a>
 </div>

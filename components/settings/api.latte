@@ -1,19 +1,31 @@
 {embed '../form.latte', path: '/settings/api', method: 'POST', submit: true}
 {block fields}
-	{var $use_endpoints = \App\Helpers\Cookies::check('api-test_endpoints', 'yes')}
 	<div class="field">
 		<label class="label">Use test endpoints</label>
 		<div class="control">
 			<label class="radio">
-    		<input type="radio" name="api-test_endpoints" value="yes" n:attr="checked => $use_endpoints" />
+    		<input type="radio" name="api-test_endpoints" value="yes" n:attr="checked => $isTestEndpoints" />
 				<span>Yes</span>
 			</label>
 			<label class="radio">
-    		<input type="radio" name="api-test_endpoints" value="no" n:attr="checked => !$use_endpoints" />
+    		<input type="radio" name="api-test_endpoints" value="no" n:attr="checked => !$isTestEndpoints" />
 				<span>No</span>
 			</label>
 		</div>
 		<p class="help">This <i>may</i> help bypass rate limits</p>
   </div>
+	<div class="field">
+		<label class="label">Downloader</label>
+		<div class="control">
+			<div class="select">
+				<select name="api-downloader">
+					{foreach $downloaders as $downloader}
+						<option value="{$downloader}" n:attr="selected => $currentDownloader === $downloader">{$downloader|firstUpper}</option>
+					{/foreach}
+				</select>
+			</div>
+		</div>
+		<p class="help">Watermark downloads will <i>not</i> use third party methods</p>
+	</div>
 {/block}
 {/embed}

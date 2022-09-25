@@ -1,9 +1,9 @@
 <?php
 namespace App\Helpers;
 
-class Cookies {
-    const ALLOWED_THEMES = ['default', 'card'];
+use App\Constants\Themes;
 
+class Cookies {
     static public function get(string $name, string $default_value = ''): string {
         if (isset($_COOKIE[$name]) && !empty($_COOKIE[$name])) {
             return $_COOKIE[$name];
@@ -13,10 +13,17 @@ class Cookies {
 
     static public function theme(): string {
         $theme = self::get('theme');
-        if ($theme && in_array($theme, self::ALLOWED_THEMES)) {
+        $ref = new \ReflectionClass(Themes::class);
+        $themes = $ref->getConstants();
+        if ($theme && in_array($theme, $themes)) {
             return $theme;
         }
         return 'default';
+    }
+
+    static public function downloader(): string {
+        $downloader = self::get('api-downloader', 'default');
+        return $downloader;
     }
 
     static public function exists(string $name): bool {

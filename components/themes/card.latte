@@ -3,18 +3,18 @@
 <section class="section">
   <div class="columns is-multiline is-vcentered">
 		{foreach $data->feed->items as $item}
-		{do $share_url = 'https://tiktok.com/@' . $item->author->uniqueId . '/video/' . $item->id}
+		{do $share_url = url_video_external($item->author->uniqueId, $item->id)}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
-			data-video_url="{path('/stream?url=' . urlencode($item->video->playAddr))}"
-			data-video_download_watermark="{path('/download?url=' . urlencode($item->video->playAddr) . '&id=' . $item->id . '&user=' . $item->author->uniqueId) . '&watermark='}"
-			data-video_download_nowatermark="{path('/download?id=' . $item->id . '&user=' . $item->author->uniqueId)}"
+			data-video_url="{url_stream($item->video->playAddr)}"
+			data-video_download_watermark="{url_download($item->video->playAddr, $item->author->uniqueId, true)}"
+			data-video_download_nowatermark="{url_download($item->video->playAddr, $item->author->uniqueId, false)}"
 			data-video_share_url="{$share_url}"
 			data-desc="{$item->desc}"
 			data-createtime="{$item->createTime}"
       data-music_title="{$item->music->title}"
-      data-music_url="{path('/stream?url=' . urlencode($item->music->playUrl))}">
-      <img loading="lazy" src="{path('/stream?url=' . urlencode($item->video->originCover))}" />
-			<img class="hidden" loading="lazy" data-src="{path('/stream?url=' . urlencode($item->video->dynamicCover))}" />
+      data-music_url="{url_stream($item->music->playUrl)}">
+      <img loading="lazy" src="{url_stream($item->video->originCover)}" />
+			<img class="hidden" loading="lazy" data-src="{url_stream($item->video->dynamicCover)}" />
     </div>
     {/foreach}
 		{if empty($data->feed->items)}

@@ -16,7 +16,7 @@ class TagController {
         if ($hashtag->ok()) {
             $data = $hashtag->getFull();
             $latte = Wrappers::latte();
-            $latte->render(Misc::getView('tag'), new FullTemplate('Tag', $data));
+            $latte->render(Misc::getView('tag'), new FullTemplate($data->info->detail->title, $data));
         } else {
             ErrorHandler::showMeta($hashtag->error());
         }

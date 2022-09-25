@@ -10,7 +10,7 @@ class RedirectController {
     static public function redirect() {
         $endpoint = '/';
         if (isset($_GET['type'], $_GET['term'])) {
-            $term = trim($_GET['term']);
+            $term = urlencode(trim($_GET['term']));
             switch ($_GET['type']) {
                 case 'url':
                     $endpoint = self::to_endpoint($term);

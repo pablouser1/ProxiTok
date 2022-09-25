@@ -2,13 +2,15 @@
 {block fields}
 	<div class="field">
 		<label class="label">Theme</label>
-		<div class="select">
-			<select name="theme">
-				<option hidden disabled selected value> -- Select an option -- </option>
-				<option value="default">Default</option>
-				<option value="card">Card</option>
-			</select>
+		<div class="control">
+			<div class="select">
+				<select name="theme">
+					{foreach $themes as $theme}
+						<option value="{$theme}" n:attr="selected => $currentTheme === $theme">{$theme|firstUpper}</option>
+					{/foreach}
+				</select>
+			</div>
 		</div>
-  </div>
+	</div>
 {/block}
 {/embed}

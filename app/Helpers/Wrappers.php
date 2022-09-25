@@ -29,6 +29,23 @@ class Wrappers {
         $latte->addFunction('theme', function(): string {
             return Cookies::theme();
         });
+
+        // UrlBuilder
+        $latte->addFunction('url_stream', function (string $url): string {
+            return UrlBuilder::stream($url);
+        });
+        $latte->addFunction('url_user', function (string $username): string {
+            return UrlBuilder::user($username);
+        });
+        $latte->addFunction('url_video_internal', function (string $username, string $id): string {
+            return UrlBuilder::video_internal($username, $id);
+        });
+        $latte->addFunction('url_video_external', function (string $username, string $id): string {
+            return UrlBuilder::video_external($username, $id);
+        });
+        $latte->addFunction('url_download', function (string $url, string $username, bool $watermark): string {
+            return UrlBuilder::download($url, $username, $watermark);
+        });
         // https://stackoverflow.com/a/36365553
         $latte->addFunction('number', function (float $x) {
             if($x > 1000) {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec01a866b0314de1e8345a625b066075",
+    "content-hash": "0e42a826ea58a0a415290531bd89cd2d",
     "packages": [
         {
             "name": "bramus/router",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.2.1.1",
+            "version": "v2.3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "535ed6db108c9a0ec41b271bea8a6a10700cc5d7"
+                "reference": "b7d890ea20b24baa4d5a2c3874575027982ad3a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/535ed6db108c9a0ec41b271bea8a6a10700cc5d7",
-                "reference": "535ed6db108c9a0ec41b271bea8a6a10700cc5d7",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/b7d890ea20b24baa4d5a2c3874575027982ad3a4",
+                "reference": "b7d890ea20b24baa4d5a2c3874575027982ad3a4",
                 "shasum": ""
             },
             "require": {
@@ -298,15 +298,16 @@
             ],
             "authors": [
                 {
-                    "name": "Pablo Ferreiro"
+                    "name": "Pablo Ferreiro",
+                    "homepage": "https://pabloferreiro.es"
                 }
             ],
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.2.1.1"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.0.1"
             },
-            "time": "2022-09-03T11:19:59+00:00"
+            "time": "2022-09-25T17:03:08+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
