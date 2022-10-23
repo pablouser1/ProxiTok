@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e42a826ea58a0a415290531bd89cd2d",
+    "content-hash": "cba94cb83e29611d014cde3b5d1e1e67",
     "packages": [
         {
             "name": "bramus/router",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.3.0.1",
+            "version": "v2.3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "b7d890ea20b24baa4d5a2c3874575027982ad3a4"
+                "reference": "5baf0106bd4b86e92f092f7d17e6fc2d24aabf8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/b7d890ea20b24baa4d5a2c3874575027982ad3a4",
-                "reference": "b7d890ea20b24baa4d5a2c3874575027982ad3a4",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/5baf0106bd4b86e92f092f7d17e6fc2d24aabf8a",
+                "reference": "5baf0106bd4b86e92f092f7d17e6fc2d24aabf8a",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +284,7 @@
                 "sapistudio/seleniumstealth": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.5"
+                "pestphp/pest": "^1.22"
             },
             "type": "library",
             "autoload": {
@@ -305,22 +305,22 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.0.1"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.1.1"
             },
-            "time": "2022-09-25T17:03:08+00:00"
+            "time": "2022-10-23T19:33:37+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
-            "version": "1.12.1",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-webdriver/php-webdriver.git",
-                "reference": "b27ddf458d273c7d4602106fcaf978aa0b7fe15a"
+                "reference": "6dfe5f814b796c1b5748850aa19f781b9274c36c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/b27ddf458d273c7d4602106fcaf978aa0b7fe15a",
-                "reference": "b27ddf458d273c7d4602106fcaf978aa0b7fe15a",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/6dfe5f814b796c1b5748850aa19f781b9274c36c",
+                "reference": "6dfe5f814b796c1b5748850aa19f781b9274c36c",
                 "shasum": ""
             },
             "require": {
@@ -370,9 +370,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-webdriver/php-webdriver/issues",
-                "source": "https://github.com/php-webdriver/php-webdriver/tree/1.12.1"
+                "source": "https://github.com/php-webdriver/php-webdriver/tree/1.13.1"
             },
-            "time": "2022-05-03T12:16:34+00:00"
+            "time": "2022-10-11T11:49:44+00:00"
         },
         {
             "name": "sapistudio/seleniumstealth",
