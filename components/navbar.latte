@@ -1,6 +1,8 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-	  <a href="{path('/')}" class="navbar-item">ProxiTok</a>
+	  <a href="{path('/')}" class="navbar-item">
+			{include './icon.latte', icon: 'home', text: 'ProxiTok'}
+		</a>
     <a role="button" id="navbar-burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -18,7 +20,9 @@
 			</a>
     </div>
 		<div class="navbar-end">
-			<a href="https://github.com/pablouser1/ProxiTok" class="navbar-item" target="_blank">Source</a>
+			<a href="https://github.com/pablouser1/ProxiTok" class="navbar-item" target="_blank">
+				{include './icon.latte', icon: 'code-slash', text: 'Source'}
+			</a>
 		</div>
   </div>
 </nav>

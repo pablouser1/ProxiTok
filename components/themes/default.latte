@@ -7,20 +7,18 @@
     	</p>
   	</figure>
   	<div class="media-content">
-    	<div class="content">
-      	<p>
-        	<strong>{$item->author->nickname}</strong>
-					<small>
-						<a href="{url_user($item->author->uniqueId)}">@{$item->author->uniqueId}</a>
-					</small>
-					<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
-      	</p>
-				{if !empty($item->challenges)}
-				<p>{include './common/tags.latte', challenges: $item->challenges}</p>
-				{/if}
-				<p n:ifcontent>{$item->desc}</p>
-				{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
-    	</div>
+      <p>
+      	<strong>{$item->author->nickname}</strong>
+				<small>
+					<a href="{url_user($item->author->uniqueId)}">@{$item->author->uniqueId}</a>
+				</small>
+				<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
+      </p>
+			{if !empty($item->challenges)}
+			<p>{include './common/tags.latte', challenges: $item->challenges}</p>
+			{/if}
+			<p n:ifcontent>{$item->desc}</p>
+			{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 			<div class="has-text-centered">
 				<video width="{$item->video->width}" height="{$item->video->height}" controls preload="none" poster="{url_stream($item->video->originCover)}">
 					<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
