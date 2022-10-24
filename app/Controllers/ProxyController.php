@@ -33,8 +33,7 @@ class ProxyController {
 
     }
 
-    static private function getFilename(string $url, string $user): string {
-        $id = Converter::urlToId($url);
+    static private function getFilename(string $id, string $user): string {
         $filename = 'tiktok-video-' . $id . '-' . $user;
         return $filename;
     }
@@ -52,12 +51,13 @@ class ProxyController {
         $downloader = new \TikScraper\Download($method);
 
         // Params
+        $id = $_GET['id'] ?? '';
         $watermark = isset($_GET['watermark']);
         $url = $_GET['url'];
         $user = $_GET['user'] ?? '';
         // Filename
-        $filename = self::getFilename($url, $user);
+        $filename = self::getFilename($id, $user);
         // Running
-        $downloader->url($_GET['url'], $filename, $watermark);
+        $downloader->url($url, $filename, $watermark);
     }
 }

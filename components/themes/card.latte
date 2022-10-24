@@ -6,8 +6,8 @@
 		{do $share_url = url_video_external($item->author->uniqueId, $item->id)}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
 			data-video_url="{url_stream($item->video->playAddr)}"
-			data-video_download_watermark="{url_download($item->video->playAddr, $item->author->uniqueId, true)}"
-			data-video_download_nowatermark="{url_download($item->video->playAddr, $item->author->uniqueId, false)}"
+			data-video_download_watermark="{url_download($item->video->playAddr, $item->author->uniqueId, $item->id, true)}"
+			data-video_download_nowatermark="{url_download(url_video_external($item->author->uniqueId, $item->id), $item->author->uniqueId, $item->id, false)}"
 			data-video_share_url="{$share_url}"
 			data-desc="{$item->desc}"
 			data-createtime="{$item->createTime}"

@@ -43,8 +43,8 @@ class Wrappers {
         $latte->addFunction('url_video_external', function (string $username, string $id): string {
             return UrlBuilder::video_external($username, $id);
         });
-        $latte->addFunction('url_download', function (string $url, string $username, bool $watermark): string {
-            return UrlBuilder::download($url, $username, $watermark);
+        $latte->addFunction('url_download', function (string $url, string $username, string $id, bool $watermark): string {
+            return UrlBuilder::download($url, $username, $id, $watermark);
         });
         // https://stackoverflow.com/a/36365553
         $latte->addFunction('number', function (float $x) {
