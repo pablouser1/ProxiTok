@@ -10,7 +10,7 @@ class RedirectController {
     static public function redirect() {
         $endpoint = '/';
         if (isset($_GET['type'], $_GET['term'])) {
-            $term = urlencode(trim($_GET['term']));
+            $term = trim($_GET['term']);
             switch ($_GET['type']) {
                 case 'url':
                     $endpoint = self::to_endpoint($term);
@@ -24,22 +24,22 @@ class RedirectController {
                     if ($term[0] === '@') {
                         $term = substr($term, 1);
                     }
-                    $endpoint = '/@' . $term;
+                    $endpoint = '/@' . urlencode($term);
                     break;
                 case 'tag':
                     // Remove # if sent
                     if ($term[0] === '#') {
                         $term = substr($term, 1);
                     }
-                    $endpoint = '/tag/' . $term;
+                    $endpoint = '/tag/' . urlencode($term);
                     break;
                 case 'music':
-                    $endpoint = '/music/' . $term;
+                    $endpoint = '/music/' . urlencode($term);
                     break;
                 case 'video':
                     // The @username part is not used, but
                     // it is the schema that TikTok follows
-                    $endpoint = '/@placeholder/video/' . $term;
+                    $endpoint = '/@placeholder/video/' . urlencode($term);
                     break;
                 }
         }
@@ -60,17 +60,17 @@ class RedirectController {
             if (preg_match('%^(@[A-Za-z0-9_.]+)(?:/|$)(.*)%', $m[1], $u)) {
                 if ($u[2] == '') {
                     // User profile URL
-                    return '/' . $u[1];
+                    return '/' . urlencode($u[1]);
                 } elseif (preg_match('%^video/(\d+)%', $u[2], $v)) {
                     // Video URL
-                    return '/' . $u[1] . '/video/' . $v[1];
+                    return '/' . urlencode($u[1]) . '/video/' . urlencode($v[1]);
                 }
             } elseif (preg_match('%^tag/([^ ]+?)(?:/|$)%', $m[1], $t)) {
                 // Tag URL
-                return '/tag/' . $t[1];
+                return '/tag/' . urlencode($t[1]);
             } elseif (preg_match('%^music/([^ ]+?)(?:/|$)%', $m[1], $m)) {
                 // Music URL
-                return '/music/' . $m[1];
+                return '/music/' . urlencode($m[1]);
             }
         }
 
