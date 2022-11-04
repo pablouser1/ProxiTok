@@ -34,6 +34,14 @@ class SettingsController {
         self::redirect();
     }
 
+    static public function misc() {
+        if (isset($_POST['misc-sw'])) {
+            $sw = $_POST['misc-sw'];
+            Cookies::set("misc-sw", $sw);
+        }
+        self::redirect();
+    }
+
     static private function redirect() {
         $url = Misc::url('/settings');
         header("Location: {$url}");
