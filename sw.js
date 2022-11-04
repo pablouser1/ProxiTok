@@ -1,7 +1,7 @@
 const PWA_PRELOAD = {
   pages: ['/', '/about', '/settings'],
   scripts: ['/scripts/navbar.js', '/scripts/themes/card.js'],
-  styles: ['/styles/bulma.min.css', '/styles/cssgg.min.css', '/styles/themes/card.css']
+  styles: ['/styles/vendor/bulma.min.css', '/styles/vendor/cssgg.min.css', '/styles/themes/card.css']
 }
 
 self.addEventListener("install", function(e) {
