@@ -16,8 +16,6 @@
 	<link rel="stylesheet" href="{path('/styles/vendor/cssgg.min.css')}">
 	<link rel="stylesheet" href="{path('/styles/vendor/bulma.min.css')}">
 	<title>{$title} - ProxiTok</title>
-	{*/ Handles optional Service Worker /*}
-	{if \App\Helpers\Cookies::check('misc-sw', 'yes')}
+	{*/ Handles Service Worker /*}
 	<script src="{path('/scripts/setup_sw.js')}"></script>
-	{/if}
 </head>
