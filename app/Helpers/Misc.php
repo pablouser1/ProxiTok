@@ -22,6 +22,6 @@ class Misc {
      * Returns absolute path for view
      */
     static public function getView(string $template): string {
-        return __DIR__ . "/../../views/{$template}.latte";
+        return __DIR__ . "/../../templates/views/{$template}.latte";
     }
 }
