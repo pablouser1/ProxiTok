@@ -57,6 +57,7 @@ $router->mount('/settings', function () use ($router) {
     $router->get('/', 'SettingsController@index');
     $router->post('/general', 'SettingsController@general');
     $router->post('/api', 'SettingsController@api');
+    $router->post('/misc', 'SettingsController@misc');
 });
 
 $router->get('/discover', 'DiscoverController@get');

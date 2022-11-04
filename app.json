@@ -20,6 +20,10 @@
             "description": "Latte cache path",
             "value": "/tmp/latte"
         },
+        "API_SIGNER": {
+            "description": "Signer method",
+            "value": "remote"
+        },
         "API_SIGNER_URL": {
             "description": "Remote signer url",
             "value": "https://signtok.vercel.app/api"

@@ -6,14 +6,15 @@ use App\Helpers\Cookies;
 use TikScraper\Constants\DownloadMethods;
 
 /**
-* Base for templates with a feed
-*/
+ * Settings model with all possible config items
+ */
 class SettingsTemplate extends BaseTemplate {
     public array $downloaders = [];
     public array $themes = [];
     public bool $isTestEndpoints = false;
     public string $currentDownloader;
     public string $currentTheme;
+    public bool $isServiceWorker = false;
 
     function __construct() {
         parent::__construct("Settings");
@@ -27,5 +28,6 @@ class SettingsTemplate extends BaseTemplate {
         $this->isTestEndpoints = Cookies::check('api-test_endpoints', 'yes');
         $this->currentDownloader = Cookies::downloader();
         $this->currentTheme = Cookies::theme();
+        $this->isServiceWorker = Cookies::check('misc-sw', 'yes');
     }
 }

@@ -5,9 +5,18 @@
 {/block}
 
 {block content}
-	<p class="title">General</p>
-	{include '../components/settings/general.latte'}
+	<div class="content">
+		<p class="title">General</p>
+		{include '../components/settings/general.latte'}
+	</div>
 	<hr />
-	<p class="title">Api</p>
-	{include '../components/settings/api.latte'}
+	<div class="content">
+		<p class="title">Api</p>
+		{include '../components/settings/api.latte'}
+	</div>
+	<hr />
+	<div class="content">
+		<p class="title">Misc</p>
+		{include '../components/settings/misc.latte'}
+	</div>
 {/block}

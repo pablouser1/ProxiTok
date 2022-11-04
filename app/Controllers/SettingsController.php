@@ -19,6 +19,7 @@ class SettingsController {
         }
         self::redirect();
     }
+
     static public function api() {
         // TODO, ADD COUNT
         if (isset($_POST['api-test_endpoints'])) {
@@ -29,6 +30,14 @@ class SettingsController {
         if (isset($_POST['api-downloader'])) {
             $downloader = $_POST['api-downloader'];
             Cookies::set("api-downloader", $downloader);
+        }
+        self::redirect();
+    }
+
+    static public function misc() {
+        if (isset($_POST['misc-sw'])) {
+            $sw = $_POST['misc-sw'];
+            Cookies::set("misc-sw", $sw);
         }
         self::redirect();
     }
