@@ -15,8 +15,7 @@ class MusicController {
         $music->feed($cursor);
         if ($music->ok()) {
             $data = $music->getFull();
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('music'), new FullTemplate('Music', $data));
+            Wrappers::latte('music', new FullTemplate('Music', $data));
         } else {
             ErrorHandler::showMeta($music->error());
         }

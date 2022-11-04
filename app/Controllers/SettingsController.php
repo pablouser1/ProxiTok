@@ -8,8 +8,7 @@ use App\Models\SettingsTemplate;
 
 class SettingsController {
     static public function index() {
-        $latte = Wrappers::latte();
-        $latte->render(Misc::getView('settings'), new SettingsTemplate());
+        Wrappers::latte('settings', new SettingsTemplate());
     }
 
     static public function general() {

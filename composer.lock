@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b40437551f24ae25f01113a85564867",
+    "content-hash": "7dc0bdf9fcecc4c3a73fb2fb1eece6f4",
     "packages": [
         {
             "name": "bramus/router",
@@ -117,22 +117,22 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.11.5",
+            "version": "v2.11.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1"
+                "reference": "af4dbb23a6044b1cf4904830a9b00246318c93d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/89e647e51213af8a270fe9903b8735a2f6c83ad1",
-                "reference": "89e647e51213af8a270fe9903b8735a2f6c83ad1",
+                "url": "https://api.github.com/repos/nette/latte/zipball/af4dbb23a6044b1cf4904830a9b00246318c93d4",
+                "reference": "af4dbb23a6044b1cf4904830a9b00246318c93d4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "php": ">=7.1 <8.2"
+                "php": ">=7.1 <8.3"
             },
             "conflict": {
                 "nette/application": "<2.4.1"
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.11.5"
+                "source": "https://github.com/nette/latte/tree/v2.11.6"
             },
-            "time": "2022-06-26T10:12:18+00:00"
+            "time": "2022-11-04T14:53:52+00:00"
         },
         {
             "name": "m1/env",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.3.2.0",
+            "version": "v2.3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "4b3c5952e1f9e126e2e1c80d006e70e759338c45"
+                "reference": "b67340e62cda1fb117b518e4f812e327aec094d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/4b3c5952e1f9e126e2e1c80d006e70e759338c45",
-                "reference": "4b3c5952e1f9e126e2e1c80d006e70e759338c45",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/b67340e62cda1fb117b518e4f812e327aec094d6",
+                "reference": "b67340e62cda1fb117b518e4f812e327aec094d6",
                 "shasum": ""
             },
             "require": {
@@ -305,9 +305,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.2.0"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.2.1"
             },
-            "time": "2022-10-24T18:36:21+00:00"
+            "time": "2022-11-04T18:45:45+00:00"
         },
         {
             "name": "php-webdriver/webdriver",

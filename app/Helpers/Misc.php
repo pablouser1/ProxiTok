@@ -24,4 +24,11 @@ class Misc {
     static public function getView(string $template): string {
         return __DIR__ . "/../../templates/views/{$template}.latte";
     }
+
+    /**
+     * Common method for rss feeds
+     */
+    static public function rss(string $title) {
+        header('Content-Disposition: attachment; filename="' . $title . '.rss' . '"');
+    }
 }

@@ -7,7 +7,6 @@ class UrlBuilder {
     }
 
     static public function download(string $url, string $username, string $id, bool $watermark): string {
-        // {path('/download?url=' . urlencode($playAddr) . '&id=' . $id . '&user=' . $uniqueId) . '&watermark=1'}
         $down_url = Misc::url('/download?url=' . urlencode($url) . '&id=' . $id . '&user=' . $username);
         if ($watermark) $down_url .= '&watermark=1';
         return $down_url;
@@ -15,6 +14,10 @@ class UrlBuilder {
 
     static public function user(string $username): string {
         return Misc::url('/@' . $username);
+    }
+
+    static public function tag(string $tag): string {
+        return Misc::url('/tag/' . $tag);
     }
 
     static public function video_internal(string $username, string $id): string {

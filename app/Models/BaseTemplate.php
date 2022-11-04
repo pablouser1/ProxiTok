@@ -6,7 +6,6 @@ namespace App\Models;
 */
 class BaseTemplate {
     public string $title;
-    public string $version;
 
     function __construct(string $title) {
         $this->title = $title;

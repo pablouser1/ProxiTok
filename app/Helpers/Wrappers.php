@@ -4,12 +4,13 @@ namespace App\Helpers;
 use App\Cache\JSONCache;
 use App\Cache\RedisCache;
 use App\Constants\CacheMethods;
+use App\Models\BaseTemplate;
 
 class Wrappers {
     /**
      * Setup of Latte template engine
      */
-    static public function latte(): \Latte\Engine {
+    static public function latte(string $template, BaseTemplate $base) {
         $latte = new \Latte\Engine;
         $cache_path = Misc::env('LATTE_CACHE', __DIR__ . '/../../cache/latte');
         $latte->setTempDirectory($cache_path);
@@ -19,6 +20,32 @@ class Wrappers {
         $latte->addFunction('path', function (string $endpoint = ''): string {
             return Misc::url($endpoint);
         });
+
+        // Static assets
+        $latte->addFunction('static', function (string $type, string $file, bool $isVendor = false): string {
+            $endpoint = '';
+            switch ($type) {
+                case 'js':
+                    $endpoint .= '/scripts';
+                    break;
+                case 'css':
+                    $endpoint .= '/styles';
+                    break;
+                default:
+                    throw new \Exception('Invalid static asset type');
+            }
+
+            if ($isVendor) $endpoint .= '/vendor';
+
+            $endpoint .= '/' . $file;
+
+            return Misc::url($endpoint);
+        });
+
+        $latte->addFunction('theme', function(): string {
+            return Cookies::theme();
+        });
+
         // Version being used
         $latte->addFunction('version_frontend', function (): string {
             return \Composer\InstalledVersions::getVersion('pablouser1/proxitok');
@@ -26,8 +53,20 @@ class Wrappers {
         $latte->addFunction('version_scraper', function (): string {
             return \Composer\InstalledVersions::getVersion('pablouser1/tikscraper');
         });
-        $latte->addFunction('theme', function(): string {
-            return Cookies::theme();
+
+        // https://stackoverflow.com/a/36365553
+        $latte->addFunction('number', function (float $x) {
+            if($x > 1000) {
+                $x_number_format = number_format($x);
+                $x_array = explode(',', $x_number_format);
+                $x_parts = array('K', 'M', 'B', 'T');
+                $x_count_parts = count($x_array) - 1;
+                $x_display = $x;
+                $x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
+                $x_display .= $x_parts[$x_count_parts - 1];
+                return $x_display;
+            }
+            return $x;
         });
 
         // UrlBuilder
@@ -46,21 +85,8 @@ class Wrappers {
         $latte->addFunction('url_download', function (string $url, string $username, string $id, bool $watermark): string {
             return UrlBuilder::download($url, $username, $id, $watermark);
         });
-        // https://stackoverflow.com/a/36365553
-        $latte->addFunction('number', function (float $x) {
-            if($x > 1000) {
-                $x_number_format = number_format($x);
-                $x_array = explode(',', $x_number_format);
-                $x_parts = array('K', 'M', 'B', 'T');
-                $x_count_parts = count($x_array) - 1;
-                $x_display = $x;
-                $x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
-                $x_display .= $x_parts[$x_count_parts - 1];
-                return $x_display;
-            }
-            return $x;
-        });
-        return $latte;
+
+        $latte->render(Misc::getView($template), $base);
     }
 
     /**

@@ -5,7 +5,7 @@
 {block header}
 	{if $data->info->detail->profileThumb !== ''}
 	<figure class="figure is-96x96">
-		<img src="{path('/stream?url=' . urlencode($data->info->detail->profileThumb))}" />
+		<img src="{url_stream($data->info->detail->profileThumb)}" />
 	</figure>
 	{/if}
 	<p class="title">{$data->info->detail->title}</p>

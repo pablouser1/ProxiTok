@@ -2,7 +2,6 @@
 namespace App\Controllers;
 
 use App\Helpers\ErrorHandler;
-use App\Helpers\Misc;
 use App\Helpers\Wrappers;
 use App\Models\FeedTemplate;
 
@@ -11,8 +10,7 @@ class DiscoverController {
         $api = Wrappers::api();
         $feed = $api->discover();
         if ($feed->meta->success) {
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('discover'), new FeedTemplate('Discover', $feed));
+            Wrappers::latte('discover', new FeedTemplate('Discover', $feed));
         } else {
             ErrorHandler::showMeta($feed->meta);
         }

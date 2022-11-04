@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
+use App\Helpers\UrlBuilder;
 use App\Helpers\Wrappers;
 use App\Models\FullTemplate;
 use App\Models\RSSTemplate;
@@ -20,8 +21,7 @@ class UserController {
                 ErrorHandler::showText(401, "Private account detected! Not supported");
                 return;
             }
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('user'), new FullTemplate($data->info->detail->nickname, $data));
+            Wrappers::latte('user', new FullTemplate($data->info->detail->nickname, $data));
         } else {
             ErrorHandler::showMeta($user->error());
         }
@@ -33,8 +33,7 @@ class UserController {
         $video->feed();
         if ($video->ok()) {
             $data = $video->getFull();
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('video'), new VideoTemplate($data->feed->items[0], $data->info->detail));
+            Wrappers::latte('video', new VideoTemplate($data->feed->items[0], $data->info->detail));
         } else {
             ErrorHandler::showMeta($video->error());
         }
@@ -46,8 +45,8 @@ class UserController {
         $user->feed();
         if ($user->ok()) {
             $data = $user->getFull();
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('rss'), new RSSTemplate($username, $data->info->detail->signature, '/@' . $username, $data->feed->items));
+            Misc::rss($username);
+            Wrappers::latte('rss', new RSSTemplate($username, $data->info->detail->signature, UrlBuilder::user($username), $data->feed->items));
         }
     }
 }

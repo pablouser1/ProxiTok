@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
+use App\Helpers\UrlBuilder;
 use App\Helpers\Wrappers;
 use App\Models\FullTemplate;
 use App\Models\RSSTemplate;
@@ -15,8 +16,7 @@ class TagController {
         $hashtag->feed($cursor);
         if ($hashtag->ok()) {
             $data = $hashtag->getFull();
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('tag'), new FullTemplate($data->info->detail->title, $data));
+            Wrappers::latte('tag', new FullTemplate($data->info->detail->title, $data));
         } else {
             ErrorHandler::showMeta($hashtag->error());
         }
@@ -28,8 +28,8 @@ class TagController {
         $hashtag->feed();
         if ($hashtag->ok()) {
             $data = $hashtag->getFull();
-            $latte = Wrappers::latte();
-            $latte->render(Misc::getView('rss'), new RSSTemplate($name, $data->info->detail->desc, "/tag/{$name}", $data->feed->items));
+            Misc::rss($name);
+            Wrappers::latte('rss', new RSSTemplate($name, $data->info->detail->desc, UrlBuilder::tag($name), $data->feed->items));
         }
     }
 }
