@@ -1,24 +1,41 @@
 {layout "../layouts/{$layout}.latte"}
 
 {block content}
-	<div class="columns has-text-centered is-centered is-vcentered is-gapless">
-		<div class="column">
+	<div class="columns is-centered is-vcentered is-gapless">
+		<div class="column has-text-centered">
 			<video controls autoplay poster="{url_stream($item->video->originCover)}">
 				<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
 			</video>
 		</div>
 		<div class="column">
 			<div class="box">
-				<p class="title">Video by <a href="{url_user($detail->uniqueId)}">{$detail->uniqueId}</a></p>
-				<p class="subtitle">{$item->desc}</p>
-				{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
-				<div class="container mt-4">
-					<p>{include '../components/icon.latte', icon: 'music', text: $item->music->title}</p>
-      		<audio src="{url_stream($item->music->playUrl)}" controls preload="none"></audio>
-				</div>
-				<hr />
-				{include '../components/themes/common/share.latte', uniqueId: $detail->uniqueId, id: $item->id}
-				{include '../components/themes/common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $detail->uniqueId}
+				<article class="media">
+  				<figure class="media-left">
+  			  	<p class="image is-64x64">
+  			    	<img src="{url_stream($detail->avatarThumb)}" />
+  			  	</p>
+  				</figure>
+  				<div class="media-content">
+  			    <p>
+  			    	<strong>{$detail->nickname}</strong>
+							<small>
+								<a href="{url_user($detail->uniqueId)}">@{$detail->uniqueId}</a>
+							</small>
+							<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
+  			    </p>
+						{if !empty($item->challenges)}
+						<p>{include '../components/themes/common/tags.latte', challenges: $item->challenges}</p>
+						{/if}
+						<div class="content">
+							<p n:ifcontent>{$item->desc}</p>
+							{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
+							<div class="has-text-centered">
+								{include '../components/themes/common/share.latte', uniqueId: $detail->uniqueId, id: $item->id}
+								{include '../components/themes/common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $detail->uniqueId}
+							</div>
+						</div>
+  				</div>
+				</article>
 			</div>
 		</div>
 	</div>

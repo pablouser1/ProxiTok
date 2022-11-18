@@ -2,8 +2,8 @@
   "name": "proxitok-scss",
   "private": true,
   "scripts": {
-    "bulma": "sass --style=compressed bulma.scss ../styles/vendor/bulma.min.css",
-    "cssgg": "sass --style=compressed cssgg.scss ../styles/vendor/cssgg.min.css"
+    "bulma": "sass --style=compressed bulma.scss ../../styles/vendor/bulma.min.css",
+    "cssgg": "sass --style=compressed cssgg.scss ../../styles/vendor/cssgg.min.css"
   },
   "dependencies": {
     "bulma": "^0.9.3",
