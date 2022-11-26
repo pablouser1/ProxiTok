@@ -76,6 +76,9 @@ class Wrappers {
         $latte->addFunction('url_user', function (string $username): string {
             return UrlBuilder::user($username);
         });
+        $latte->addFunction('url_tag', function (string $tag): string {
+            return UrlBuilder::tag($tag);
+        });
         $latte->addFunction('url_video_internal', function (string $username, string $id): string {
             return UrlBuilder::video_internal($username, $id);
         });
