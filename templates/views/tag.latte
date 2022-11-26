@@ -2,15 +2,19 @@
 
 {var $has_rss = true}
 
+{var $og = $info->meta->og}
+{var $og_content = $info->detail->profileLarger}
+{var $og_url = url_tag($info->detail->title)}
+
 {block header}
-	{if $data->info->detail->profileLarger !== ''}
+	{if $info->detail->profileLarger !== ''}
 	<figure class="image is-inline-block is-128x128">
-		<img class="is-rounded" src="{url_stream($data->info->detail->profileLarger)}" />
+		<img class="is-rounded" src="{url_stream($info->detail->profileLarger)}" />
 	</figure>
 	{/if}
-	<p class="title">{$data->info->detail->title}</p>
+	<p class="title">{$info->detail->title}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
-	<p>Videos: {number($data->info->stats->videoCount)} / Views: {number($data->info->stats->viewCount)}</p>
+	<p>Videos: {number($info->stats->videoCount)} / Views: {number($info->stats->viewCount)}</p>
 {/block}
 
 {block content}

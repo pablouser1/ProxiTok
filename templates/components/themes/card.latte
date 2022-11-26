@@ -2,7 +2,7 @@
 <noscript>JavaScript is required for this section to work!</noscript>
 <section class="section">
   <div class="columns is-multiline is-vcentered">
-		{foreach $data->feed->items as $item}
+		{foreach $feed->items as $item}
 		{do $share_url = url_video_external($item->author->uniqueId, $item->id)}
     <div class="column is-one-quarter clickable-img" id="{$item->id}" onclick="openVideo(this.id)"
 			data-video_url="{url_stream($item->video->playAddr)}"
@@ -17,7 +17,7 @@
 			<img class="hidden" loading="lazy" data-src="{url_stream($item->video->dynamicCover)}" />
     </div>
     {/foreach}
-		{if empty($data->feed->items)}
+		{if empty($feed->items)}
 		<p class="title">No items sent by TikTok!</p>
 		{/if}
   </div>

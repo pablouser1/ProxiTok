@@ -14,8 +14,9 @@ class MusicController {
         $music = $api->music($music_id);
         $music->feed($cursor);
         if ($music->ok()) {
-            $data = $music->getFull();
-            Wrappers::latte('music', new FullTemplate('Music', $data));
+            $info = $music->getInfo();
+            $feed = $music->getFeed();
+            Wrappers::latte('music', new FullTemplate('Music', $info, $feed));
         } else {
             ErrorHandler::showMeta($music->error());
         }
