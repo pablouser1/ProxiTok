@@ -2,7 +2,6 @@
 namespace App\Controllers;
 
 use App\Helpers\Cookies;
-use TikScraper\Helpers\Converter;
 
 class ProxyController {
     const VALID_TIKTOK_DOMAINS = [

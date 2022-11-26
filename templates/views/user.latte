@@ -2,15 +2,19 @@
 
 {var $has_rss = true}
 
+{var $og = $info->meta->og}
+{var $og_content = $info->detail->avatarLarger}
+{var $og_url = url_user($info->detail->uniqueId)}
+
 {block header}
 	<figure class="image is-inline-block is-128x128">
-		<img class="is-rounded" src="{url_stream($data->info->detail->avatarLarger)}" />
+		<img class="is-rounded" src="{url_stream($info->detail->avatarLarger)}" />
 	</figure>
-	<p class="title">{$data->info->detail->uniqueId}</p>
+	<p class="title">{$info->detail->uniqueId}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
-	<p>{$data->info->detail->signature}</p>
-	<p>Following: {number($data->info->stats->followingCount)} / Followers: {number($data->info->stats->followerCount)}</p>
-	<p>Hearts: {number($data->info->stats->heartCount)} / Videos: {$data->info->stats->videoCount}</p>
+	<p>{$info->detail->signature}</p>
+	<p>Following: {number($info->stats->followingCount)} / Followers: {number($info->stats->followerCount)}</p>
+	<p>Hearts: {number($info->stats->heartCount)} / Videos: {$info->stats->videoCount}</p>
 {/block}
 
 {block content}

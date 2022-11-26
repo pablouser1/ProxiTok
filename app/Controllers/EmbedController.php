@@ -11,8 +11,9 @@ class EmbedController {
         $video = $api->video($id);
         $video->feed();
         if ($video->ok()) {
-            $data = $video->getFull();
-            Wrappers::latte('video', new VideoTemplate($data->feed->items[0], $data->info->detail, true));
+            $item = $video->getFeed()->items[0];
+            $info = $video->getInfo();
+            Wrappers::latte('video', new VideoTemplate($item, $info, true));
         } else {
             ErrorHandler::showMeta($video->error());
         }

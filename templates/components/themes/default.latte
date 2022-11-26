@@ -1,5 +1,5 @@
 <div class="container">
-	{foreach $data->feed->items as $item}
+	{foreach $feed->items as $item}
 	<article class="media">
   	<figure class="media-left">
     	<p class="image is-64x64">
@@ -31,7 +31,7 @@
   	</div>
 	</article>
 	{/foreach}
-	{if empty($data->feed->items)}
+	{if empty($feed->items)}
 		<p class="title">No items sent by TikTok!</p>
 	{/if}
 </div>
