@@ -1,9 +1,5 @@
 {layout "../layouts/{$layout}.latte"}
 
-{var $og = $info->meta->og}
-{var $og_content = $item->video->originCover}
-{var $og_url = url_video_internal($info->detail->uniqueId, $item->id)}
-
 {block content}
 	<div class="columns is-centered is-vcentered is-gapless">
 		<div class="column has-text-centered">
@@ -16,14 +12,14 @@
 				<article class="media">
   				<figure class="media-left">
   			  	<p class="image is-64x64">
-  			    	<img src="{url_stream($info->detail->avatarThumb)}" />
+  			    	<img src="{url_stream($detail->avatarThumb)}" />
   			  	</p>
   				</figure>
   				<div class="media-content">
   			    <p>
-  			    	<strong>{$info->detail->nickname}</strong>
+  			    	<strong>{$detail->nickname}</strong>
 							<small>
-								<a href="{url_user($info->detail->uniqueId)}">@{$info->detail->uniqueId}</a>
+								<a href="{url_user($detail->uniqueId)}">@{$detail->uniqueId}</a>
 							</small>
 							<small title="{date('M d, Y H:i:s e', $item->createTime)}">{date('M d, Y', $item->createTime)}</small>
   			    </p>
@@ -34,8 +30,8 @@
 							<p n:ifcontent>{$item->desc}</p>
 							{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 							<div class="has-text-centered">
-								{include '../components/themes/common/share.latte', uniqueId: $info->detail->uniqueId, id: $item->id}
-								{include '../components/themes/common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $info->detail->uniqueId}
+								{include '../components/themes/common/share.latte', uniqueId: $detail->uniqueId, id: $item->id}
+								{include '../components/themes/common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $detail->uniqueId}
 							</div>
 						</div>
   				</div>

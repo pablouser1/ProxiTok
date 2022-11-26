@@ -15,9 +15,8 @@ class TagController {
         $hashtag = $api->hashtag($name);
         $hashtag->feed($cursor);
         if ($hashtag->ok()) {
-            $info = $hashtag->getInfo();
-            $feed = $hashtag->getFeed();
-            Wrappers::latte('tag', new FullTemplate($info->detail->title, $info, $feed));
+            $data = $hashtag->getFull();
+            Wrappers::latte('tag', new FullTemplate($data->info->detail->title, $data));
         } else {
             ErrorHandler::showMeta($hashtag->error());
         }

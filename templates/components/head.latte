@@ -6,26 +6,10 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="{path('/favicon-32x32.png')}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{path('/favicon-16x16.png')}">
 	<link rel="manifest" href="{path('/site.webmanifest')}">
-	{if isset($og, $og_content, $og_url)}
-		<!-- Using TikTok's meta config -->
-		<meta property="og:title" content="{$og->title}" />
-		<meta property="og:description" content="{$og->description}" />
-		<meta property="og:url" content="{$og_url}" />
-		<meta property="og:image" content="{url_stream($og_content)}" />
-		<meta property="twitter:title" content="{$og->title}" />
-		<meta property="twitter:description" content="{$og->description}" />
-		<meta property="twitter:image" content="{url_stream($og_content)}" />
-	{else}
-		<!-- Using predifined ProxiTok config -->
-		<meta property="og:title" content="{$title}" />
-		<meta property="og:description" content="Alternative frontend for TikTok" />
-		<meta property="twitter:title" content="{$title}" />
-		<meta property="twitter:description" content="Alternative frontend for TikTok" />
-	{/if}
 	<meta property="og:site_name" content="ProxiTok" />
+	<meta property="og:title" content="{$title}" />
+	<meta property="og:description" content="Alternative frontend for TikTok" />
 	<meta property="og:type" content="website" />
-	<meta property="twitter:card" content="summary" />
-	<meta property="twitter:site" content="ProxiTok" />
 	{if isset($has_rss)}
 		<link rel="alternate" type="application/rss+xml" title="{$title}" href="{$_SERVER['REQUEST_URI'] . '/rss'}" />
 	{/if}
