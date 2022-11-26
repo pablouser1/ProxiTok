@@ -3,8 +3,8 @@
 {var $has_rss = true}
 
 {block header}
-	<figure class="figure is-96x96">
-		<img src="{url_stream($data->info->detail->avatarThumb)}" />
+	<figure class="image is-inline-block is-128x128">
+		<img class="is-rounded" src="{url_stream($data->info->detail->avatarLarger)}" />
 	</figure>
 	<p class="title">{$data->info->detail->uniqueId}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>

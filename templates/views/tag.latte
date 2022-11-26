@@ -3,9 +3,9 @@
 {var $has_rss = true}
 
 {block header}
-	{if $data->info->detail->profileThumb !== ''}
-	<figure class="figure is-96x96">
-		<img src="{url_stream($data->info->detail->profileThumb)}" />
+	{if $data->info->detail->profileLarger !== ''}
+	<figure class="image is-inline-block is-128x128">
+		<img class="is-rounded" src="{url_stream($data->info->detail->profileLarger)}" />
 	</figure>
 	{/if}
 	<p class="title">{$data->info->detail->title}</p>
