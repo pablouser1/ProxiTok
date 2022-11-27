@@ -2,6 +2,7 @@
 /** @var \Bramus\Router\Router $router */
 
 use App\Helpers\ErrorHandler;
+use App\Helpers\Misc;
 use App\Helpers\Wrappers;
 use App\Models\BaseTemplate;
 
@@ -19,6 +20,35 @@ $router->get('/about', function () {
 
 $router->get('/verify', function () {
     Wrappers::latte('verify', new BaseTemplate('verify'));
+});
+
+$router->get('/manifest', function () {
+    header('Content-Type: application/json');
+    $data = [
+        "name" => "ProxiTok",
+        "short_name" => "ProxiTok",
+        "description" => "Use TikTok with a privacy-friendly alternative frontend",
+        "lang" => "en-US",
+        "theme_color" => "#4040ff",
+        "background_color" => "#ffffff",
+        "display" => "standalone",
+        "orientation" => "portrait-primary",
+        "icons" => [
+          [
+            "src" => Misc::url('/android-chrome-192x192.png'),
+            "sizes" => "192x192",
+            "type" => "image/png"
+          ],
+          [
+            "src" => Misc::url('/android-chrome-512x512.png'),
+            "sizes" => "512x512",
+            "type" => "image/png"
+          ]
+        ],
+        "start_url" => Misc::url('/'),
+        "scope" => Misc::url('/')
+    ];
+    echo json_encode($data, JSON_PRETTY_PRINT);
 });
 
 $router->get('/stream', 'ProxyController@stream');
