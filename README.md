@@ -40,7 +40,8 @@ Apply to: Main window (address bar)
 * Add custom amount of videos per page
 
 ## Credits
-[@TheFrenchGhosty](https://github.com/TheFrenchGhosty): Initial Dockerfile and fixes to a usable state. You can check his Docker image [here](https://github.com/PussTheCat-org/docker-proxitok-quay) on Github or [here](https://quay.io/repository/pussthecatorg/proxitok) on Quay
+[TheFrenchGhosty](https://thefrenchghosty.me) ([Github](https://github.com/TheFrenchGhosty)): Initial Dockerfile and fixes to a usable state.
+
 ### External libraries
 * [TikScraperPHP](https://github.com/pablouser1/TikScraperPHP)
 * [Latte](https://github.com/nette/latte)
