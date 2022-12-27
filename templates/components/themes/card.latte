@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{static('css', 'themes/card.css')}">
-<noscript>JavaScript is required for this section to work!</noscript>
 <section class="section">
+	<noscript>JavaScript is required for this section to work!</noscript>
   <div class="columns is-multiline is-vcentered">
 		{foreach $feed->items as $item}
 		{do $share_url = url_video_external($item->author->uniqueId, $item->id)}

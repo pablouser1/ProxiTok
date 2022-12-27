@@ -1,7 +1,7 @@
-<div n:ifset="$data->info" class="buttons">
+<div n:ifset="$info" class="buttons">
 	{* is_numeric is used to avoid having a back button with ttwid cursors *}
 	{if isset($_GET['cursor']) && is_numeric($_GET['cursor']) && $_GET['cursor'] != 0}
     <a class="button is-danger" href="?cursor=0">First</a>
 	{/if}
-  <a n:attr="disabled => !$data->feed->hasMore" class="button is-success" href="?cursor={$data->feed->maxCursor}">Next</a>
+  <a n:attr="disabled => !$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
 </div>
