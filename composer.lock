@@ -263,16 +263,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.3.3.1",
+            "version": "v2.3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "b62fad1c00a4d62eda3e86811d35f7241cac097e"
+                "reference": "dff2feebe7973d576f4ba097e624fdecd9f7d337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/b62fad1c00a4d62eda3e86811d35f7241cac097e",
-                "reference": "b62fad1c00a4d62eda3e86811d35f7241cac097e",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/dff2feebe7973d576f4ba097e624fdecd9f7d337",
+                "reference": "dff2feebe7973d576f4ba097e624fdecd9f7d337",
                 "shasum": ""
             },
             "require": {
@@ -305,9 +305,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.3.1"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.3.2"
             },
-            "time": "2022-11-26T22:50:46+00:00"
+            "time": "2023-01-25T12:58:06+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -572,16 +572,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1"
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +614,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.11"
+                "source": "https://github.com/symfony/process/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -630,7 +630,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T16:58:25+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         }
     ],
     "packages-dev": [],
