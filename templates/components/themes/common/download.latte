@@ -1,13 +1,22 @@
-<div class="dropdown is-hoverable">
-	<div class="dropdown-trigger">
-		<button class="button is-success" aria-haspopup="true" aria-controls="dropdown-menu">
-			{include '../../icon.latte', icon: 'software-download', text: 'Download'}
-		</button>
-	</div>
-	<div class="dropdown-menu" role="menu">
-		<div class="dropdown-content">
-			<a target="_blank" href="{url_download($playAddr, $uniqueId, $id, true)}" class="dropdown-item">Watermark</a>
-			<a target="_blank" href="{url_download(url_video_external($uniqueId, $id), $uniqueId, $id, false)}" class="dropdown-item">No watermark</a>
+{embed '../../form.latte', path: '/redirect/download', method: 'GET'}
+	{block fields}
+		<div class="field has-addons has-addons-centered">
+			<div class="control">
+				<div class="select">
+					<select name="watermark">
+						<option value="yes">WM</option>
+						<option value="no">No WM</option>
+					</select>
+				</div>
+			</div>
+			<div class="control">
+				<button type="submit" class="button is-success">
+					{include '../../icon.latte', icon: 'software-download', text: 'Download'}
+				</a>
+			</div>
 		</div>
-	</div>
-</div>
+		<input type="hidden" name="playAddr" value="{$playAddr}" />
+		<input type="hidden" name="videoId" value="{$id}" />
+		<input type="hidden" name="authorUsername" value="{$uniqueId}" />
+	{/block}
+{/embed}

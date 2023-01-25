@@ -2,12 +2,13 @@
 namespace App\Controllers;
 use App\Helpers\ErrorHandler;
 use App\Helpers\Misc;
+use App\Helpers\UrlBuilder;
 
 /**
  * Used to be compatible with HTML forms
  */
 class RedirectController {
-    static public function redirect() {
+    static public function search() {
         $endpoint = '/';
         if (isset($_GET['type'], $_GET['term'])) {
             $term = trim($_GET['term']);
@@ -45,6 +46,24 @@ class RedirectController {
         }
 
         $url = Misc::url($endpoint);
+        header("Location: {$url}");
+    }
+
+    static public function download() {
+        if (!(isset($_GET['videoId'], $_GET['authorUsername'], $_GET['playAddr']))) {
+            ErrorHandler::showText(400, 'Request incomplete');
+            return;
+        }
+
+        $watermark = isset($_GET['watermark']) && $_GET['watermark'] === 'yes' ? true : false;
+
+        $url = '';
+        if ($watermark) {
+            $url = UrlBuilder::download($_GET['playAddr'], $_GET['authorUsername'], $_GET['videoId'], true);
+        } else {
+            $url = UrlBuilder::download(UrlBuilder::video_external($_GET['authorUsername'], $_GET['videoId']), $_GET['authorUsername'], $_GET['videoId'], false);
+        }
+
         header("Location: {$url}");
     }
 

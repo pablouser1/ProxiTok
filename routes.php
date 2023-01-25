@@ -53,7 +53,8 @@ $router->get('/manifest', function () {
 
 $router->get('/stream', 'ProxyController@stream');
 $router->get('/download', 'ProxyController@download');
-$router->get('/redirect', 'RedirectController@redirect');
+$router->get('/redirect/search', 'RedirectController@search');
+$router->get('/redirect/download', 'RedirectController@download');
 
 $router->mount('/trending', function () use ($router) {
     $router->get('/', 'TrendingController@get');
