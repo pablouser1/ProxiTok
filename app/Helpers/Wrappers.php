@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use App\Cache\ApcuCache;
 use App\Cache\JSONCache;
 use App\Cache\RedisCache;
 use App\Constants\CacheMethods;
@@ -137,6 +138,9 @@ class Wrappers {
             switch ($_ENV['API_CACHE']) {
                 case CacheMethods::JSON:
                     $cacheEngine = new JSONCache();
+                    break;
+                case CacheMethods::APCU:
+                    $cacheEngine = new ApcuCache();
                     break;
                 case CacheMethods::REDIS:
                     if (!(isset($_ENV['REDIS_URL']) || isset($_ENV['REDIS_HOST'], $_ENV['REDIS_PORT']))) {
