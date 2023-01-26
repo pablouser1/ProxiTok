@@ -1,4 +1,4 @@
-<div n:ifset="$info" class="buttons">
+<div class="buttons">
 	{* is_numeric is used to avoid having a back button with ttwid cursors *}
 	{if isset($_GET['cursor']) && is_numeric($_GET['cursor']) && $_GET['cursor'] != 0}
     <a class="button is-danger" href="?cursor=0">First</a>

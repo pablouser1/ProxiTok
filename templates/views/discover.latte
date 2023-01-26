@@ -5,7 +5,7 @@
 {/block}
 
 {block content}
-	{foreach $data->feed->items as $type => $items}
+	{foreach $data->items as $type => $items}
 		<p class="title">{$type|firstUpper}</p>
 		<div class="columns is-multiline is-vcentered">
 			{foreach $items as $item}

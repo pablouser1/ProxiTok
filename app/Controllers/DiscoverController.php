@@ -3,16 +3,16 @@ namespace App\Controllers;
 
 use App\Helpers\ErrorHandler;
 use App\Helpers\Wrappers;
-use App\Models\FeedTemplate;
+use App\Models\DiscoverTemplate;
 
 class DiscoverController {
     static public function get() {
         $api = Wrappers::api();
-        $feed = $api->discover();
-        if ($feed->meta->success) {
-            Wrappers::latte('discover', new FeedTemplate('Discover', $feed));
+        $data = $api->discover();
+        if ($data->meta->success) {
+            Wrappers::latte('discover', new DiscoverTemplate($data));
         } else {
-            ErrorHandler::showMeta($feed->meta);
+            ErrorHandler::showMeta($data->meta);
         }
     }
 }
