@@ -12,6 +12,10 @@
 	</figure>
 	<p class="title">{$info->detail->uniqueId}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
+	{if $info->detail->privateAccount}
+	<p><strong>Private account</strong></p>
+	{/if}
+	<p></p>
 	<p>{$info->detail->signature}</p>
 	<p>Following: {number($info->stats->followingCount)} / Followers: {number($info->stats->followerCount)}</p>
 	<p>Hearts: {number($info->stats->heartCount)} / Videos: {$info->stats->videoCount}</p>

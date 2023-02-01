@@ -18,10 +18,6 @@ class UserController {
         if ($user->ok()) {
             $info = $user->getInfo();
             $feed = $user->getFeed();
-            if ($info->detail->privateAccount) {
-                ErrorHandler::showText(401, "Private account detected! Not supported");
-                return;
-            }
             Wrappers::latte('user', new FullTemplate($info->detail->nickname, $info, $feed));
         } else {
             ErrorHandler::showMeta($user->error());
