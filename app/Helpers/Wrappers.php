@@ -99,6 +99,7 @@ class Wrappers {
     static public function api(): \TikScraper\Api {
         $method = Misc::env('API_SIGNER', '');
         $url = Misc::env('API_SIGNER_URL', '');
+        $user_agent = Misc::env('API_SIGNER_USERAGENT', '');
         if (!$method) {
             // Legacy support
             $browser_url = Misc::env('API_BROWSER_URL', '');
@@ -118,6 +119,10 @@ class Wrappers {
                 'close_when_done' => false
             ]
         ];
+
+        if ($user_agent) {
+            $options['user_agent'] = $user_agent;
+        }
 
         // -- PROXY CONFIG -- //
         $proxy_host = Misc::env('PROXY_HOST', '');
@@ -161,7 +166,6 @@ class Wrappers {
                     break;
             }
         }
-
         return new \TikScraper\Api($options, $cacheEngine);
     }
 }
