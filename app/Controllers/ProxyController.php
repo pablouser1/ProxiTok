@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Helpers\Cookies;
 use App\Helpers\Misc;
+use TikScraper\Constants\UserAgents as TikScraperUserAgents;
 
 class ProxyController {
     const VALID_TIKTOK_DOMAINS = [
@@ -12,7 +13,7 @@ class ProxyController {
     static public function stream() {
         self::checkUrl();
         $url = $_GET['url'];
-        $config['USER_AGENT'] = Misc::env("user_agent", "Mozilla/5.0 (Android 12; Mobile; rv:109.0) Gecko/109.0 Firefox/109.0");
+        $config['user_agent'] = Misc::env("USER_AGENT", TikScraperUserAgents::DEFAULT);
         $streamer = new \TikScraper\Stream($config);
         $streamer->url($url);
     }
