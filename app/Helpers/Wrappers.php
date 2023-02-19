@@ -7,6 +7,8 @@ use App\Cache\RedisCache;
 use App\Constants\CacheMethods;
 use App\Models\BaseTemplate;
 
+use TikScraper\Constants\UserAgents as TikScraperUserAgents;
+
 class Wrappers {
     /**
      * Setup of Latte template engine
@@ -161,6 +163,8 @@ class Wrappers {
                     break;
             }
         }
+
+        $options["user_agent"] = Misc::env("USER_AGENT", TikScraperUserAgents::DEFAULT);
 
         return new \TikScraper\Api($options, $cacheEngine);
     }
