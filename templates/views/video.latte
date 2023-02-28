@@ -4,6 +4,10 @@
 {var $og_content = $item->video->originCover}
 {var $og_url = url_video_internal($info->detail->uniqueId, $item->id)}
 
+{if !empty($item->desc)}
+	{var $title = trim($item->desc)}
+{/if}
+
 {block content}
 	<div class="columns is-centered is-vcentered is-gapless">
 		<div class="column has-text-centered">
