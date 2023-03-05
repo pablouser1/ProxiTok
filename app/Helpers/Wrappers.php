@@ -164,7 +164,11 @@ class Wrappers {
             }
         }
 
-        $options["user_agent"] = Misc::env("USER_AGENT", TikScraperUserAgents::DEFAULT);
+        $customUa = Misc::env("USER_AGENT", '');
+
+        if ($customUa) {
+            $options['user_agent'] = $customUa;
+        }
 
         return new \TikScraper\Api($options, $cacheEngine);
     }
