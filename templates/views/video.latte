@@ -45,6 +45,34 @@
   				</div>
 				</article>
 			</div>
+			{if !empty($item->comments)}
+			<div class="box">
+				<p class="is-size-5 has-text-centered">Comments</p>
+				{foreach $item->comments as $comment}
+				<article class="media">
+				  <figure class="media-left">
+				    <p class="image is-64x64">
+				      <img src="{url_stream($comment->user->avatar_thumb->url_list[0])}" />
+				    </p>
+				  </figure>
+				  <div class="media-content">
+				    <div class="content">
+				      <p>
+				        <strong>{$comment->user->unique_id}</strong>
+								<small>
+									<a href="{url_user($comment->user->unique_id)}">@{$comment->user->nickname}</a>
+								</small>
+								<small title="{date('M d, Y H:i:s e', $comment->create_time)}">{date('M d, Y', $comment->create_time)}</small>
+				        <br>
+								{$comment->text}
+				      </p>
+				    </div>
+						<p>{include '../components/icon.latte', icon: 'heart', text: number($comment->digg_count)}</p>
+				  </div>
+				</article>
+				{/foreach}
+			</div>
+			{/if}
 		</div>
 	</div>
 {/block}
