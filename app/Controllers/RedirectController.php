@@ -71,7 +71,7 @@ class RedirectController {
      * to_endpoint maps a TikTok URL into a ProxiTok-compatible endpoint URL.
      */
     static private function to_endpoint(string $url): string {
-        if (preg_match('%^(?:https?://|www\.)?(?:vm\.|vt\.)?tiktok\.com/(?:t/)?([A-Za-z0-9]+)%', $url, $m)) {
+        if (preg_match('%^(?:https?://)?(?:www\.)?(?:vm\.|vt\.)?tiktok\.com/(?:t/)?([A-Za-z0-9]+)%', $url, $m)) {
             // Short video URL
             return '/@placeholder/video/' . $m[1];
         } elseif (preg_match('%^https://www\.tiktok\.com/(.+)%', $url, $m)) {
