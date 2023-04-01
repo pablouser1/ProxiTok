@@ -40,7 +40,8 @@ Apply to: Main window (address bar)
 * Add custom amount of videos per page
 
 ## Credits
-[TheFrenchGhosty](https://thefrenchghosty.me) ([Github](https://github.com/TheFrenchGhosty)): Initial Dockerfile and fixes to a usable state.
+* [TheFrenchGhosty](https://thefrenchghosty.me) ([Github](https://github.com/TheFrenchGhosty)): Initial Dockerfile and fixes to a usable state.
+* [Jennifer Wjertzoch](https://wjertzochjennifer.medium.com): Carousel CSS Implementation
 
 ### External libraries
 * [TikScraperPHP](https://github.com/pablouser1/TikScraperPHP)

@@ -3,17 +3,19 @@
 	<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
 </video>
 {else}
-<div n:class="columns, is-centered, is-vcentered, is-multiline, $isBig ? is-mobile">
-	{foreach $item->imagePost->images as $image}
-	{if $isBig}
-	<div class="column is-half">
-	{else}
-	<div class="column is-one-third-tablet is-one-third-desktop is-one-quarter-widescreen is-one-fifth-fullhd">
-	{/if}
-		<figure class="image">
-			<img width="{$image->imageWidth}" height="{$image->imageHeight}" src="{url_stream($image->imageURL->urlList[0])}" />
-		</figure>
-	</div>
-	{/foreach}
-</div>
+<section class="carousel" aria-label="carousel" Tabindex="0">
+  <div class="slides">
+		{foreach $item->imagePost->images as $i => $image}
+		<div class="slides-item" id="image-{$i + 1}" tabindex="0">
+			<img src="{url_stream($image->imageURL->urlList[0])}" />
+		</div>
+		{/foreach}
+  </div>
+  <div class="carousel__nav">
+		{for $i = 0; $i < count($item->imagePost->images); $i++}
+		<a class="slider-nav" href="#image-{$i + 1}">{$i + 1}</a>
+		{/for}
+  </div>
+  <div class="carousel__skip-message" id="skip-link" tabindex="0"></div>
+</section>
 {/if}
