@@ -19,7 +19,7 @@
 			{/if}
 			<p n:ifcontent>{$item->desc}</p>
 			<p>Song: {$item->music->title}</p>
-			<audio controls preload="none" src="{$item->music->playUrl}"></audio>
+			<audio controls preload="none" src="{url_stream($item->music->playUrl)}"></audio>
 			{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 			<div class="has-text-centered">
 				{include './common/content.latte', item: $item, isAutoplay: false, isBig: false}
