@@ -11,7 +11,7 @@
 	<div class="column is-one-third-tablet is-one-third-desktop is-one-quarter-widescreen is-one-fifth-fullhd">
 	{/if}
 		<figure class="image">
-			<img width="{$image->imageWidth}" height="{$image->imageHeight}" src="{$image->imageURL->urlList[0]}" />
+			<img width="{$image->imageWidth}" height="{$image->imageHeight}" src="{url_stream($image->imageURL->urlList[0])}" />
 		</figure>
 	</div>
 	{/foreach}
