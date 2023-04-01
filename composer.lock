@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97152c7473ad08a262f9db1af867faaa",
+    "content-hash": "edc1f7ddb80ad13369e0536c32518ece",
     "packages": [
         {
             "name": "bramus/router",
@@ -303,16 +303,16 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.3.6.1",
+            "version": "v2.3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "7e296d1ff871b81ed5f2bc9756308272148cd96f"
+                "reference": "10394fb5fb5213d05fe0eb29f7582423fc15d08a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/7e296d1ff871b81ed5f2bc9756308272148cd96f",
-                "reference": "7e296d1ff871b81ed5f2bc9756308272148cd96f",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/10394fb5fb5213d05fe0eb29f7582423fc15d08a",
+                "reference": "10394fb5fb5213d05fe0eb29f7582423fc15d08a",
                 "shasum": ""
             },
             "require": {
@@ -346,9 +346,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.6.1"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.3.6.2"
             },
-            "time": "2023-03-29T09:18:40+00:00"
+            "time": "2023-04-01T13:46:50+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -614,16 +614,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.21",
+            "version": "v5.4.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d4ce417ebcb0b7d090b4c178ed6d3accc518e8bd"
+                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d4ce417ebcb0b7d090b4c178ed6d3accc518e8bd",
-                "reference": "d4ce417ebcb0b7d090b4c178ed6d3accc518e8bd",
+                "url": "https://api.github.com/repos/symfony/process/zipball/4b850da0cc3a2a9181c1ed407adbca4733dc839b",
+                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b",
                 "shasum": ""
             },
             "require": {
@@ -656,7 +656,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.21"
+                "source": "https://github.com/symfony/process/tree/v5.4.22"
             },
             "funding": [
                 {
@@ -672,7 +672,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-21T19:46:44+00:00"
+            "time": "2023-03-06T21:29:33+00:00"
         }
     ],
     "packages-dev": [],

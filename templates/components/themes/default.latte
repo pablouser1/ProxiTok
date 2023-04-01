@@ -18,11 +18,11 @@
 			<p>{include './common/tags.latte', challenges: $item->challenges}</p>
 			{/if}
 			<p n:ifcontent>{$item->desc}</p>
+			<p>Song: {$item->music->title}</p>
+			<audio controls preload="none" src="{$item->music->playUrl}"></audio>
 			{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 			<div class="has-text-centered">
-				<video width="{$item->video->width}" height="{$item->video->height}" controls preload="none" poster="{url_stream($item->video->originCover)}">
-					<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
-				</video>
+				{include './common/content.latte', item: $item, isAutoplay: false, isBig: false}
 			</div>
 			<p class="has-text-centered"><b>Download video</b></p>
 			{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}

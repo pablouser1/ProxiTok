@@ -9,11 +9,9 @@
 {/if}
 
 {block content}
-	<div class="columns is-centered is-vcentered is-gapless">
+	<div class="columns is-centered is-vcentered">
 		<div class="column has-text-centered">
-			<video controls autoplay poster="{url_stream($item->video->originCover)}">
-				<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
-			</video>
+			{include '../components/themes/common/content.latte', item: $item, isAutoplay: true, isBig: true}
 		</div>
 		<div class="column">
 			<div class="box">
@@ -36,6 +34,8 @@
 						{/if}
 						<div class="content">
 							<p n:ifcontent>{$item->desc}</p>
+							<p>Song: {$item->music->title}</p>
+							<audio controls preload="none" src="{$item->music->playUrl}"></audio>
 							{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 							<div class="has-text-centered">
 								{include '../components/themes/common/share.latte', uniqueId: $info->detail->uniqueId, id: $item->id}
