@@ -10,17 +10,31 @@
 	<figure class="image is-inline-block is-128x128">
 		<img class="is-rounded" src="{url_stream($info->detail->avatarLarger)}" />
 	</figure>
-	<p class="title">{$info->detail->uniqueId}</p>
+	<p class="title">
+		{if $info->detail->verified}
+		{include '../components/icon.latte', icon: 'check-o', text: $info->detail->uniqueId}
+		{else}
+		{$info->detail->uniqueId}
+		{/if}
+	</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
 	{if $info->detail->privateAccount}
 	<p><strong>Private account</strong></p>
 	{/if}
-	<p>{$info->detail->signature}</p>
+	<b>Description</b>
+	<p class="new-line">{$info->detail->signature}</p>
 	{if isset($info->detail->bioLink)}
 	<p>Link: <a href="{$info->detail->bioLink->link}">{$info->detail->bioLink->link}</a></p>
 	{/if}
+	<b>Stats</b>
 	<p>Following: {number($info->stats->followingCount)} / Followers: {number($info->stats->followerCount)}</p>
 	<p>Hearts: {number($info->stats->heartCount)} / Videos: {$info->stats->videoCount}</p>
+	{embed '../components/details.latte', title: "Details"}
+	{block content}
+	<p>Region: {$info->detail->region}</p>
+	<p>Category: {$info->detail->commerceUserInfo->category}</p>
+	{/block}
+	{/embed}
 {/block}
 
 {block content}

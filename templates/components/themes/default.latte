@@ -28,6 +28,16 @@
 			{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}
 			<p class="has-text-centered"><b>Share link</b></p>
 			{include './common/share.latte', uniqueId: $item->author->uniqueId, id: $item->id}
+			<div class="has-text-centered">
+				{embed '../details.latte', title: "Details"}
+				{block content}
+				<p>Is Ad: {bool_to_str($item->isAd)}
+				<p>Can duet: {bool_to_str($item->duetEnabled)}</p>
+				<p>Can stitch (add this video to other ones): {bool_to_str($item->stitchEnabled)}</p>
+				<p>Can be shared: {bool_to_str($item->shareEnabled)}
+				{/block}
+				{/embed}
+			</div>
   	</div>
 	</article>
 	{/foreach}
