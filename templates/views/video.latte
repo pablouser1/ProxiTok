@@ -33,7 +33,7 @@
 						<p>{include '../components/themes/common/tags.latte', challenges: $item->challenges}</p>
 						{/if}
 						<div class="content">
-							<p n:ifcontent>{$item->desc}</p>
+							<p n:ifcontent>{render_desc($item->desc, $item->textExtra)|noescape}</p>
 							<p>Song: {$item->music->title}</p>
 							<audio controls preload="none" src="{url_stream($item->music->playUrl)}"></audio>
 							{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}

@@ -5,9 +5,8 @@ use App\Cache\ApcuCache;
 use App\Cache\JSONCache;
 use App\Cache\RedisCache;
 use App\Constants\CacheMethods;
+use App\Constants\TextExtras;
 use App\Models\BaseTemplate;
-
-use TikScraper\Constants\UserAgents as TikScraperUserAgents;
 
 class Wrappers {
     /**
@@ -90,6 +89,30 @@ class Wrappers {
         });
         $latte->addFunction('url_download', function (string $url, string $username, string $id, bool $watermark): string {
             return UrlBuilder::download($url, $username, $id, $watermark);
+        });
+
+        // Add URLs to video descriptions
+        // TODO: Make it work with unicode characters such as emojis
+        $latte->addFunction('render_desc', function (string $desc, array $textExtras = []): string {
+            $sanitizedDesc = htmlspecialchars($desc);
+            $out = $sanitizedDesc;
+            foreach ($textExtras as $extra) {
+                $url = '';
+                $text = mb_substr($desc, $extra->start, $extra->end - $extra->start, 'UTF-8');
+                switch ($extra->type) {
+                    // User URL
+                    case TextExtras::USER:
+                        $url = UrlBuilder::user(htmlspecialchars($extra->userUniqueId));
+                        break;
+                    // Hashtag URL
+                    case TextExtras::HASHTAG:
+                        $url = UrlBuilder::tag(htmlspecialchars($extra->hashtagName));
+                        break;
+                }
+
+                $out = str_replace($text, "<a href=\"$url\">$text</a>", $out);
+            }
+            return $out;
         });
 
         $latte->render(Misc::getView($template), $base);

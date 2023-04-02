@@ -15,8 +15,10 @@
 	{if $info->detail->privateAccount}
 	<p><strong>Private account</strong></p>
 	{/if}
-	<p></p>
 	<p>{$info->detail->signature}</p>
+	{if isset($info->detail->bioLink)}
+	<p>Link: <a href="{$info->detail->bioLink->link}">{$info->detail->bioLink->link}</a></p>
+	{/if}
 	<p>Following: {number($info->stats->followingCount)} / Followers: {number($info->stats->followerCount)}</p>
 	<p>Hearts: {number($info->stats->heartCount)} / Videos: {$info->stats->videoCount}</p>
 {/block}
