@@ -14,7 +14,12 @@
 	{/if}
 	<p class="title">{$info->detail->title}</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>
-	<p>Videos: {number($info->stats->videoCount)} / Views: {number($info->stats->viewCount)}</p>
+	<p>Views: {number($info->stats->viewCount)}</p>
+	{embed '../components/details.latte', title: 'Details'}
+	{block content}
+	<p>Is commerce: {bool_to_str($info->detail->isCommerce)}</p>
+	{/block}
+	{/embed}
 {/block}
 
 {block content}
