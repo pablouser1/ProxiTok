@@ -32,7 +32,9 @@
 	{embed '../components/details.latte', title: "Details"}
 	{block content}
 	<p>Region: {$info->detail->region}</p>
+	{if $info->detail->commerceUserInfo->commerceUser}
 	<p>Category: {$info->detail->commerceUserInfo->category}</p>
+	{/if}
 	{/block}
 	{/embed}
 {/block}
