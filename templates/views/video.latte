@@ -33,13 +33,16 @@
 						<p>{include '../components/themes/common/tags.latte', challenges: $item->challenges}</p>
 						{/if}
 						<div class="content">
-							<p n:ifcontent>{render_desc($item->desc, $item->textExtra)|noescape}</p>
+							<p n:ifcontent>{render_desc($item->desc, $item->textExtra ?? [])|noescape}</p>
 							<p>Song: {$item->music->title}</p>
 							<audio controls preload="none" src="{url_stream($item->music->playUrl)}"></audio>
 							{include '../components/themes/common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 							<div class="has-text-centered">
 								{include '../components/themes/common/share.latte', uniqueId: $info->detail->uniqueId, id: $item->id}
+								{if isset($item->video->playAddr)}
+								<!-- Download links, not shown if item is a gallery -->
 								{include '../components/themes/common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $info->detail->uniqueId}
+								{/if}
 							</div>
 						</div>
   				</div>

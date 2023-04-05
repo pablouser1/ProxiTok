@@ -17,15 +17,18 @@
 			{if !empty($item->challenges)}
 			<p>{include './common/tags.latte', challenges: $item->challenges}</p>
 			{/if}
-			<p n:ifcontent>{render_desc($item->desc, $item->textExtra)|noescape}</p>
+			<p n:ifcontent>{render_desc($item->desc, $item->textExtra ?? [])|noescape}</p>
 			<p>Song: {$item->music->title}</p>
 			<audio controls preload="none" src="{url_stream($item->music->playUrl)}"></audio>
 			{include './common/stats.latte', playCount: $item->stats->playCount, diggCount: $item->stats->diggCount, commentCount: $item->stats->commentCount, shareCount: $item->stats->shareCount}
 			<div class="has-text-centered">
 				{include './common/content.latte', item: $item, isAutoplay: false, isBig: false}
 			</div>
+			{if isset($item->video->playAddr)}
+			<!-- Download links, not shown if item is a gallery -->
 			<p class="has-text-centered"><b>Download video</b></p>
 			{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}
+			{/if}
 			<p class="has-text-centered"><b>Share link</b></p>
 			{include './common/share.latte', uniqueId: $item->author->uniqueId, id: $item->id}
 			<div class="has-text-centered">
