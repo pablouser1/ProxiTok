@@ -24,7 +24,7 @@
 			<div class="has-text-centered">
 				{include './common/content.latte', item: $item, isAutoplay: false, isBig: false}
 			</div>
-			{if isset($item->video->playAddr)}
+			{if isset($item->video->playAddr) && $item->video->playAddr !== ""}
 			<!-- Download links, not shown if item is a gallery -->
 			<p class="has-text-centered"><b>Download video</b></p>
 			{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}
