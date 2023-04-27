@@ -3,19 +3,25 @@
 	<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
 </video>
 {else}
-<section class="carousel" aria-label="carousel" Tabindex="0">
-  <div class="slides">
-		{foreach $item->imagePost->images as $i => $image}
-		<div class="slides-item" id="{$item->id}-image{$i + 1}" tabindex="0">
-			<img src="{url_stream($image->imageURL->urlList[0])}" />
-		</div>
-		{/foreach}
-  </div>
-  <div class="carousel__nav">
-		{for $i = 0; $i < count($item->imagePost->images); $i++}
-		<a class="slider-nav" href="#{$item->id}-image{$i + 1}">{$i + 1}</a>
-		{/for}
-  </div>
-  <div class="carousel__skip-message" id="skip-link" tabindex="0"></div>
-</section>
+{if isset($isSimple)}
+	{foreach $item->imagePost->images as $i => $image}
+		<img src="{url_stream($image->imageURL->urlList[0])}" />
+	{/foreach}
+{else}
+	<section class="carousel" aria-label="carousel" Tabindex="0">
+	  <div class="slides">
+			{foreach $item->imagePost->images as $i => $image}
+			<div class="slides-item" id="{$item->id}-image{$i + 1}" tabindex="0">
+				<img src="{url_stream($image->imageURL->urlList[0])}" />
+			</div>
+			{/foreach}
+	  </div>
+	  <div class="carousel__nav">
+			{for $i = 0; $i < count($item->imagePost->images); $i++}
+			<a class="slider-nav" href="#{$item->id}-image{$i + 1}">{$i + 1}</a>
+			{/for}
+	  </div>
+	  <div class="carousel__skip-message" id="skip-link" tabindex="0"></div>
+	</section>
+	{/if}
 {/if}

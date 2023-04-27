@@ -1,4 +1,3 @@
-{contentType application/rss+xml}
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
@@ -9,7 +8,7 @@
 		{foreach $items as $item}
 			<item>
 				<title>{$item->desc}</title>
-				<description><![CDATA[<p>{$item->desc}</p><video controls="controls" preload="auto" src="{url_stream($item->video->playAddr)}"></video>]]></description>
+				<description><![CDATA[<p n:ifcontent>{render_desc($item->desc, $item->textExtra ?? [])|noescape}</p>{include '../components/themes/common/content.latte', item: $item, isAutoplay: false, isSimple: true}]]></description>
 				<link>{url_video_internal($item->author->uniqueId, $item->id)}</link>
 				<pubDate>{date('r', $item->createTime)}</pubDate>
 				<guid isPermaLink="false">{$item->id}</guid>
