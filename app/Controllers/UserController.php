@@ -10,7 +10,7 @@ use App\Models\RSSTemplate;
 use App\Models\VideoTemplate;
 
 class UserController {
-    static public function get(string $username) {
+    public static function get(string $username) {
         $cursor = Misc::getCursor();
         $api = Wrappers::api();
         $user = $api->user($username);
@@ -24,7 +24,7 @@ class UserController {
         }
     }
 
-    static public function video(string $username, string $video_id) {
+    public static function video(string $username, string $video_id) {
         $api = Wrappers::api();
         $video = $api->video($video_id);
         $video->feed();
@@ -37,7 +37,7 @@ class UserController {
         }
     }
 
-    static public function rss(string $username) {
+    public static function rss(string $username) {
         $api = Wrappers::api();
         $user = $api->user($username);
         $user->feed();

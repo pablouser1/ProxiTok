@@ -8,7 +8,7 @@ use App\Helpers\Wrappers;
 use App\Models\RSSTemplate;
 
 class TrendingController {
-    static public function get() {
+    public static function get() {
         $api = Wrappers::api();
         $cursor = Misc::getTtwid();
 
@@ -23,7 +23,7 @@ class TrendingController {
         }
     }
 
-    static public function rss() {
+    public static function rss() {
         $api = Wrappers::api();
         $trending = $api->trending();
         $trending->feed();

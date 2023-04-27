@@ -6,7 +6,7 @@ use App\Helpers\Wrappers;
 use App\Models\VideoTemplate;
 
 class EmbedController {
-    static public function v2(int $id) {
+    public static function v2(int $id) {
         $api = Wrappers::api();
         $video = $api->video($id);
         $video->feed();

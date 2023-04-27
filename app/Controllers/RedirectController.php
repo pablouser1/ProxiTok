@@ -8,7 +8,7 @@ use App\Helpers\UrlBuilder;
  * Used to be compatible with HTML forms
  */
 class RedirectController {
-    static public function search() {
+    public static function search() {
         $endpoint = '/';
         if (isset($_GET['type'], $_GET['term'])) {
             $term = trim($_GET['term']);
@@ -49,7 +49,7 @@ class RedirectController {
         header("Location: {$url}");
     }
 
-    static public function download() {
+    public static function download() {
         if (!(isset($_GET['videoId'], $_GET['authorUsername'], $_GET['playAddr']))) {
             ErrorHandler::showText(400, 'Request incomplete');
             return;

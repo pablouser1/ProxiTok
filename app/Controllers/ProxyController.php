@@ -10,7 +10,7 @@ class ProxyController {
         "tiktokcdn.com", "tiktokcdn-us.com", "tiktok.com"
     ];
 
-    static public function stream() {
+    public static function stream() {
         self::checkUrl();
         $url = $_GET['url'];
         $config['user_agent'] = Misc::env("USER_AGENT", TikScraperUserAgents::DEFAULT);
@@ -18,7 +18,7 @@ class ProxyController {
         $streamer->url($url);
     }
 
-    static public function download() {
+    public static function download() {
         self::checkUrl();
         $method = Cookies::downloader();
         $downloader = new \TikScraper\Download($method);

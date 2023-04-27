@@ -7,7 +7,7 @@ use App\Helpers\Wrappers;
 use App\Models\FullTemplate;
 
 class MusicController {
-    static public function get(string $music_id) {
+    public static function get(string $music_id) {
         $cursor = Misc::getCursor();
 
         $api = Wrappers::api();

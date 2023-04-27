@@ -12,7 +12,7 @@ class Wrappers {
     /**
      * Setup of Latte template engine
      */
-    static public function latte(string $template, BaseTemplate $base) {
+    public static function latte(string $template, BaseTemplate $base) {
         $latte = new \Latte\Engine;
         $cache_path = Misc::env('LATTE_CACHE', __DIR__ . '/../../cache/latte');
         $latte->setTempDirectory($cache_path);
@@ -131,7 +131,7 @@ class Wrappers {
     /**
      * Setup of TikTok Api wrapper
      */
-    static public function api(): \TikScraper\Api {
+    public static function api(): \TikScraper\Api {
         $method = Misc::env('API_SIGNER', '');
         $url = Misc::env('API_SIGNER_URL', '');
         if (!$method) {

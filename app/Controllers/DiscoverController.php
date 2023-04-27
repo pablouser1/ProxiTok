@@ -6,7 +6,7 @@ use App\Helpers\Wrappers;
 use App\Models\DiscoverTemplate;
 
 class DiscoverController {
-    static public function get() {
+    public static function get() {
         $api = Wrappers::api();
         $data = $api->discover();
         if ($data->meta->success) {
