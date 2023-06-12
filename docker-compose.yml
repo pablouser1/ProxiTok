@@ -3,7 +3,7 @@ version: '3'
 services:
   web:
     container_name: proxitok-web
-    image: ghcr.io/pablouser1/proxitok:master
+    build: .
     ports:
       - 8080:80
     environment:
