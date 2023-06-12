@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "790ea9098323ef66c520cfe44b92b7d3",
+    "content-hash": "92c34c828c921f4e49b6dc6ab9bf3d8b",
     "packages": [
         {
             "name": "bramus/router",
@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/josegonzalez/php-dotenv.git",
-                "reference": "f6d2fb63610f98b7ae859031566228dbade1a79c"
+                "reference": "e97dbd3db53508dcd536e73ec787a7f11458d41d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/josegonzalez/php-dotenv/zipball/f6d2fb63610f98b7ae859031566228dbade1a79c",
-                "reference": "f6d2fb63610f98b7ae859031566228dbade1a79c",
+                "url": "https://api.github.com/repos/josegonzalez/php-dotenv/zipball/e97dbd3db53508dcd536e73ec787a7f11458d41d",
+                "reference": "e97dbd3db53508dcd536e73ec787a7f11458d41d",
                 "shasum": ""
             },
             "require": {
@@ -116,9 +116,9 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "php-mock/php-mock-phpunit": "^1.1",
-                "satooshi/php-coveralls": "1.*",
-                "squizlabs/php_codesniffer": "2.*"
+                "php-coveralls/php-coveralls": "~2.0",
+                "php-mock/php-mock-phpunit": "~1.1||~2.0",
+                "squizlabs/php_codesniffer": "~2.9||~3.7"
             },
             "default-branch": true,
             "type": "library",
@@ -151,9 +151,9 @@
             ],
             "support": {
                 "issues": "https://github.com/josegonzalez/php-dotenv/issues",
-                "source": "https://github.com/josegonzalez/php-dotenv/tree/master"
+                "source": "https://github.com/josegonzalez/php-dotenv/tree/4.0.0"
             },
-            "time": "2019-07-07T21:21:39+00:00"
+            "time": "2023-05-29T22:49:26+00:00"
         },
         {
             "name": "latte/latte",
@@ -614,16 +614,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.22",
+            "version": "v5.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b"
+                "reference": "e3c46cc5689c8782944274bb30702106ecbe3b64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/4b850da0cc3a2a9181c1ed407adbca4733dc839b",
-                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b",
+                "url": "https://api.github.com/repos/symfony/process/zipball/e3c46cc5689c8782944274bb30702106ecbe3b64",
+                "reference": "e3c46cc5689c8782944274bb30702106ecbe3b64",
                 "shasum": ""
             },
             "require": {
@@ -656,7 +656,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.22"
+                "source": "https://github.com/symfony/process/tree/v5.4.24"
             },
             "funding": [
                 {
@@ -672,7 +672,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-06T21:29:33+00:00"
+            "time": "2023-05-17T11:26:05+00:00"
         }
     ],
     "packages-dev": [],

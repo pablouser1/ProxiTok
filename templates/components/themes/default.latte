@@ -34,7 +34,6 @@
 			<div class="has-text-centered">
 				{embed '../details.latte', title: "Details"}
 				{block content}
-				<p>Is Ad: {bool_to_str($item->isAd)}
 				<p>Can duet: {bool_to_str($item->duetEnabled)}</p>
 				<p>Can stitch (add this video to other ones): {bool_to_str($item->stitchEnabled)}</p>
 				<p>Can be shared: {bool_to_str($item->shareEnabled)}

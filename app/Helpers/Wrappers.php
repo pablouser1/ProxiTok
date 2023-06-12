@@ -98,12 +98,6 @@ class Wrappers {
         // Add URLs to video descriptions
         // TODO: Make it work with unicode characters such as emojis
         $latte->addFunction('render_desc', function (string $desc, array $textExtras = []): string {
-            $bytesCount = strlen($desc);
-            $charsCount = mb_strlen($desc);
-            // Skip urlify for now if there is a special char like an emoji to avoid issues
-            if ($bytesCount !== $charsCount) {
-                return $desc;
-            }
             $sanitizedDesc = htmlspecialchars($desc);
             $out = $sanitizedDesc;
             foreach ($textExtras as $extra) {
