@@ -34,9 +34,9 @@
 			<div class="has-text-centered">
 				{embed '../details.latte', title: "Details"}
 				{block content}
-				<p>Can duet: {bool_to_str($item->duetEnabled)}</p>
-				<p>Can stitch (add this video to other ones): {bool_to_str($item->stitchEnabled)}</p>
-				<p>Can be shared: {bool_to_str($item->shareEnabled)}
+				<p>Can duet: {bool_to_str(isset($item->duetEnabled) ? $item->duetEnabled : boolval($item->duetDisplay))}</p>
+				<p>Can stitch (add this video to other ones): {bool_to_str(isset($item->stitchEnabled) ? $item->stitchEnabled : boolval($item->stitchDisplay))}</p>
+				<p>Can be shared: {bool_to_str(isset($item->shareEnabled) ? $item->shareEnabled : boolval($item->shareDisplay))}
 				{/block}
 				{/embed}
 			</div>
