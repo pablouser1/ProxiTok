@@ -12,9 +12,9 @@
 	</figure>
 	<p class="title">
 		{if $info->detail->verified}
-		{include '../components/icon.latte', icon: 'check-o', text: $info->detail->uniqueId}
+		{include '../components/icon.latte', icon: 'check-o', text: $info->detail->nickname}
 		{else}
-		{$info->detail->uniqueId}
+		{$info->detail->nickname}
 		{/if}
 	</p>
 	<p class="subtitle">{include '../components/rss.latte'}</p>

@@ -8,7 +8,13 @@
   	</figure>
   	<div class="media-content">
       <p>
-      	<strong>{$item->author->nickname}</strong>
+      	<strong>
+					{if $item->author->verified}
+					{include '../icon.latte', icon: 'check-o', text: $item->author->nickname}
+					{else}
+					{$item->author->nickname}
+					{/if}
+				</strong>
 				<small>
 					<a href="{url_user($item->author->uniqueId)}">@{$item->author->uniqueId}</a>
 				</small>
