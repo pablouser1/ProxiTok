@@ -2,6 +2,30 @@
 <video controls n:attr="autoplay => $isAutoplay" poster="{url_stream($item->video->originCover)}" preload="none">
 	<source src="{url_stream($item->video->playAddr)}" type="video/mp4" />
 </video>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const video = document.getElementsByTagName("video")[0];
+
+		// Function to save the volume to localStorage
+		function saveVolume() {
+			localStorage.setItem("videoVolume", video.volume);
+		}
+
+		// Function to restore the volume from localStorage
+		function restoreVolume() {
+			const savedVolume = localStorage.getItem("videoVolume");
+			if (savedVolume !== null) {
+				video.volume = parseFloat(savedVolume);
+			}
+		}
+
+		// Save the volume when the volume changes
+		video.addEventListener("volumechange", saveVolume);
+
+		// Restore the volume on page load
+		restoreVolume();
+	});
+</script>
 {else}
 {if isset($isSimple)}
 	{foreach $item->imagePost->images as $i => $image}
