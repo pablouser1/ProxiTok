@@ -48,6 +48,7 @@ services:
   signer:
     container_name: proxitok-signer
     image: ghcr.io/pablouser1/signtok:master
+    init: true
     networks:
       - proxitok
     user: nobody
