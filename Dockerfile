@@ -1,4 +1,4 @@
-FROM trafex/php-nginx:latest
+FROM trafex/php-nginx:3.1.0
 
 # Add composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
