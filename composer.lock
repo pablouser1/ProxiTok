@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92c34c828c921f4e49b6dc6ab9bf3d8b",
+    "content-hash": "f94f92790bfe52bdf38e6bd9ba80f40a",
     "packages": [
         {
             "name": "bramus/router",
@@ -99,7 +99,7 @@
         },
         {
             "name": "josegonzalez/dotenv",
-            "version": "dev-master",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/josegonzalez/php-dotenv.git",
@@ -120,7 +120,6 @@
                 "php-mock/php-mock-phpunit": "~1.1||~2.0",
                 "squizlabs/php_codesniffer": "~2.9||~3.7"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -678,9 +677,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "josegonzalez/dotenv": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

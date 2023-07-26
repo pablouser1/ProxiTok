@@ -23,8 +23,8 @@
         "ext-mbstring": "*",
         "latte/latte": "^2.11",
         "bramus/router": "^1.6",
-        "josegonzalez/dotenv": "dev-master",
-        "pablouser1/tikscraper": "^2.3"
+        "pablouser1/tikscraper": "^2.3",
+        "josegonzalez/dotenv": "^4.0"
     },
     "autoload": {
         "psr-4": {
