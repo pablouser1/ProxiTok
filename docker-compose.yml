@@ -1,11 +1,13 @@
-version: '3'
+version: '3.7'
 
 services:
-  web:
+  proxitok-web:
     container_name: proxitok-web
-    image: ghcr.io/pablouser1/proxitok:master
+    hostname: proxitok-web
+    image: ghcr.io/pablouser1/proxitok:latest
+    restart: always
     ports:
-      - 8080:8080
+      - '127.0.0.1:8087:8080'
     environment:
       - LATTE_CACHE=/cache
       - API_CACHE=redis
@@ -16,8 +18,8 @@ services:
     volumes:
       - proxitok-cache:/cache
     depends_on:
-      - redis
-      - signer
+      - proxitok-redis
+      - proxitok-signer
     networks:
       - proxitok
     security_opt:
@@ -29,11 +31,12 @@ services:
       - SETGID
       - SETUID
 
-  redis:
+  proxitok-redis:
     container_name: proxitok-redis
-    image: redis:7-alpine
+    hostname: proxitok-redis
+    image: redis:latest
     command: redis-server --save 60 1 --loglevel warning
-    restart: unless-stopped
+    restart: always
     networks:
       - proxitok
     user: nobody
@@ -45,9 +48,10 @@ services:
     cap_drop:
       - ALL
 
-  signer:
+  proxitok-signer:
     container_name: proxitok-signer
-    image: ghcr.io/pablouser1/signtok:master
+    hostname: proxitok-signer
+    image: ghcr.io/pablouser1/signtok:latest
     init: true
     networks:
       - proxitok
