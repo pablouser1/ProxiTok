@@ -1,22 +1,21 @@
-FROM trafex/php-nginx:3.1.0
-
-# Add composer
+FROM php:8.1-fpm-alpine
+WORKDIR /var/www/html
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN adduser -D proxitok
+RUN apk update && apk upgrade --available \
+    && apk add git libzip-dev autoconf build-base \
+    && pecl install redis zip \
+    && docker-php-ext-enable redis zip \
+    && mkdir /cache \
+    && chown -R proxitok:proxitok /cache \
+    && rm -rf /var/www/html/* \
+    && git clone --depth=1 https://github.com/unstablemaple/ProxiTok.git . \
+    && composer update \
+    && composer install  --no-interaction --optimize-autoloader --no-dev \
+    && chown -R proxitok:proxitok /var/www/html \
+    && chmod -R 777 /var/www/html/ \
+    && apk cache clean \
+    && rm -rf /var/lib/apk/lists/* \
+    && rm -rf /usr/bin/composer
 
-# Copy config
-COPY ./misc/setup/docker/php.ini /etc/php81/conf.d/settings.ini
-
-USER root
-# Create cache folder
-RUN mkdir /cache && chown -R nobody:nogroup /cache
-# Install deps
-RUN apk add --no-cache php81-redis php81-zip php81-tokenizer
-USER nobody
-
-# Copy source
-COPY --chown=nobody . /var/www/html
-
-# Dependencies
-RUN composer install --no-interaction --optimize-autoloader --no-dev --no-cache
-
-EXPOSE 8080
+EXPOSE 9000
