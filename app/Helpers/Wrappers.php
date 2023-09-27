@@ -149,16 +149,10 @@ class Wrappers {
         ];
 
         // -- PROXY CONFIG -- //
-        $proxy_host = Misc::env('PROXY_HOST', '');
-        $proxy_port = Misc::env('PROXY_PORT', '');
+        $proxy = Misc::env('PROXY', '');
 
-        if ($proxy_host && $proxy_port) {
-            $options['proxy'] = [
-                'host' => $proxy_host,
-                'port' => $proxy_port,
-                'username' => Misc::env('PROXY_USERNAME', null),
-                'password' => Misc::env('PROXY_PASSWORD', null)
-            ];
+        if ($proxy !== '') {
+            $options['proxy'] = $proxy;
         }
 
         // Cache config
@@ -183,7 +177,7 @@ class Wrappers {
                         $password = $url['pass'] ?? null;
                     } else {
                         $host = $_ENV['REDIS_HOST'];
-                        $port = (int) $_ENV['REDIS_PORT'];
+                        $port = intval($_ENV['REDIS_PORT']);
                         $password = isset($_ENV['REDIS_PASSWORD']) ? $_ENV['REDIS_PASSWORD'] : null;
                     }
                     $cacheEngine = new RedisCache($host, $port, $password);
