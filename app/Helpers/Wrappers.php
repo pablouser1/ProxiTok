@@ -96,13 +96,13 @@ class Wrappers {
         });
 
         // Add URLs to video descriptions
-        // TODO: Make it work with unicode characters such as emojis
         $latte->addFunction('render_desc', function (string $desc, array $textExtras = []): string {
             $sanitizedDesc = htmlspecialchars($desc);
             $out = $sanitizedDesc;
             foreach ($textExtras as $extra) {
                 $url = '';
-                $text = mb_substr($desc, $extra->start, $extra->end - $extra->start, 'UTF-8');
+                // We do -1 to also take the # or @
+                $text = mb_substr($desc, $extra->start - 1, $extra->end - $extra->start, 'UTF-8');
                 switch ($extra->type) {
                     // User URL
                     case TextExtras::USER:
@@ -114,7 +114,8 @@ class Wrappers {
                         break;
                 }
 
-                $out = str_replace($text, "<a href=\"$url\">$text</a>", $out);
+                // We do \b to avoid non-strict matches ('#hi' would match with '#hii' and we don't want that)
+                $out = preg_replace("/$text\b/", "<a href=\"$url\">$text</a>", $out);
             }
             return $out;
         });
