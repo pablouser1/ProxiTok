@@ -22,7 +22,7 @@ indent_style = space
 indent_size = 4
 
 [**.latte]
-indent_style = tab
+indent_style = space
 indent_size = 2
 
 [**.html]
