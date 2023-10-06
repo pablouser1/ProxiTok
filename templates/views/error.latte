@@ -14,5 +14,11 @@
 		{else}
 		<p>{$msg}</p>
 		{/if}
+    {if isset($response)}
+      <details>
+        <summary>Show debug info</summary>
+        <pre style="max-height: 60vh;">{json_encode($response, JSON_PRETTY_PRINT)}</pre>
+      </details>
+    {/if}
 	</div>
 {/block}
