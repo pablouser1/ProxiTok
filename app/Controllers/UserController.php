@@ -44,7 +44,7 @@ class UserController {
         if ($user->ok()) {
             $data = $user->getFull();
             Misc::rss($username);
-            Wrappers::latte('rss', new RSSTemplate($username, $data->info->detail->signature, UrlBuilder::stream($data->info->detail->avatarLarger), UrlBuilder::user($username), $data->feed->items));
+            Wrappers::latte('rss', new RSSTemplate($data->info->detail->nickname, $data->info->detail->signature, UrlBuilder::stream($data->info->detail->avatarLarger), UrlBuilder::user($username), $data->feed->items));
         }
     }
 }
