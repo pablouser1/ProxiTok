@@ -31,7 +31,7 @@ class TrendingController {
         $feed = $trending->getFeed();
         if ($feed && $feed->meta->success) {
             Misc::rss('Trending');
-            Wrappers::latte('rss', new RSSTemplate('Trending', 'Trending on TikTok', Misc::url('/trending'), $feed->items));
+            Wrappers::latte('rss', new RSSTemplate('Trending', 'Trending on TikTok', '', Misc::url('/trending'), $feed->items));
         }
     }
 }

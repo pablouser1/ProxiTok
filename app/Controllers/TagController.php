@@ -30,7 +30,7 @@ class TagController {
         if ($hashtag->ok()) {
             $data = $hashtag->getFull();
             Misc::rss($name);
-            Wrappers::latte('rss', new RSSTemplate($name, $data->info->detail->desc, UrlBuilder::tag($name), $data->feed->items));
+            Wrappers::latte('rss', new RSSTemplate($name, $data->info->detail->desc, '', UrlBuilder::tag($name), $data->feed->items));
         }
     }
 }

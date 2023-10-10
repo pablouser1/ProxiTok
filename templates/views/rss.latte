@@ -3,6 +3,11 @@
 	<channel>
 		<title>{$title}</title>
 		<description><![CDATA[{$desc}]]></description>
+		{if $image}
+		<image>
+			<url>{$image}</url>
+		</image>
+		{/if}
 		<link>{$link}</link>
 		<atom:link href="{$link . '/rss'}" rel="self" type="application/rss+xml"></atom:link>
 		{foreach $items as $item}
