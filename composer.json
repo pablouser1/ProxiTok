@@ -1,7 +1,7 @@
 {
     "name": "pablouser1/proxitok",
     "description": "An alternative frontend for TikTok",
-    "version": "2.4.9.2",
+    "version": "2.4.9.4",
     "license": "AGPL-3.0-or-later",
     "type": "project",
     "authors": [
@@ -19,11 +19,11 @@
 	},
     "require": {
         "php": ">=7.4|^8.0",
-        "ext-redis": "^5.3.2",
+        "ext-redis": "^5.3.2|^6.0.0",
         "ext-mbstring": "*",
         "latte/latte": "^2.11",
         "bramus/router": "^1.6",
-        "pablouser1/tikscraper": "^2.3",
+        "pablouser1/tikscraper": "^2.4",
         "josegonzalez/dotenv": "^4.0"
     },
     "autoload": {

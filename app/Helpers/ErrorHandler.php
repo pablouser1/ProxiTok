@@ -6,8 +6,8 @@ use TikScraper\Models\Meta;
 
 class ErrorHandler {
     public static function showMeta(Meta $meta) {
-        http_response_code($meta->http_code);
-        Wrappers::latte('error', new ErrorTemplate($meta->http_code, $meta->tiktok_msg, $meta->tiktok_code));
+        http_response_code($meta->httpCode);
+        Wrappers::latte('error', new ErrorTemplate($meta->httpCode, $meta->proxitokMsg, $meta->proxitokCode, $meta->response));
     }
 
     public static function showText(int $code, string $msg) {
