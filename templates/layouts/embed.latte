@@ -10,6 +10,17 @@
   </div>
 
   <script src="{static('js', 'video_volume.js')}"></script>
-
+  <script>
+  // allow clickable play/pause when embedded
+  document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector('video').addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+  });
+  </script>
 </body>
 </html>
