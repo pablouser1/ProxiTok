@@ -25,7 +25,7 @@ A clear and concise description of what you expected to happen.
 **Logs**
 If applicable, add PHP logs to help explain the issue.
 
-**Enviroment (please complete the following information):**
+**Environment (please complete the following information):**
 
 - Deployment method (if possible): [e.g docker, heroku, manual...]
 - Frontend version: [e.g. 2.2.0.0]
