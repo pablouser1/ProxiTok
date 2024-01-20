@@ -32,7 +32,6 @@ services:
   redis:
     container_name: proxitok-redis
     image: redis:7-alpine
-    command: redis-server --save 60 1 --loglevel warning
     restart: unless-stopped
     networks:
       - proxitok
@@ -40,8 +39,6 @@ services:
     read_only: true
     security_opt:
       - no-new-privileges:true
-    tmpfs:
-      - /data:size=10M,mode=0770,uid=65534,gid=65534,noexec,nosuid,nodev
     cap_drop:
       - ALL
 
