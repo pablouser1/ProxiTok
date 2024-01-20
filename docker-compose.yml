@@ -31,7 +31,7 @@ services:
 
   redis:
     container_name: proxitok-redis
-    image: redis:7-alpine
+    image: docker.io/library/redis:7-alpine
     restart: unless-stopped
     networks:
       - proxitok
