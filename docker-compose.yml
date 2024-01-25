@@ -13,6 +13,8 @@ services:
       - REDIS_PORT=6379
       - API_SIGNER=remote
       - API_SIGNER_URL=http://proxitok-signer:8080/signature
+    labels:
+      - "io.containers.autoupdate=registry"
     volumes:
       - proxitok-cache:/cache
     depends_on:
@@ -33,6 +35,8 @@ services:
     container_name: proxitok-redis
     image: docker.io/library/redis:7-alpine
     restart: unless-stopped
+    labels:
+      - "io.containers.autoupdate=registry"
     networks:
       - proxitok
     user: nobody
@@ -46,6 +50,8 @@ services:
     container_name: proxitok-signer
     image: ghcr.io/pablouser1/signtok:master
     init: true
+    labels:
+      - "io.containers.autoupdate=registry"
     networks:
       - proxitok
     user: nobody
