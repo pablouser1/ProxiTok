@@ -23,7 +23,7 @@
         "ext-mbstring": "*",
         "latte/latte": "^2.11",
         "bramus/router": "^1.6",
-        "pablouser1/tikscraper": "^2.4",
+        "pablouser1/tikscraper": "^2.5",
         "josegonzalez/dotenv": "^4.0"
     },
     "autoload": {
