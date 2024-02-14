@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="embed">
 {include '../components/head.latte'}
 
 <body>
-	{block content}{/block}
-	{block extra}{/block}
+  <div class="embed-page">
+    <div class="embed-video">
+      {include '../components/themes/common/content.latte', item: $item, isAutoplay: true, isBig: true}
+    </div>
+  </div>
+
+  <script src="{static('js', 'video_volume.js')}"></script>
+  <script>
+  // allow clickable play/pause when embedded
+  document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector('video').addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+  });
+  </script>
 </body>
 </html>

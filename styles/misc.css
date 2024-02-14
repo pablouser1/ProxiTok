@@ -1,3 +1,26 @@
 .new-line {
 	white-space: pre-wrap;
 }
+
+html.embed {
+	overflow: hidden;
+	background-color: rgba(0,0,0,0);
+}
+
+.embed-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.embed-page .embed-video {
+	width: 100%;
+	height: 100%;
+}
+
+.embed-video video {
+	height: 100vh;
+	max-height: 100vh;
+	width: 100%;
+}
+
