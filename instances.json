@@ -10,11 +10,6 @@
         "country": "DE"
     },
     {
-        "clearnet": "https://tok.habedieeh.re/",
-        "cdn": false,
-        "country": "CA"
-    },
-    {
         "clearnet": "https://proxitok.esmailelbob.xyz/",
         "tor": "http://proxitok.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion/",
         "cdn": false,
