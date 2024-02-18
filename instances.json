@@ -1,0 +1,120 @@
+[
+    {
+        "clearnet": "https://proxitok.pabloferreiro.es/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://proxitok.pussthecat.org/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://proxitok.esmailelbob.xyz/",
+        "tor": "http://proxitok.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion/",
+        "cdn": false,
+        "country": "CA"
+    },
+    {
+        "clearnet": "https://proxitok.privacydev.net/",
+        "tor": "http://proxitok.g4c3eya4clenolymqbpgwz3q3tawoxw56yhzk4vugqrl6dtu3ejvhjid.onion/",
+        "cdn": false,
+        "country": "FR"
+    },
+    {
+        "clearnet": "https://tok.artemislena.eu/",
+        "tor": "http://tok.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://tok.adminforge.de/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://tik.hostux.net/",
+        "cdn": false,
+        "country": "FR"
+    },
+    {
+        "clearnet": "https://tt.vern.cc/",
+        "tor": "http://tt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
+        "i2p": "http://vern2gwxbtxzhb3rgchv4kbhlqppijhjqg7rmgvp4c5bxihxcm3a.b32.i2p/",
+        "cdn": false,
+        "country": "US"
+    },
+    {
+        "clearnet": "https://cringe.whatever.social/",
+        "cdn": false,
+        "country": "US"
+    },
+    {
+        "clearnet": "https://proxitok.lunar.icu/",
+        "cdn": true,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://proxitok.privacy.com.de/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://cringe.whateveritworks.org/",
+        "cdn": true,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://cringe.seitan-ayoub.lol/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://proxitok.kyun.li/",
+        "cdn": false,
+        "country": "RO"
+    },
+    {
+        "clearnet": "https://cringe.datura.network/",
+        "tor": "http://cringe.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://tt.opnxng.com/",
+        "cdn": false,
+        "country": "SG"
+    },
+    {
+        "clearnet": "https://proxitok.tinfoil-hat.net/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://tiktok.wpme.pl/",
+        "cdn": true,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://proxitok.r4fo.com/",
+        "tor": "http://proxitok.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion/",
+        "cdn": true,
+        "country": "NL"
+    },
+    {
+        "clearnet": "https://proxitok.belloworld.it/",
+        "cdn": false,
+        "country": "DE"
+    },
+    {
+        "clearnet": "https://tok.habedieeh.re/",
+        "tor": "http://tok.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion/",
+        "cdn": false,
+        "country": "CA"
+    },
+    {
+        "tor": "http://pt.skunky7dhv7nohsoalpwe3sxfz3fbkad7r3wk632riye25vqm3meqead.onion/",
+        "i2p": "http://hm4d5t5jeycvraam3ptvmhlegfttjmxpxgl4lou2hibde7gzfsvq.b32.i2p/",
+        "cdn": false
+    }
+]
