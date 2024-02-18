@@ -11,12 +11,12 @@
     },
     {
         "clearnet": "https://tok.habedieeh.re/",
-        "tor": "http://proxitok.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion/",
         "cdn": false,
         "country": "CA"
     },
     {
         "clearnet": "https://proxitok.esmailelbob.xyz/",
+        "tor": "http://proxitok.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion/",
         "cdn": false,
         "country": "CA"
     },
