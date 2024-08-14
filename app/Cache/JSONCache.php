@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class JSONCache implements CacheInterface {
+class JSONCache implements ICache {
     private string $cache_path = __DIR__ . '/../../cache/api';
 
     function __construct() {

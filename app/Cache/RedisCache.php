@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class RedisCache implements CacheInterface {
+class RedisCache implements ICache {
     private \Redis $client;
     function __construct(string $host, int $port, ?string $password) {
         $this->client = new \Redis();

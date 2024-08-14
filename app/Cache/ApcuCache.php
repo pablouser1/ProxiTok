@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class ApcuCache implements CacheInterface {
+class ApcuCache implements ICache {
     function __construct() {
         if (!(extension_loaded('apcu') && apcu_enabled())) {
             throw new \Exception('APCu not enabled');
