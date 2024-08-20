@@ -19,7 +19,7 @@ class ApcuCache implements ICache {
         return apcu_exists($cache_key);
     }
 
-    public function set(string $cache_key, string $data, $timeout = 3600): void {
+    public function set(string $cache_key, string $data, int $timeout = 3600): void {
         apcu_store($cache_key, $data, $timeout);
     }
 }

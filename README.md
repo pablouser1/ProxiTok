@@ -33,6 +33,7 @@ Apply to: Main window (address bar)
 ```
 
 ## TODO / Known issues
+* Fix Heroku, still using old signer method
 * Replace placeholder favicon
 * Make video on /video fit screen and don't overflow
 * Fix embed styling

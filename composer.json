@@ -19,12 +19,14 @@
 	},
     "require": {
         "php": "^8.1",
-        "ext-redis": "^5.3.2|^6.0.0",
         "ext-mbstring": "*",
         "latte/latte": "^2.11",
         "bramus/router": "^1.6",
         "pablouser1/tikscraper": "^2.5",
         "josegonzalez/dotenv": "^4.0"
+    },
+    "suggest": {
+        "ext-redis": "For using redis as a caching engine"
     },
     "autoload": {
         "psr-4": {
