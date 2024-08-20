@@ -10,6 +10,8 @@ services:
       - REDIS_HOST=proxitok-redis
       - REDIS_PORT=6379
       - API_CHROMEDRIVER=http://proxitok-chromedriver:9515
+      # - API_VERIFYFP=verify_...
+      # - API_DEVICE_ID=4586...
     volumes:
       - proxitok-cache:/cache
     depends_on:
