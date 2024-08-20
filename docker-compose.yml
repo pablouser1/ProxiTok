@@ -47,6 +47,8 @@ services:
     image: zenika/alpine-chrome:with-chromedriver
     init: true
     shm_size: 1g
+    networks:
+      - proxitok
     security_opt:
       - seccomp:./misc/setup/docker/chrome.json
     ports:

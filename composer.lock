@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "936f452f45ae22eb0bd1fe3a177c0854",
+    "content-hash": "d18ecec07f9612933061cb4d0e24f19e",
     "packages": [
         {
             "name": "bramus/router",
@@ -589,24 +589,21 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.5.1.1",
+            "version": "v2.6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "e3cf191e010828e78cc157812c92a9fbdd5ae3aa"
+                "reference": "c031ffa5c0d639f8b9c435018bbb9228812e08c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/e3cf191e010828e78cc157812c92a9fbdd5ae3aa",
-                "reference": "e3cf191e010828e78cc157812c92a9fbdd5ae3aa",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/c031ffa5c0d639f8b9c435018bbb9228812e08c2",
+                "reference": "c031ffa5c0d639f8b9c435018bbb9228812e08c2",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-xml": "*",
                 "guzzlehttp/guzzle": "^7.8",
-                "php": ">=7.4|^8.0",
+                "php": "^8.1",
                 "php-webdriver/webdriver": "^1.12",
                 "sapistudio/seleniumstealth": "^1.0"
             },
@@ -632,9 +629,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.5.1.1"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.6.0.0"
             },
-            "time": "2024-02-13T16:23:09+00:00"
+            "time": "2024-08-20T20:24:41+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
