@@ -18,6 +18,8 @@ Please check [this](https://github.com/pablouser1/ProxiTok/wiki/Self-hosting) wi
 ## Public instances
 [This](https://github.com/pablouser1/ProxiTok/wiki/Public-instances) wiki article contains a list with all the known public instances.
 
+Instances list in JSON format can be found in [instances.json](instances.json) file.
+
 ## Extensions
 If you want to automatically redirect Tiktok links to ProxiTok you can use:
 * [Libredirect](https://github.com/libredirect/libredirect)
