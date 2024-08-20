@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   web:
     container_name: proxitok-web
@@ -11,15 +9,16 @@ services:
       - API_CACHE=redis
       - REDIS_HOST=proxitok-redis
       - REDIS_PORT=6379
-      - API_SIGNER=remote
-      - API_SIGNER_URL=http://proxitok-signer:8080/signature
+      - API_CHROMEDRIVER=http://proxitok-chromedriver:9515
+      # - API_VERIFYFP=verify_...
+      # - API_DEVICE_ID=4586...
     labels:
       - "io.containers.autoupdate=registry"
     volumes:
       - proxitok-cache:/cache
     depends_on:
       - redis
-      - signer
+      - chromedriver
     networks:
       - proxitok
     security_opt:
@@ -30,10 +29,11 @@ services:
       - CHOWN
       - SETGID
       - SETUID
-
+  # Redis, used for caching
   redis:
     container_name: proxitok-redis
-    image: docker.io/library/redis:7-alpine
+    image: docker.io/library/redis:7.4-alpine
+    command: redis-server --save 60 1 --loglevel warning
     restart: unless-stopped
     labels:
       - "io.containers.autoupdate=registry"
@@ -45,22 +45,20 @@ services:
       - no-new-privileges:true
     cap_drop:
       - ALL
-
-  signer:
-    container_name: proxitok-signer
-    image: ghcr.io/pablouser1/signtok:master
+  # Chromedriver instance, used for sending requests to TikTok
+  chromedriver:
+    container_name: proxitok-chromedriver
+    image: zenika/alpine-chrome:with-chromedriver
     init: true
     labels:
       - "io.containers.autoupdate=registry"
+    shm_size: 1g
     networks:
       - proxitok
-    user: nobody
-    read_only: true
     security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-
+      - seccomp:./misc/setup/docker/chrome.json
+    ports:
+      - 9515:9515
 volumes:
   proxitok-cache:
 

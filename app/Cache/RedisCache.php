@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class RedisCache implements CacheInterface {
+class RedisCache implements ICache {
     private \Redis $client;
     function __construct(string $host, int $port, ?string $password) {
         $this->client = new \Redis();
@@ -30,7 +30,7 @@ class RedisCache implements CacheInterface {
         return $this->client->exists($cache_key);
     }
 
-    public function set(string $cache_key, string $data, $timeout = 3600) {
+    public function set(string $cache_key, string $data, int $timeout = 3600) {
         $this->client->set($cache_key, $data, $timeout);
     }
 }

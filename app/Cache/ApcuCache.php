@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class ApcuCache implements CacheInterface {
+class ApcuCache implements ICache {
     function __construct() {
         if (!(extension_loaded('apcu') && apcu_enabled())) {
             throw new \Exception('APCu not enabled');
@@ -19,7 +19,7 @@ class ApcuCache implements CacheInterface {
         return apcu_exists($cache_key);
     }
 
-    public function set(string $cache_key, string $data, $timeout = 3600): void {
+    public function set(string $cache_key, string $data, int $timeout = 3600): void {
         apcu_store($cache_key, $data, $timeout);
     }
 }
