@@ -1,6 +1,9 @@
 # ProxiTok
 Use Tiktok with an alternative frontend, inspired by Nitter.
 
+## WARNING
+THE LATEST VERSION **v2.5.0.0** INCLUDES BREAKING CHANGES, CHECK THE [PULL REQUEST](https://github.com/pablouser1/ProxiTok/pull/224) FOR MORE INFO
+
 ## Features
 * Privacy: All requests made to TikTok are server-side, so you will never connect to their servers
 * See user's feed
