@@ -21,7 +21,7 @@ class ProxyController {
     public static function download() {
         self::checkUrl();
         $method = Cookies::downloader();
-        $downloader = new \TikScraper\Download($method);
+        $downloader = new \TikScraper\Download($method, Misc::getScraperOptions());
 
         // Params
         $id = $_GET['id'] ?? '';
