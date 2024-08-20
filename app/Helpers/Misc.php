@@ -25,6 +25,31 @@ class Misc {
         return __DIR__ . "/../../templates/views/{$template}.latte";
     }
 
+    public static function getScraperOptions(): array {
+        $url = self::env('API_CHROMEDRIVER', 'http://localhost:4444');
+        $verifyFp = self::env('API_VERIFYFP', '');
+        $device_id = self::env('API_DEVICE_ID', '');
+        $ua = self::env('USER_AGENT', '');
+
+        $options = [
+            'browser' => [
+                'url' => $url,
+                'close_when_done' => false
+            ],
+            'verify_fp' => $verifyFp,
+            'device_id' => $device_id,
+            'user_agent' => $ua
+        ];
+
+        $proxy = Misc::env('PROXY', '');
+
+        if ($proxy !== '') {
+            $options['proxy'] = $proxy;
+        }
+
+        return $options;
+    }
+
     /**
      * Common method for rss feeds
      */

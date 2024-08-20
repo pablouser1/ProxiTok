@@ -1,9 +1,9 @@
 <?php
 namespace App\Cache;
 
-use TikScraper\Interfaces\CacheInterface;
+use TikScraper\Interfaces\ICache;
 
-class JSONCache implements CacheInterface {
+class JSONCache implements ICache {
     private string $cache_path = __DIR__ . '/../../cache/api';
 
     function __construct() {
@@ -26,7 +26,7 @@ class JSONCache implements CacheInterface {
         return is_file($filename);
     }
 
-    public function set(string $cache_key, string $data, $timeout = 3600) {
+    public function set(string $cache_key, string $data, int $timeout = 3600) {
         file_put_contents($this->cache_path . '/' . $cache_key . '.json', $data);
     }
 }

@@ -3,7 +3,6 @@ namespace App\Controllers;
 
 use App\Helpers\Cookies;
 use App\Helpers\Misc;
-use TikScraper\Constants\UserAgents as TikScraperUserAgents;
 
 class ProxyController {
     const VALID_TIKTOK_DOMAINS = [
@@ -13,15 +12,16 @@ class ProxyController {
     public static function stream() {
         self::checkUrl();
         $url = $_GET['url'];
-        $config['user_agent'] = Misc::env("USER_AGENT", TikScraperUserAgents::DEFAULT);
-        $streamer = new \TikScraper\Stream($config);
+
+        $options = Misc::getScraperOptions();
+        $streamer = new \TikScraper\Stream($options);
         $streamer->url($url);
     }
 
     public static function download() {
         self::checkUrl();
         $method = Cookies::downloader();
-        $downloader = new \TikScraper\Download($method);
+        $downloader = new \TikScraper\Download($method, Misc::getScraperOptions());
 
         // Params
         $id = $_GET['id'] ?? '';

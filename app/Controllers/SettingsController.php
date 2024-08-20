@@ -21,11 +21,6 @@ class SettingsController {
 
     public static function api() {
         // TODO, ADD COUNT
-        if (isset($_POST['api-test_endpoints'])) {
-            $test_endpoints = $_POST['api-test_endpoints'];
-            Cookies::set('api-test_endpoints', $test_endpoints);
-        }
-
         if (isset($_POST['api-downloader'])) {
             $downloader = $_POST['api-downloader'];
             Cookies::set("api-downloader", $downloader);
