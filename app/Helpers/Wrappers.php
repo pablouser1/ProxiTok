@@ -24,7 +24,7 @@ class Wrappers {
         });
 
         // Static assets
-        $latte->addFunction('static', function (string $type, string $file, bool $isVendor = false): string {
+        $latte->addFunction('assets', function (string $type, string $file, bool $isVendor = false): string {
             $endpoint = '';
             switch ($type) {
                 case 'js':
@@ -34,7 +34,7 @@ class Wrappers {
                     $endpoint .= '/styles';
                     break;
                 default:
-                    throw new \Exception('Invalid static asset type');
+                    throw new \Exception('Invalid asset type');
             }
 
             if ($isVendor) $endpoint .= '/vendor';

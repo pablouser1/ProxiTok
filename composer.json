@@ -20,7 +20,7 @@
     "require": {
         "php": "^8.1",
         "ext-mbstring": "*",
-        "latte/latte": "^2.11",
+        "latte/latte": "^3.0",
         "bramus/router": "^1.6",
         "pablouser1/tikscraper": "^2.5",
         "josegonzalez/dotenv": "^4.0"
