@@ -14,11 +14,11 @@
 	"config": {
 		"optimize-autoloader": true,
 		"platform": {
-			"php": "7.4"
+			"php": "8.1"
 		}
 	},
     "require": {
-        "php": ">=7.4|^8.0",
+        "php": "^8.1",
         "ext-redis": "^5.3.2|^6.0.0",
         "ext-mbstring": "*",
         "latte/latte": "^2.11",

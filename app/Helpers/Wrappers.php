@@ -127,35 +127,7 @@ class Wrappers {
      * Setup of TikTok Api wrapper
      */
     public static function api(): \TikScraper\Api {
-        $method = Misc::env('API_SIGNER', '');
-        $url = Misc::env('API_SIGNER_URL', '');
-        if (!$method) {
-            // Legacy support
-            $browser_url = Misc::env('API_BROWSER_URL', '');
-            if ($url) {
-                $method = 'remote';
-            } elseif ($browser_url) {
-                $url = $browser_url;
-                $method = 'browser';
-            }
-        }
-
-        $options = [
-            'use_test_endpoints' => Misc::env('API_TEST_ENDPOINTS', false) || isset($_COOKIE['api-test_endpoints']) && $_COOKIE['api-test_endpoints'] === 'yes',
-            'signer' => [
-                'method' => $method,
-                'url' => $url,
-                'close_when_done' => false
-            ]
-        ];
-
-        // -- PROXY CONFIG -- //
-        $proxy = Misc::env('PROXY', '');
-
-        if ($proxy !== '') {
-            $options['proxy'] = $proxy;
-        }
-
+        $options = Misc::getScraperOptions();
         // Cache config
         $cacheEngine = null;
         if (isset($_ENV['API_CACHE'])) {
@@ -179,17 +151,11 @@ class Wrappers {
                     } else {
                         $host = $_ENV['REDIS_HOST'];
                         $port = intval($_ENV['REDIS_PORT']);
-                        $password = isset($_ENV['REDIS_PASSWORD']) ? $_ENV['REDIS_PASSWORD'] : null;
+                        $password = $_ENV['REDIS_PASSWORD'] ?? null;
                     }
                     $cacheEngine = new RedisCache($host, $port, $password);
                     break;
             }
-        }
-
-        $customUa = Misc::env("USER_AGENT", '');
-
-        if ($customUa) {
-            $options['user_agent'] = $customUa;
         }
 
         return new \TikScraper\Api($options, $cacheEngine);
