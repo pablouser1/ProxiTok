@@ -31,7 +31,9 @@
 	<p>Hearts: {number($info->stats->heartCount)} / Videos: {$info->stats->videoCount}</p>
 	{embed '../components/details.latte', title: "Details"}
 	{block content}
-	<p>Region: {$info->detail->region}</p>
+  {if isset($info->detail->region)}
+  <p>Region: {$info->detail->region}</p>
+  {/if}
 	{if $info->detail->commerceUserInfo->commerceUser}
 	<p>Category: {$info->detail->commerceUserInfo->category}</p>
 	{/if}
