@@ -589,23 +589,22 @@
         },
         {
             "name": "pablouser1/tikscraper",
-            "version": "v2.6.0.5",
+            "version": "v2.6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablouser1/TikScraperPHP.git",
-                "reference": "3d1ebc6064bf5b15c060799092ad1cd21a3b8ffe"
+                "reference": "94c7ea5b12b38b3734827f0b55c5252bcb033af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/3d1ebc6064bf5b15c060799092ad1cd21a3b8ffe",
-                "reference": "3d1ebc6064bf5b15c060799092ad1cd21a3b8ffe",
+                "url": "https://api.github.com/repos/pablouser1/TikScraperPHP/zipball/94c7ea5b12b38b3734827f0b55c5252bcb033af6",
+                "reference": "94c7ea5b12b38b3734827f0b55c5252bcb033af6",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.8",
                 "php": "^8.1",
-                "php-webdriver/webdriver": "^1.12",
-                "sapistudio/seleniumstealth": "^1.0"
+                "php-webdriver/webdriver": "^1.12"
             },
             "require-dev": {
                 "pestphp/pest": "^1.22"
@@ -629,9 +628,9 @@
             "description": "Get data from TikTok API",
             "support": {
                 "issues": "https://github.com/pablouser1/TikScraperPHP/issues",
-                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.6.0.5"
+                "source": "https://github.com/pablouser1/TikScraperPHP/tree/v2.6.1.0"
             },
-            "time": "2024-08-21T01:02:43+00:00"
+            "time": "2024-08-21T11:08:28+00:00"
         },
         {
             "name": "php-webdriver/webdriver",
@@ -902,36 +901,6 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
-        },
-        {
-            "name": "sapistudio/seleniumstealth",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Sapistudio/SeleniumStealth.git",
-                "reference": "4b392077e3d609fed564b78ae2e8becb98f01957"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Sapistudio/SeleniumStealth/zipball/4b392077e3d609fed564b78ae2e8becb98f01957",
-                "reference": "4b392077e3d609fed564b78ae2e8becb98f01957",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SapiStudio\\SeleniumStealth\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "support": {
-                "issues": "https://github.com/Sapistudio/SeleniumStealth/issues",
-                "source": "https://github.com/Sapistudio/SeleniumStealth/tree/1.0.3"
-            },
-            "time": "2022-01-10T20:04:41+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
