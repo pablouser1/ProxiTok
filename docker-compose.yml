@@ -39,6 +39,7 @@ services:
       - "io.containers.autoupdate=registry"
     networks:
       - proxitok
+    init: true
     user: nobody
     read_only: true
     security_opt:
@@ -57,8 +58,6 @@ services:
       - proxitok
     security_opt:
       - seccomp:./misc/setup/docker/chrome.json
-    ports:
-      - 9515:9515
 volumes:
   proxitok-cache:
 
