@@ -26,12 +26,14 @@ class Misc {
     }
 
     public static function getScraperOptions(): array {
+        $debug = self::env('APP_DEBUG', false);
         $url = self::env('API_CHROMEDRIVER', 'http://localhost:4444');
         $verifyFp = self::env('API_VERIFYFP', '');
         $device_id = self::env('API_DEVICE_ID', '');
         $ua = self::env('USER_AGENT', '');
 
         $options = [
+            'debug' => $debug,
             'browser' => [
                 'url' => $url,
                 'close_when_done' => false

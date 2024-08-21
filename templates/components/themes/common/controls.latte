@@ -3,5 +3,5 @@
 	{if isset($_GET['cursor']) && is_numeric($_GET['cursor']) && $_GET['cursor'] != 0}
     <a class="button is-danger" href="?cursor=0">First</a>
 	{/if}
-  <a n:attr="disabled => !$feed->hasMore" class="button is-success" href="?cursor={$feed->maxCursor}">Next</a>
+  <a n:attr="disabled => !$feed->hasMore" class="button is-success" href="?cursor={$feed->cursor}">Next</a>
 </div>
