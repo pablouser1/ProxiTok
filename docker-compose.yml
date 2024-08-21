@@ -33,7 +33,6 @@ services:
   redis:
     container_name: proxitok-redis
     image: docker.io/library/redis:7.4-alpine
-    command: redis-server --save 60 1 --loglevel warning
     restart: unless-stopped
     labels:
       - "io.containers.autoupdate=registry"
