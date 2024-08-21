@@ -32,7 +32,7 @@
 			{if isset($item->video->playAddr) && $item->video->playAddr !== ""}
 			<!-- Download links, not shown if item is a gallery -->
 			<p class="has-text-centered"><b>Download video</b></p>
-			{include './common/download.latte', playAddr: $item->video->playAddr, id: $item->id, uniqueId: $item->author->uniqueId}
+			{include './common/download.latte', id: $item->id, uniqueId: $item->author->uniqueId, playAddr: $item->video->playAddr, downloadAddr: $item->video->downloadAddr}
 			{/if}
 			<p class="has-text-centered"><b>Share link</b></p>
 			{include './common/share.latte', uniqueId: $item->author->uniqueId, id: $item->id}
