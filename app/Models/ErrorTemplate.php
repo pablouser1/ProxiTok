@@ -10,7 +10,7 @@ class ErrorTemplate extends BaseTemplate {
     public ?Response $response = null;
 
 
-    function __construct(int $http_code, string $msg, ?int $tiktok_code = null, ?Response $response) {
+    function __construct(int $http_code, string $msg, ?int $tiktok_code, ?Response $response) {
         parent::__construct('Error');
         $this->http_code = $http_code;
         $this->msg = $msg;

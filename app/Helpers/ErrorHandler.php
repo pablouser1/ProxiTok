@@ -12,6 +12,6 @@ class ErrorHandler {
 
     public static function showText(int $code, string $msg) {
         http_response_code($code);
-        Wrappers::latte('error', new ErrorTemplate($code, $msg));
+        Wrappers::latte('error', new ErrorTemplate($code, $msg, null, null));
     }
 }
