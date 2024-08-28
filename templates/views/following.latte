@@ -1,0 +1,39 @@
+{layout '../layouts/default.latte'}
+
+{block header}
+	<p class="title">Discover</p>
+{/block}
+
+{block content}
+  <div class="columns is-multiline is-vcentered">
+	{foreach $feed->items as $item}
+		<div class="column is-one-quarter">
+			{embed '../components/card.latte'}
+				{block content}
+					<div class="media">
+						<!-- Show image if exists -->
+						{if !empty($item->info->detail->avatarLarger)}
+							<div class="media-left">
+								<figure class="image is-96x96">
+									<img loading="lazy" width="96" height="96" src="{url_stream($item->info->detail->avatarLarger)}" />
+								</figure>
+							</div>
+						{/if}
+						<div class="media-content">
+							<p class="title">{$item->info->detail->nickname}</p>
+							<p class="subtitle">{$item->info->detail->uniqueId}</p>
+						</div>
+					</div>
+					<div class="content">
+						<p>{$item->info->detail->signature}</p>
+					</div>
+				{/block}
+				{block footer}
+					<a href="{url_user($item->info->detail->uniqueId)}" class="card-footer-item">Go</a>
+				{/block}
+			{/embed}
+		</div>
+	{/foreach}
+  </div>
+  {include '../components/themes/common/controls.latte', feed: $feed}
+{/block}

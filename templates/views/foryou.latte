@@ -1,0 +1,12 @@
+{layout '../layouts/default.latte'}
+
+{var $has_rss = true}
+
+{block header}
+	<p class="title">For you</p>
+	<p class="subtitle">{include '../components/rss.latte'}</p>
+{/block}
+
+{block content}
+	{include '../components/feed.latte'}
+{/block}

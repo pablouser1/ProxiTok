@@ -72,6 +72,14 @@ $router->mount('/tag/([^/]+)', function () use ($router) {
 
 $router->get('/music/([^/]+)', 'MusicController@get');
 
+// For you
+$router->mount('/foryou', function () use ($router) {
+    $router->get('/', 'ForYouController@get');
+    $router->get('/rss', 'ForYouController@rss');
+});
+
+$router->get('/following', 'FollowingController@get');
+
 // -- Settings -- //
 $router->mount('/settings', function () use ($router) {
     $router->get('/', 'SettingsController@index');
