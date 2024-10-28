@@ -119,7 +119,7 @@
     },
     {
         "clearnet": "https://proxytok.gitro.xyz",
-        "cdn": true,
+        "cdn": false,
         "country": "DE"
     }
 ]
