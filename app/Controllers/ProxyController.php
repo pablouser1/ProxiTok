@@ -38,13 +38,8 @@ class ProxyController {
         $valid = false;
         $host = parse_url($url, PHP_URL_HOST);
         $host_split = explode('.', $host);
-        $host_count = count($host_split);
-        if ($host_count === 2) {
-            // Using no watermark
-            $valid = in_array($host_split[0] . '.' . $host_split[1], self::VALID_TIKTOK_DOMAINS);
-        } elseif ($host_count === 3) {
-            $valid = in_array($host_split[1] . '.' . $host_split[2], self::VALID_TIKTOK_DOMAINS);
-        }
+        $host_domain = array_slice($host_split,-2)[0] . '.' . array_slice($host_split,-2)[1];
+        $valid = in_array($host_domain, self::VALID_TIKTOK_DOMAINS);
         return $valid;
     }
 
