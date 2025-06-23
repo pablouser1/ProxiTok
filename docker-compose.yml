@@ -1,7 +1,10 @@
 services:
   web:
     container_name: proxitok-web
-    image: ghcr.io/pablouser1/proxitok:master
+    #image: ghcr.io/pablouser1/proxitok:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
     ports:
       - 8080:8080
     environment:
@@ -23,8 +26,8 @@ services:
       - proxitok
     security_opt:
       - no-new-privileges:true
-    cap_drop:
-      - ALL
+    #cap_drop:
+    #  - ALL
     cap_add:
       - CHOWN
       - SETGID
